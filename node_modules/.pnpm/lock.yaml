@@ -1,0 +1,19 @@
+lockfileVersion: 5.3
+
+specifiers:
+  '@templatone/kreslo': ^3.7.0
+  lit-html: ^1.3.0
+
+dependencies:
+  '@templatone/kreslo': 3.7.0
+  lit-html: 1.3.0
+
+packages:
+
+  /@templatone/kreslo/3.7.0:
+    resolution: {integrity: sha512-d1whWS4/YETyS68/BOwAmvfdOVun9TXFZthAW+4kvg7zEh7LhTKitJOPKo8XIOll2FASESpt9+VSmo3lKmAiPA==}
+    dev: false
+
+  /lit-html/1.3.0:
+    resolution: {integrity: sha512-0Q1bwmaFH9O14vycPHw8C/IeHMk/uSDldVLIefu/kfbTBGIc44KGH6A8p1bDfxUfHdc8q6Ct7kQklWoHgr4t1Q==}
+    dev: false
