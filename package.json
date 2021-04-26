@@ -1,6 +1,6 @@
 {
-  "name": "components",
-  "version": "1.0.0",
+  "name": "@templatone/components",
+  "version": "1.0.0-alpha+1",
   "description": "Custom elements for Templatone App.",
   "main": "components.js",
   "scripts": {
