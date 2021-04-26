@@ -1,14 +1,14 @@
 {
-  "name": "ui-inputs",
+  "name": "components",
   "version": "1.0.0",
-  "description": "Custom input elements for Templatone App.",
-  "main": "ui-inputs.js",
+  "description": "Custom elements for Templatone App.",
+  "main": "components.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/templatone/ui-inputs.git"
+    "url": "git+https://github.com/templatone/components.git"
   },
   "keywords": [
     "custom-element",
@@ -17,9 +17,9 @@
   "author": "Adam Josefus",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/templatone/ui-inputs/issues"
+    "url": "https://github.com/templatone/components/issues"
   },
-  "homepage": "https://github.com/templatone/ui-inputs#readme",
+  "homepage": "https://github.com/templatone/components#readme",
   "dependencies": {
     "@templatone/kreslo": "^3.7.0",
     "lit-html": "^1.3.0"
