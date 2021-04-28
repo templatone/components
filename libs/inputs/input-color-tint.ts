@@ -1,10 +1,7 @@
 import { html, TemplateResult } from "../../node_modules/lit-html/lit-html.js";
-
 import { Input, IInput } from "./Input.js";
-
 import { Color, IColorHSL, IColorHSLA, IColorRGBA, IVector } from "../../node_modules/@templatone/kreslo/kreslo.js";
-import { styles } from "./styles.js";
-import { UIColorSwatch } from "../assets/asset-color-swatch.js";
+import { AssetSwatch } from "../assets/asset-swatch.js";
 
 
 const style = html`
@@ -363,7 +360,8 @@ export class InputColorTint extends Input<ColorTintValue> implements IInput<Colo
 
 
     getTemplate(): TemplateResult {
-        UIColorSwatch;
+        AssetSwatch;
+
         return html`
             ${style}
             

@@ -1,7 +1,7 @@
 import { html } from "../../node_modules/lit-html/lit-html.js";
 import { Input } from "./Input.js";
 import { Color } from "../../node_modules/@templatone/kreslo/kreslo.js";
-import { UIColorSwatch } from "../assets/asset-color-swatch.js";
+import { AssetSwatch } from "../assets/asset-swatch.js";
 const style = html `
 <style>
     :host {
@@ -282,7 +282,7 @@ export class InputColorTint extends Input {
         this.fireBlurEvent();
     }
     getTemplate() {
-        UIColorSwatch;
+        AssetSwatch;
         return html `
             ${style}
             

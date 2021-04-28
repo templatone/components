@@ -60,7 +60,7 @@ const style = html `
 
 
 </style>`;
-export class UIButton extends CustomElement {
+export class InputButton extends CustomElement {
     constructor() {
         super();
         this.tabIndex = 0;
@@ -99,4 +99,4 @@ export class UIButton extends CustomElement {
         `;
     }
 }
-UIButton.registerCustomElement('ui-button');
+InputButton.registerCustomElement('ui-button');

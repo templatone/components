@@ -1,6 +1,5 @@
 import { html, TemplateResult } from "../../node_modules/lit-html/lit-html.js";
 import { Input, IInput } from "./Input.js";
-import { styles } from "./styles.js";
 
 
 const style = html`

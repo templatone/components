@@ -7,15 +7,15 @@ import { Input, InputEvent } from "./Input.js";
 import { InputColorTint } from "./input-color-tint.js";
 import { InputSlider } from "./input-slider.js";
 import { InputSliderGradient, IGradientStep } from "./input-slider-gradient.js";
-import { UIDropdown } from "../assets/asset-dropdown.js";
-import { UIButton } from "./input-button.js";
+import { AssetDropdown } from "../assets/asset-dropdown.js";
+import { InputButton } from "./input-button.js";
 
 
 InputSlider;
 InputSliderGradient;
 InputColorTint;
-UIDropdown;
-UIButton;
+AssetDropdown;
+InputButton;
 
 
 const style = html`

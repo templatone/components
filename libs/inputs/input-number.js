@@ -1,7 +1,5 @@
 import { html } from "../../node_modules/lit-html/lit-html.js";
 import { Input } from "./Input.js";
-import { UIIcon } from "../assets/asset-icon.js";
-;
 const regex = {
     spaces: /\s+/g,
     validChars: /[^0-9,.+\- ]/g,
@@ -268,8 +266,6 @@ export class InputNumber extends Input {
         }
     }
     getTemplate() {
-        // Elements
-        UIIcon;
         return html `
             ${style}
 
@@ -278,7 +274,7 @@ export class InputNumber extends Input {
                     tabindex="-1"
                     ?hidden=${this.hasSameValueAs(this.defaultValue)}
                     @click=${() => this._onClearValue()}>
-                    <ui-icon .glyph=${"clear" /* Clear */}></ui-icon>
+                    <!-- TODO: --> Clear
                 </div>
 
                 <input

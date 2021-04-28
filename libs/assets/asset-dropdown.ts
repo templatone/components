@@ -1,66 +1,10 @@
 
 import { TemplateResult, html } from "../../node_modules/lit-html/lit-html.js";
-import { LogicDropdown } from "../logics//logic-dropdown.js";
+import { LogicDropdown } from "../logics/logic-dropdown.js";
 import { CustomElement } from "../../libs/CustomElement.js";
 
 
-LogicDropdown;
-
-const style = html`
-<style>
-    .overlay {
-        display: block;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, .1);
-    }
-
-    .menu {
-        --x-color: var(--system-color-base);
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-    }
-
-    .menu[dropdown-align~="left" i] {
-        align-items: flex-end;
-    }
-
-    .menu[dropdown-align~="right" i] {
-        align-items: flex-start;
-    }
-
-    .menu-content {
-        display: block;
-        box-sizing: border-box;
-        background-color: var(--x-color);
-        border-bottom: none;
-        border-radius: 16px;
-    }
-
-    .arrow-top,
-    .arrow-bottom {
-        --x-size: 24px;
-
-        display: block;
-        margin: 0 var(--x-size);
-        width: var(--x-size);
-        height: var(--x-size);
-        fill: var(--x-color);
-    }
-
-    .menu:not([dropdown-align~="top" i]) .arrow-top {
-        display: none;
-    }
-    
-    .menu:not([dropdown-align~="bottom" i]) .arrow-bottom {
-        display: none;
-    }
-</style>`;
-
-
-export class UIDropdown extends CustomElement {
-
+export class AssetDropdown extends CustomElement {
 
     constructor() {
         super();
@@ -68,8 +12,59 @@ export class UIDropdown extends CustomElement {
 
 
     getTemplate(): TemplateResult {
+        LogicDropdown;
+
         return html`
-            ${style}
+            <style>
+                .overlay {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0, 0, 0, .1);
+                }
+
+                .menu {
+                    --x-color: var(--system-color-base);
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                }
+
+                .menu[dropdown-align~="left" i] {
+                    align-items: flex-end;
+                }
+
+                .menu[dropdown-align~="right" i] {
+                    align-items: flex-start;
+                }
+
+                .menu-content {
+                    display: block;
+                    box-sizing: border-box;
+                    background-color: var(--x-color);
+                    border-bottom: none;
+                    border-radius: 16px;
+                }
+
+                .arrow-top,
+                .arrow-bottom {
+                    --x-size: 24px;
+
+                    display: block;
+                    margin: 0 var(--x-size);
+                    width: var(--x-size);
+                    height: var(--x-size);
+                    fill: var(--x-color);
+                }
+
+                .menu:not([dropdown-align~="top" i]) .arrow-top {
+                    display: none;
+                }
+                
+                .menu:not([dropdown-align~="bottom" i]) .arrow-bottom {
+                    display: none;
+                }
+            </style>
 
             <logic-dropdown>
                 <div slot="overlay" class="overlay">
@@ -99,4 +94,4 @@ export class UIDropdown extends CustomElement {
 }
 
 
-UIDropdown.registerCustomElement('ui-dropdown');
+AssetDropdown.registerCustomElement('asset-dropdown');

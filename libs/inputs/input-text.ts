@@ -1,7 +1,5 @@
 import { html, TemplateResult } from "../../node_modules/lit-html/lit-html.js";
-
 import { Input, IInputTextBased, INPUTMODE } from "./Input.js";
-import { UIIcon, UIIconGlyph } from "../assets/asset-icon.js";
 
 
 const style = html`
@@ -234,8 +232,6 @@ export class InputText extends Input<TextValue> implements IInputTextBased<TextV
 
 
     getTemplate(): TemplateResult {
-        UIIcon;
-
         return html`
             ${style}
             
@@ -253,7 +249,7 @@ export class InputText extends Input<TextValue> implements IInputTextBased<TextV
                     tabindex="-1"
                     ?hidden=${this.hasSameValueAs(this.defaultValue)}
                     @click=${()=> this._onClearValue()}>
-                    <ui-icon .glyph=${UIIconGlyph.Clear}></ui-icon>
+                    <!-- TODO --> Clear
                 </div>
             </div>
         `;

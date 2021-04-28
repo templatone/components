@@ -3,7 +3,7 @@ import { CustomElement } from "../CustomElement.js";
 
 
 
-export class UISpinner extends CustomElement {
+export class AssetSpinner extends CustomElement {
 
     constructor() {
         super();
@@ -115,6 +115,4 @@ export class UISpinner extends CustomElement {
 
 }
 
-// customElements.define('ui-spinner', UISpinner);
-
-UISpinner.registerCustomElement('ui-spinner');
+AssetSpinner.registerCustomElement('asset-spinner');

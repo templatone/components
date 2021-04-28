@@ -1,7 +1,6 @@
 import { html, TemplateResult } from "../../node_modules/lit-html/lit-html.js";
 import { Utils } from "../../node_modules/@templatone/kreslo/kreslo.js";
 import { Input, IInput } from "./Input.js";
-import { styles } from "./styles.js";
 
 
 const style = html`

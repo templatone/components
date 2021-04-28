@@ -1,7 +1,5 @@
 import { html, TemplateResult } from "../../node_modules/lit-html/lit-html.js";
-
 import { Input, IInputTextBased, INPUTMODE } from "./Input.js";
-import { UIIcon, UIIconGlyph } from "../assets/asset-icon.js";;
 
 
 const regex = {
@@ -330,9 +328,6 @@ export class InputNumber extends Input<NumberValue> implements IInputTextBased<N
 
 
     getTemplate(): TemplateResult {
-        // Elements
-        UIIcon;
-
         return html`
             ${style}
 
@@ -341,7 +336,7 @@ export class InputNumber extends Input<NumberValue> implements IInputTextBased<N
                     tabindex="-1"
                     ?hidden=${this.hasSameValueAs(this.defaultValue)}
                     @click=${() => this._onClearValue()}>
-                    <ui-icon .glyph=${UIIconGlyph.Clear}></ui-icon>
+                    <!-- TODO: --> Clear
                 </div>
 
                 <input

@@ -1,6 +1,5 @@
 import { html } from "../../node_modules/lit-html/lit-html.js";
 import { Input } from "./Input.js";
-import { UIIcon } from "../assets/asset-icon.js";
 const style = html `
 <style>
     :host {
@@ -184,7 +183,6 @@ export class InputText extends Input {
         }
     }
     getTemplate() {
-        UIIcon;
         return html `
             ${style}
             
@@ -202,7 +200,7 @@ export class InputText extends Input {
                     tabindex="-1"
                     ?hidden=${this.hasSameValueAs(this.defaultValue)}
                     @click=${() => this._onClearValue()}>
-                    <ui-icon .glyph=${"clear" /* Clear */}></ui-icon>
+                    <!-- TODO --> Clear
                 </div>
             </div>
         `;

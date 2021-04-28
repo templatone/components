@@ -1,7 +1,5 @@
 import { html, TemplateResult } from "../../node_modules/lit-html/lit-html.js";
 import { Input, IInput } from "./Input.js";
-
-import { UIIconGlyph, UIIcon } from "../assets/asset-icon.js";
 import { Utils } from "../../node_modules/@templatone/kreslo/kreslo.js";
 
 
@@ -434,8 +432,6 @@ export class InputTime extends Input<TimeValue> implements IInput<TimeValue> {
 
 
     getTemplate(): TemplateResult {
-        UIIcon;
-
         return html`
             ${style}
             
@@ -507,7 +503,7 @@ export class InputTime extends Input<TimeValue> implements IInput<TimeValue> {
                     type="text">
 
                 <div class="clear-button" ?hidden=${this.hasSameValueAs(this.defaultValue)} @click=${()=> this._onClearValue()}>
-                    <ui-icon .glyph=${UIIconGlyph.Clear}></ui-icon>
+                    <!-- TODO: --> Clear
                 </div>
             </div>
         `;

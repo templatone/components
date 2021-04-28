@@ -1,8 +1,8 @@
-import { CustomElement } from "../../libs/CustomElement.js";
+import { CustomElement } from "../CustomElement.js";
 import { TemplateResult, html } from "../../node_modules/lit-html/lit-html.js";
 
 
-export class UIColorSwatch extends CustomElement {
+export class AssetSwatch extends CustomElement {
 
     private _color: string = 'transparent'; 
     public get color(): string {
@@ -60,4 +60,4 @@ export class UIColorSwatch extends CustomElement {
 
 }
 
-UIColorSwatch.registerCustomElement('ui-color-swatch');
+AssetSwatch.registerCustomElement('ui-color-swatch');
