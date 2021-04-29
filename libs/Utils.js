@@ -1,4 +1,5 @@
 export class Utils {
+    // TODO: rename
     static async getImageFormFile(file) {
         return new Promise((resolve, reject) => {
             const reader = new FileReader();

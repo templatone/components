@@ -1,3 +1,8 @@
+// Base
+export { CustomElement } from './libs/CustomElement.js';
+export { Utils } from './libs/Utils.js';
+
+
 // Assets
 export { AssetSpinner } from './libs/assets/asset-spinner.js';
 export { AssetDropdown } from './libs/assets/asset-dropdown.js';
