@@ -206,11 +206,6 @@
         "signature": "4576b4e61049f5ffd7c9e935cf88832e089265bdb15ffc35077310042cbbbeea",
         "affectsGlobalScope": false
       },
-      "./components.ts": {
-        "version": "74dec66bf464e1dda50fb4ae80393503d62f2f242c56182e74e5cfffede03fc9",
-        "signature": "9d847474c25cfe30cc7900de206d0c802c5ff11100fd41c9e8631d73cb538ad6",
-        "affectsGlobalScope": false
-      },
       "./node_modules/.pnpm/@lit+reactive-element@1.0.0-rc.1/node_modules/@lit/reactive-element/css-tag.d.ts": {
         "version": "76bf4e94647fb00f21005a76e94807c3993e199aec99ddd770d3bf9a0d236aa8",
         "signature": "76bf4e94647fb00f21005a76e94807c3993e199aec99ddd770d3bf9a0d236aa8",
@@ -261,6 +256,11 @@
         "signature": "ae194bb82d2f6f1f4b601420d021bb5afb4b47dc56dc1947575ac82d0466244c",
         "affectsGlobalScope": false
       },
+      "./src/libs/assets/asset-spinner.ts": {
+        "version": "d1bef0b838d0f3247565d55f313e3e35486b387b235c3289664454ca2dec731a",
+        "signature": "8f9d51a404421ccc75b1f0b80c46a40b3ad2494ef853df8cd8ff1c39a0e1fcd2",
+        "affectsGlobalScope": false
+      },
       "./src/libs/logics/logic-dropdown.ts": {
         "version": "0f89c3df3b07cc8a6299bfe8e971dd4d009559b29ca73f35575080ada19d13cb",
         "signature": "afaf7ca38452bcddd100b6ba958b4f4e6dbf8fbb4c1ce0cc35f3a7b340794b55",
@@ -269,11 +269,6 @@
       "./src/libs/assets/asset-dropdown.ts": {
         "version": "9b772e5463ae73ccda64299aff46adcf3261d01ab9e164fc7f15b0b8b89a0fdd",
         "signature": "7f031da5d05a7dfc2e2f89b2badf227b190ad9629f0eda4f2f120a1c74be9aad",
-        "affectsGlobalScope": false
-      },
-      "./src/libs/assets/asset-spinner.ts": {
-        "version": "d1bef0b838d0f3247565d55f313e3e35486b387b235c3289664454ca2dec731a",
-        "signature": "8f9d51a404421ccc75b1f0b80c46a40b3ad2494ef853df8cd8ff1c39a0e1fcd2",
         "affectsGlobalScope": false
       },
       "./src/libs/assets/asset-swatch.ts": {
@@ -289,11 +284,6 @@
       "./src/libs/inputs/input-button.ts": {
         "version": "5e56b49a46756ca7cbea2b30736ece5542f2f39bd38ecf861379421bcb9a4015",
         "signature": "cdcdf5400b9174291725da6c4145b6eb5c7cee5cdfb13713d684d1ccbcc7fa5a",
-        "affectsGlobalScope": false
-      },
-      "./src/libs/inputs/input-checkbox.ts": {
-        "version": "cd614f96fd4eae895e515a7951895c9a3d799cd549fbb988338332d43247633a",
-        "signature": "e35b94315167941eb622260c4d262469dc1d248ee54e16a2f4094dd30327c1a3",
         "affectsGlobalScope": false
       },
       "./node_modules/.pnpm/@templatone+kreslo@3.7.0/node_modules/@templatone/kreslo/lib/core/iclonable.ts": {
@@ -545,6 +535,11 @@
         "signature": "2e855fb3ad738d4787d4aae88907f0d09f5524f1dcdb34e2c33893e6166dd451",
         "affectsGlobalScope": false
       },
+      "./src/libs/inputs/input-checkbox.ts": {
+        "version": "cd614f96fd4eae895e515a7951895c9a3d799cd549fbb988338332d43247633a",
+        "signature": "e35b94315167941eb622260c4d262469dc1d248ee54e16a2f4094dd30327c1a3",
+        "affectsGlobalScope": false
+      },
       "./src/libs/inputs/input-image.ts": {
         "version": "9cabceb259fb33d8163aed42a491fb94b24ea4f1803849178097ba67b0389ab7",
         "signature": "4e0469a382b3f258a70834f3dce13e96f253fa37a6c7ad42ac2ea002566d799c",
@@ -583,6 +578,11 @@
       "./src/libs/inputs/label-container.ts": {
         "version": "031cc3f340cc12f5e2325124afd8d308051a8c71bd5d2f1673902e06bc25c08a",
         "signature": "0a9eb36a84931f679894661a04e7d8614e7316aee5d0030bf54c6c8505116b68",
+        "affectsGlobalScope": false
+      },
+      "./src/components.ts": {
+        "version": "74dec66bf464e1dda50fb4ae80393503d62f2f242c56182e74e5cfffede03fc9",
+        "signature": "9d847474c25cfe30cc7900de206d0c802c5ff11100fd41c9e8631d73cb538ad6",
         "affectsGlobalScope": false
       },
       "../../../../../node_modules/@types/node/globals.d.ts": {
@@ -874,13 +874,6 @@
       "configFilePath": "./tsconfig.json"
     },
     "referencedMap": {
-      "./components.ts": [
-        "../../../../../node_modules/@types/node/fs.d.ts",
-        "../../../../../node_modules/@types/node/ts3.2/fs.d.ts",
-        "../../../../../node_modules/@types/node/ts3.2/util.d.ts",
-        "../../../../../node_modules/@types/node/util.d.ts",
-        "../../../../../node_modules/tslib/tslib.d.ts"
-      ],
       "./node_modules/.pnpm/@lit+reactive-element@1.0.0-rc.1/node_modules/@lit/reactive-element/css-tag.d.ts": [
         "../../../../../node_modules/@types/node/fs.d.ts",
         "../../../../../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -1852,6 +1845,35 @@
         "../../../../../node_modules/@types/node/ts3.2/util.d.ts",
         "../../../../../node_modules/@types/node/util.d.ts"
       ],
+      "./src/components.ts": [
+        "../../../../../node_modules/@types/node/fs.d.ts",
+        "../../../../../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../../../../../node_modules/@types/node/ts3.2/util.d.ts",
+        "../../../../../node_modules/@types/node/util.d.ts",
+        "../../../../../node_modules/tslib/tslib.d.ts",
+        "./src/libs/assets/asset-dropdown.ts",
+        "./src/libs/assets/asset-spinner.ts",
+        "./src/libs/assets/asset-swatch.ts",
+        "./src/libs/customelement.ts",
+        "./src/libs/inputs/input-button.ts",
+        "./src/libs/inputs/input-checkbox.ts",
+        "./src/libs/inputs/input-color-picker.ts",
+        "./src/libs/inputs/input-color-tint.ts",
+        "./src/libs/inputs/input-file.ts",
+        "./src/libs/inputs/input-image.ts",
+        "./src/libs/inputs/input-number.ts",
+        "./src/libs/inputs/input-radio.ts",
+        "./src/libs/inputs/input-slider-gradient.ts",
+        "./src/libs/inputs/input-slider.ts",
+        "./src/libs/inputs/input-text.ts",
+        "./src/libs/inputs/input-textarea.ts",
+        "./src/libs/inputs/input-time.ts",
+        "./src/libs/inputs/input-toggle.ts",
+        "./src/libs/inputs/input.ts",
+        "./src/libs/inputs/label-container.ts",
+        "./src/libs/logics/logic-dropdown.ts",
+        "./src/libs/utils.ts"
+      ],
       "./src/libs/assets/asset-dropdown.ts": [
         "../../../../../node_modules/@types/node/fs.d.ts",
         "../../../../../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -2763,6 +2785,30 @@
         "../../../../../node_modules/@types/node/ts3.2/util.d.ts",
         "../../../../../node_modules/@types/node/util.d.ts"
       ],
+      "./src/components.ts": [
+        "./src/libs/assets/asset-dropdown.ts",
+        "./src/libs/assets/asset-spinner.ts",
+        "./src/libs/assets/asset-swatch.ts",
+        "./src/libs/customelement.ts",
+        "./src/libs/inputs/input-button.ts",
+        "./src/libs/inputs/input-checkbox.ts",
+        "./src/libs/inputs/input-color-picker.ts",
+        "./src/libs/inputs/input-color-tint.ts",
+        "./src/libs/inputs/input-file.ts",
+        "./src/libs/inputs/input-image.ts",
+        "./src/libs/inputs/input-number.ts",
+        "./src/libs/inputs/input-radio.ts",
+        "./src/libs/inputs/input-slider-gradient.ts",
+        "./src/libs/inputs/input-slider.ts",
+        "./src/libs/inputs/input-text.ts",
+        "./src/libs/inputs/input-textarea.ts",
+        "./src/libs/inputs/input-time.ts",
+        "./src/libs/inputs/input-toggle.ts",
+        "./src/libs/inputs/input.ts",
+        "./src/libs/inputs/label-container.ts",
+        "./src/libs/logics/logic-dropdown.ts",
+        "./src/libs/utils.ts"
+      ],
       "./src/libs/assets/asset-dropdown.ts": [
         "./node_modules/.pnpm/lit@2.0.0-rc.1/node_modules/lit/index.d.ts",
         "./src/libs/customelement.ts"
@@ -3253,187 +3299,6 @@
       ]
     },
     "semanticDiagnosticsPerFile": [
-      [
-        "./components.ts",
-        [
-          {
-            "file": "./components.ts",
-            "start": 38,
-            "length": 25,
-            "code": 7016,
-            "category": 1,
-            "messageText": "Could not find a declaration file for module './libs/CustomElement.js'. '/Users/adamjosefus/Documents/Projekty/Templatone/repos/components/libs/CustomElement.js' implicitly has an 'any' type."
-          },
-          {
-            "file": "./components.ts",
-            "start": 87,
-            "length": 17,
-            "code": 7016,
-            "category": 1,
-            "messageText": "Could not find a declaration file for module './libs/Utils.js'. '/Users/adamjosefus/Documents/Projekty/Templatone/repos/components/libs/Utils.js' implicitly has an 'any' type."
-          },
-          {
-            "file": "./components.ts",
-            "start": 147,
-            "length": 32,
-            "code": 7016,
-            "category": 1,
-            "messageText": "Could not find a declaration file for module './libs/assets/asset-spinner.js'. '/Users/adamjosefus/Documents/Projekty/Templatone/repos/components/libs/assets/asset-spinner.js' implicitly has an 'any' type."
-          },
-          {
-            "file": "./components.ts",
-            "start": 211,
-            "length": 33,
-            "code": 7016,
-            "category": 1,
-            "messageText": "Could not find a declaration file for module './libs/assets/asset-dropdown.js'. '/Users/adamjosefus/Documents/Projekty/Templatone/repos/components/libs/assets/asset-dropdown.js' implicitly has an 'any' type."
-          },
-          {
-            "file": "./components.ts",
-            "start": 274,
-            "length": 31,
-            "code": 7016,
-            "category": 1,
-            "messageText": "Could not find a declaration file for module './libs/assets/asset-swatch.js'. '/Users/adamjosefus/Documents/Projekty/Templatone/repos/components/libs/assets/asset-swatch.js' implicitly has an 'any' type."
-          },
-          {
-            "file": "./components.ts",
-            "start": 348,
-            "length": 33,
-            "code": 7016,
-            "category": 1,
-            "messageText": "Could not find a declaration file for module './libs/logics/logic-dropdown.js'. '/Users/adamjosefus/Documents/Projekty/Templatone/repos/components/libs/logics/logic-dropdown.js' implicitly has an 'any' type."
-          },
-          {
-            "file": "./components.ts",
-            "start": 416,
-            "length": 24,
-            "code": 7016,
-            "category": 1,
-            "messageText": "Could not find a declaration file for module './libs/inputs/Input.js'. '/Users/adamjosefus/Documents/Projekty/Templatone/repos/components/libs/inputs/Input.js' implicitly has an 'any' type."
-          },
-          {
-            "file": "./components.ts",
-            "start": 470,
-            "length": 31,
-            "code": 7016,
-            "category": 1,
-            "messageText": "Could not find a declaration file for module './libs/inputs/input-button.js'. '/Users/adamjosefus/Documents/Projekty/Templatone/repos/components/libs/inputs/input-button.js' implicitly has an 'any' type."
-          },
-          {
-            "file": "./components.ts",
-            "start": 536,
-            "length": 37,
-            "code": 7016,
-            "category": 1,
-            "messageText": "Could not find a declaration file for module './libs/inputs/input-color-picker.js'. '/Users/adamjosefus/Documents/Projekty/Templatone/repos/components/libs/inputs/input-color-picker.js' implicitly has an 'any' type."
-          },
-          {
-            "file": "./components.ts",
-            "start": 606,
-            "length": 35,
-            "code": 7016,
-            "category": 1,
-            "messageText": "Could not find a declaration file for module './libs/inputs/input-color-tint.js'. '/Users/adamjosefus/Documents/Projekty/Templatone/repos/components/libs/inputs/input-color-tint.js' implicitly has an 'any' type."
-          },
-          {
-            "file": "./components.ts",
-            "start": 669,
-            "length": 29,
-            "code": 7016,
-            "category": 1,
-            "messageText": "Could not find a declaration file for module './libs/inputs/input-file.js'. '/Users/adamjosefus/Documents/Projekty/Templatone/repos/components/libs/inputs/input-file.js' implicitly has an 'any' type."
-          },
-          {
-            "file": "./components.ts",
-            "start": 730,
-            "length": 33,
-            "code": 7016,
-            "category": 1,
-            "messageText": "Could not find a declaration file for module './libs/inputs/input-checkbox.js'. '/Users/adamjosefus/Documents/Projekty/Templatone/repos/components/libs/inputs/input-checkbox.js' implicitly has an 'any' type."
-          },
-          {
-            "file": "./components.ts",
-            "start": 792,
-            "length": 30,
-            "code": 7016,
-            "category": 1,
-            "messageText": "Could not find a declaration file for module './libs/inputs/input-image.js'. '/Users/adamjosefus/Documents/Projekty/Templatone/repos/components/libs/inputs/input-image.js' implicitly has an 'any' type."
-          },
-          {
-            "file": "./components.ts",
-            "start": 852,
-            "length": 31,
-            "code": 7016,
-            "category": 1,
-            "messageText": "Could not find a declaration file for module './libs/inputs/input-number.js'. '/Users/adamjosefus/Documents/Projekty/Templatone/repos/components/libs/inputs/input-number.js' implicitly has an 'any' type."
-          },
-          {
-            "file": "./components.ts",
-            "start": 912,
-            "length": 30,
-            "code": 7016,
-            "category": 1,
-            "messageText": "Could not find a declaration file for module './libs/inputs/input-radio.js'. '/Users/adamjosefus/Documents/Projekty/Templatone/repos/components/libs/inputs/input-radio.js' implicitly has an 'any' type."
-          },
-          {
-            "file": "./components.ts",
-            "start": 972,
-            "length": 31,
-            "code": 7016,
-            "category": 1,
-            "messageText": "Could not find a declaration file for module './libs/inputs/input-slider.js'. '/Users/adamjosefus/Documents/Projekty/Templatone/repos/components/libs/inputs/input-slider.js' implicitly has an 'any' type."
-          },
-          {
-            "file": "./components.ts",
-            "start": 1041,
-            "length": 40,
-            "code": 7016,
-            "category": 1,
-            "messageText": "Could not find a declaration file for module './libs/inputs/input-slider-gradient.js'. '/Users/adamjosefus/Documents/Projekty/Templatone/repos/components/libs/inputs/input-slider-gradient.js' implicitly has an 'any' type."
-          },
-          {
-            "file": "./components.ts",
-            "start": 1109,
-            "length": 29,
-            "code": 7016,
-            "category": 1,
-            "messageText": "Could not find a declaration file for module './libs/inputs/input-text.js'. '/Users/adamjosefus/Documents/Projekty/Templatone/repos/components/libs/inputs/input-text.js' implicitly has an 'any' type."
-          },
-          {
-            "file": "./components.ts",
-            "start": 1170,
-            "length": 33,
-            "code": 7016,
-            "category": 1,
-            "messageText": "Could not find a declaration file for module './libs/inputs/input-textarea.js'. '/Users/adamjosefus/Documents/Projekty/Templatone/repos/components/libs/inputs/input-textarea.js' implicitly has an 'any' type."
-          },
-          {
-            "file": "./components.ts",
-            "start": 1231,
-            "length": 29,
-            "code": 7016,
-            "category": 1,
-            "messageText": "Could not find a declaration file for module './libs/inputs/input-time.js'. '/Users/adamjosefus/Documents/Projekty/Templatone/repos/components/libs/inputs/input-time.js' implicitly has an 'any' type."
-          },
-          {
-            "file": "./components.ts",
-            "start": 1290,
-            "length": 31,
-            "code": 7016,
-            "category": 1,
-            "messageText": "Could not find a declaration file for module './libs/inputs/input-toggle.js'. '/Users/adamjosefus/Documents/Projekty/Templatone/repos/components/libs/inputs/input-toggle.js' implicitly has an 'any' type."
-          },
-          {
-            "file": "./components.ts",
-            "start": 1354,
-            "length": 34,
-            "code": 7016,
-            "category": 1,
-            "messageText": "Could not find a declaration file for module './libs/inputs/label-container.js'. '/Users/adamjosefus/Documents/Projekty/Templatone/repos/components/libs/inputs/label-container.js' implicitly has an 'any' type."
-          }
-        ]
-      ],
       "./node_modules/.pnpm/@lit+reactive-element@1.0.0-rc.1/node_modules/@lit/reactive-element/css-tag.d.ts",
       "./node_modules/.pnpm/@lit+reactive-element@1.0.0-rc.1/node_modules/@lit/reactive-element/reactive-controller.d.ts",
       "./node_modules/.pnpm/@lit+reactive-element@1.0.0-rc.1/node_modules/@lit/reactive-element/reactive-element.d.ts",
@@ -3760,6 +3625,7 @@
       "./node_modules/.pnpm/typescript@4.2.4/node_modules/typescript/lib/lib.es2020.symbol.wellknown.d.ts",
       "./node_modules/.pnpm/typescript@4.2.4/node_modules/typescript/lib/lib.es5.d.ts",
       "./node_modules/.pnpm/typescript@4.2.4/node_modules/typescript/lib/lib.esnext.intl.d.ts",
+      "./src/components.ts",
       "./src/libs/assets/asset-dropdown.ts",
       "./src/libs/assets/asset-spinner.ts",
       "./src/libs/assets/asset-swatch.ts",
@@ -4867,7 +4733,15 @@
         1
       ],
       [
+        "./src/components.ts",
+        1
+      ],
+      [
         "./src/customelement.ts",
+        1
+      ],
+      [
+        "./src/demo/index.ts",
         1
       ],
       [

@@ -23,4 +23,7 @@
     "importHelpers": true,
     "stripInternal": true
   },
+  "exclude": [
+    "./_temp/**"
+  ]
 }
