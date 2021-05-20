@@ -9,8 +9,8 @@ var __decorate = (decorators, target, key, kind) => {
     __defProp(target, key, result);
   return result;
 };
-import {LitElement, css, html} from "../web-modules/pkg/lit.v2.0.0-rc.2.js";
-import {customElement} from "../web-modules/pkg/lit.decorators.v2.0.0-rc.2.js";
+import {LitElement, css, html} from "../web-modules/pkg/lit.js";
+import {customElement} from "../web-modules/pkg/lit/decorators.js";
 export let AssetSpinner = class extends LitElement {
   render() {
     return html`

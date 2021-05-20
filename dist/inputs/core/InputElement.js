@@ -1,4 +1,4 @@
-import {LitElement} from "../../web-modules/pkg/lit.v2.0.0-rc.2.js";
+import {LitElement} from "../../web-modules/pkg/lit.js";
 import {InputEvent} from "./InputEvent.js";
 export class InputElement extends LitElement {
   constructor() {

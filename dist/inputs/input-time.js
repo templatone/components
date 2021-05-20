@@ -9,10 +9,10 @@ var __decorate = (decorators, target, key, kind) => {
     __defProp(target, key, result);
   return result;
 };
-import {html} from "../web-modules/pkg/lit.v2.0.0-rc.2.js";
-import {customElement, property, query} from "../web-modules/pkg/lit.decorators.v2.0.0-rc.2.js";
+import {html} from "../web-modules/pkg/lit.js";
+import {customElement, property, query} from "../web-modules/pkg/lit/decorators.js";
 import {clear as clearIcon} from "../assets/icons.js";
-import {Utils} from "../web-modules/pkg/@templatone.kreslo.v3.7.0.js";
+import {Utils} from "../web-modules/pkg/@templatone/kreslo.js";
 import {InputElement} from "./core/InputElement.js";
 const style = html`
 <style>

@@ -9,8 +9,8 @@ var __decorate = (decorators, target, key, kind) => {
     __defProp(target, key, result);
   return result;
 };
-import {css, html} from "../web-modules/pkg/lit.v2.0.0-rc.2.js";
-import {customElement, property, query} from "../web-modules/pkg/lit.decorators.v2.0.0-rc.2.js";
+import {css, html} from "../web-modules/pkg/lit.js";
+import {customElement, property, query} from "../web-modules/pkg/lit/decorators.js";
 import {InputElement} from "./core/InputElement.js";
 import {attachment as attachmentIcon} from "../assets/icons.js";
 export let InputFilesElement = class extends InputElement {

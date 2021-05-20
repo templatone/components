@@ -1,0 +1,32 @@
+import { InputElement, IInputElement } from "./core/InputElement.js";
+export declare type SliderValue = number;
+export declare class InputSliderElement extends InputElement<SliderValue> implements IInputElement<SliderValue> {
+    get defaultValue(): SliderValue;
+    value: SliderValue;
+    min: number;
+    max: number;
+    step: number | null;
+    disabled: boolean;
+    readOnly: boolean;
+    private _container;
+    private _track;
+    private _bar;
+    private _handle;
+    private _pointerActive;
+    connectedCallback(): void;
+    disconnectedCallback(): void;
+    firstUpdated(): void;
+    private _onPointerStart;
+    private _onPointerEnd;
+    private _onPointerMove;
+    private _onKeyboard;
+    private _updateUI;
+    private _updateTrackUI;
+    private _updateValue;
+    clearValue(): void;
+    hasSameValueAs(value: SliderValue): boolean;
+    focus(): void;
+    blur(): void;
+    render(): import("lit-html").TemplateResult<1>;
+    static style: import("lit").CSSResultGroup;
+}

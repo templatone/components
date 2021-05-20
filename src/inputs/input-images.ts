@@ -2,7 +2,7 @@ import { LitElement, css, html, TemplateResult } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
 import { InputElement, IInputElement } from "./core/InputElement.js";
 import { clear as clearIcon, images as imagesIcon } from '../assets/icons.js';
-import { Utils } from '../../Utils.js';
+import { Images as ImagesUtils } from '@templatone/utils/dist/Images.js';
 
 
 export type ImagesValue = HTMLImageElement[];
@@ -43,7 +43,7 @@ export class InputImagesElement extends InputElement<ImagesValue> implements IIn
         
 
         if (files.length > 0) {
-            const promises = files.map(f => Utils.getImageFormFile(f));
+            const promises = files.map(f => ImagesUtils.getFormFile(f));
             const images = await Promise.all(promises)
 
             this._addImages(...images);

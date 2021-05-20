@@ -9,11 +9,11 @@ var __decorate = (decorators, target, key, kind) => {
     __defProp(target, key, result);
   return result;
 };
-import {css, html} from "../web-modules/pkg/lit.v2.0.0-rc.2.js";
-import {customElement, property, query} from "../web-modules/pkg/lit.decorators.v2.0.0-rc.2.js";
+import {css, html} from "../web-modules/pkg/lit.js";
+import {customElement, property, query} from "../web-modules/pkg/lit/decorators.js";
 import {InputElement} from "./core/InputElement.js";
 import {clear as clearIcon, images as imagesIcon} from "../assets/icons.js";
-import {Utils} from "../../Utils.js";
+import {Images as ImagesUtils} from "../web-modules/pkg/@templatone/utils/dist/Images.js";
 export let InputImagesElement = class extends InputElement {
   constructor() {
     super(...arguments);
@@ -28,7 +28,7 @@ export let InputImagesElement = class extends InputElement {
     const f = this._input.files;
     const files = f != null && f.length ? [...f] : [];
     if (files.length > 0) {
-      const promises = files.map((f2) => Utils.getImageFormFile(f2));
+      const promises = files.map((f2) => ImagesUtils.getFormFile(f2));
       const images = await Promise.all(promises);
       this._addImages(...images);
     }
