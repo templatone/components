@@ -13,7 +13,7 @@ import {css, html} from "../web-modules/pkg/lit.js";
 import {customElement, property, query} from "../web-modules/pkg/lit/decorators.js";
 import {InputElement} from "./core/InputElement.js";
 import {clear as clearIcon, images as imagesIcon} from "../assets/icons.js";
-import {Images as ImagesUtils} from "../web-modules/pkg/@templatone/utils/dist/Images.js";
+import {Images as ImagesUtils} from "../web-modules/pkg/@templatone/utils2/dist/Images.js";
 export let InputImagesElement = class extends InputElement {
   constructor() {
     super(...arguments);
