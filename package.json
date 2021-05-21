@@ -1,6 +1,6 @@
 {
   "name": "@templatone/components",
-  "version": "1.3.1-alpha",
+  "version": "1.3.2",
   "description": "Custom elements for Templatone App.",
   "keywords": [
     "custom-element",
