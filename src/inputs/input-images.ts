@@ -13,7 +13,7 @@ export class InputImagesElement extends InputElement<ImagesValue> implements IIn
 
     readonly defaultValue: ImagesValue = [];
 
-    @property()
+    @property({ type: Array })
     value: ImagesValue = [];
 
 

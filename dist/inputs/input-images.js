@@ -257,7 +257,7 @@ InputImagesElement.styles = css`
         }
     `;
 __decorate([
-  property()
+  property({type: Array})
 ], InputImagesElement.prototype, "value", 2);
 __decorate([
   property({attribute: true, reflect: true, type: Boolean})
