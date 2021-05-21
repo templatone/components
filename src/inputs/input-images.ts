@@ -2,7 +2,7 @@ import { LitElement, css, html, TemplateResult } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
 import { InputElement, IInputElement } from "./core/InputElement.js";
 import { clear as clearIcon, images as imagesIcon } from '../assets/icons.js';
-import { Images as ImagesUtils } from '@templatone/utils2/dist/Images.js';
+import { Images as ImagesUtils } from '@templatone/utils';
 
 
 export type ImagesValue = HTMLImageElement[];

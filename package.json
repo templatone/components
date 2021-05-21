@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@templatone/kreslo": "^3.7.0",
-    "@templatone/utils2": "^1.1.0-alpha",
+    "@templatone/utils": "^1.1.0",
     "lit": "^2.0.0-rc.1"
   },
   "devDependencies": {
