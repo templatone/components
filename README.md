@@ -1,1 +1,1 @@
-# ui-inputs
+# Templatone Components

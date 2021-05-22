@@ -1,0 +1,8 @@
+{
+  "imports": {
+    "@templatone/kreslo": "./@templatone/kreslo.js",
+    "@templatone/utils": "./@templatone/utils.js",
+    "lit": "./lit.js",
+    "lit/decorators.js": "./lit/decorators.js"
+  }
+}

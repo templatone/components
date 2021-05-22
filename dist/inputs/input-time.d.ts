@@ -1,0 +1,40 @@
+import { InputElement, IInputElement } from "./core/InputElement.js";
+export declare type TimeValue = {
+    hours: number;
+    minutes: number;
+    seconds: number;
+    miliseconds: number;
+};
+export declare class InputTimeElement extends InputElement<TimeValue> implements IInputElement<TimeValue> {
+    private static regexp;
+    readonly defaultValue: TimeValue;
+    value: TimeValue;
+    disabled: boolean;
+    readOnly: boolean;
+    precision: number;
+    private _hours;
+    private _minutes;
+    private _seconds;
+    private _miliseconds;
+    private _evaluateInput;
+    private _onInputHours;
+    private _onInputMinutes;
+    private _onInputSeconds;
+    private _onInputMiliseconds;
+    private _onBlurHours;
+    private _onBlurMinutes;
+    private _onBlurSeconds;
+    private _onBlurMiliseconds;
+    private _updateIU;
+    private _updateUIHours;
+    private _updateUIMinutes;
+    private _updateUISeconds;
+    private _updateUIMiliseconds;
+    private _onClearValue;
+    private _updateValue;
+    clearValue(): void;
+    hasSameValueAs(value: TimeValue): boolean;
+    focus(): void;
+    blur(): void;
+    render(): import("lit-html").TemplateResult<1>;
+}
