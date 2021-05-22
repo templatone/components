@@ -11,10 +11,8 @@ var __decorate = (decorators, target, key, kind) => {
 };
 import {css, html} from "../web-modules/pkg/lit.js";
 import {customElement, property, query} from "../web-modules/pkg/lit/decorators.js";
-import {InputElement} from "./core/InputElement.js";
+import {InputElement, AutocompleteType, InputModeType} from "./core/InputElement.js";
 import {clear as clearIcon} from "../assets/icons.js";
-import {AutocompleteType} from "./core/AutocompleteType.js";
-import {InputModeType} from "./core/InputModeType.js";
 const regex = {
   spaces: /\s+/g,
   validChars: /[^0-9,.+\- ]/g,

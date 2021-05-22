@@ -1,6 +1,4 @@
-import { InputElement, ITextBasedInputElement } from "./core/InputElement.js";
-import { AutocompleteType } from './core/AutocompleteType.js';
-import { InputModeType } from './core/InputModeType.js';
+import { InputElement, ITextBasedInputElement, AutocompleteType, InputModeType } from "./core/InputElement.js";
 export declare type TextareaValue = string;
 export declare class InputTextareaElement extends InputElement<TextareaValue> implements ITextBasedInputElement<TextareaValue> {
     readonly defaultValue: TextareaValue;

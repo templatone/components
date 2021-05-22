@@ -79,37 +79,72 @@ export class InputElement extends LitElement {
     this.dispatchEvent(evnt);
   }
 }
-const _InputFilters = class {
-  static trim(v) {
-    return v.trim();
-  }
-  static trimEachLines(v) {
-    const splitter = "\n";
-    const lines = v.split(splitter);
-    return lines.map((l) => l.trim()).join(splitter);
-  }
-  static reduceSpaces(v) {
-    _InputFilters.regex.spaces.lastIndex = 0;
-    return v.replace(_InputFilters.regex.spaces, " ");
-  }
-  static reduceBreaklines(v) {
-    if (v == "")
-      return "";
-    _InputFilters.regex.breaklines.lastIndex = 0;
-    return v.replace(_InputFilters.regex.breaklines, "\n");
-  }
-  static lowerCase(v) {
-    return v.toLocaleLowerCase();
-  }
-  static upperCase(v) {
-    return v.toLocaleUpperCase();
-  }
-  static blankToNull(v) {
-    return v != "" ? v : null;
-  }
-};
-export let InputFilters = _InputFilters;
-InputFilters.regex = {
-  spaces: /\u0020+/g,
-  breaklines: /(\r*\n)+/g
-};
+export var InputModeType;
+(function(InputModeType2) {
+  InputModeType2["Default"] = "";
+  InputModeType2["None"] = "none";
+  InputModeType2["Text"] = "text";
+  InputModeType2["Url"] = "url";
+  InputModeType2["Email"] = "email";
+  InputModeType2["Numeric"] = "numeric";
+  InputModeType2["Search"] = "search";
+  InputModeType2["Tel"] = "tel";
+  InputModeType2["Decimal"] = "decimal";
+})(InputModeType || (InputModeType = {}));
+export var AutocompleteType;
+(function(AutocompleteType2) {
+  AutocompleteType2["Off"] = "off";
+  AutocompleteType2["On"] = "on";
+  AutocompleteType2["Name"] = "name";
+  AutocompleteType2["HonorificPrefix"] = "honorific-prefix";
+  AutocompleteType2["GivenName"] = "given-name";
+  AutocompleteType2["AdditionalName"] = "additional-name";
+  AutocompleteType2["FamilyName"] = "family-name";
+  AutocompleteType2["HonorificSuffix"] = "honorific-suffix";
+  AutocompleteType2["Nickname"] = "nickname";
+  AutocompleteType2["Email"] = "email";
+  AutocompleteType2["Username"] = "username";
+  AutocompleteType2["NewPassword"] = "new-password";
+  AutocompleteType2["CurrentPassword"] = "current-password";
+  AutocompleteType2["OneTimeCode"] = "one-time-code";
+  AutocompleteType2["OrganizationTitle"] = "organization-title";
+  AutocompleteType2["Organization"] = "organization";
+  AutocompleteType2["StreetAddress"] = "street-address";
+  AutocompleteType2["AddressLine1"] = "address-line1";
+  AutocompleteType2["AddressLine2"] = "address-line2";
+  AutocompleteType2["AddressLine3"] = "address-line3";
+  AutocompleteType2["AddressLevel4"] = "address-level4";
+  AutocompleteType2["AddressLevel3"] = "address-level3";
+  AutocompleteType2["AddressLevel2"] = "address-level2";
+  AutocompleteType2["AddressLevel1"] = "address-level1";
+  AutocompleteType2["Country"] = "country";
+  AutocompleteType2["CountryName"] = "country-name";
+  AutocompleteType2["PostalCode"] = "postal-code";
+  AutocompleteType2["CcName"] = "cc-name";
+  AutocompleteType2["CcGivenName"] = "cc-given-name";
+  AutocompleteType2["CcAdditionalName"] = "cc-additional-name";
+  AutocompleteType2["CcFamilyName"] = "cc-family-name";
+  AutocompleteType2["CcNumber"] = "cc-number";
+  AutocompleteType2["CcExp"] = "cc-exp";
+  AutocompleteType2["CcExpMonth"] = "cc-exp-month";
+  AutocompleteType2["CcExpYear"] = "cc-exp-year";
+  AutocompleteType2["CcCsc"] = "cc-csc";
+  AutocompleteType2["CcType"] = "cc-type";
+  AutocompleteType2["TransactionCurrency"] = "transaction-currency";
+  AutocompleteType2["TransactionAmount"] = "transaction-amount";
+  AutocompleteType2["Language"] = "language";
+  AutocompleteType2["Bday"] = "bday";
+  AutocompleteType2["BdayDay"] = "bday-day";
+  AutocompleteType2["BdayMonth"] = "bday-month";
+  AutocompleteType2["BdayYear"] = "bday-year";
+  AutocompleteType2["Sex"] = "sex";
+  AutocompleteType2["Tel"] = "tel";
+  AutocompleteType2["TelCountryCode"] = "tel-country-code";
+  AutocompleteType2["TelNational"] = "tel-national";
+  AutocompleteType2["TelAreaCode"] = "tel-area-code";
+  AutocompleteType2["TelLocal"] = "tel-local";
+  AutocompleteType2["TelExtension"] = "tel-extension";
+  AutocompleteType2["Impp"] = "impp";
+  AutocompleteType2["Url"] = "url";
+  AutocompleteType2["Photo"] = "photo";
+})(AutocompleteType || (AutocompleteType = {}));

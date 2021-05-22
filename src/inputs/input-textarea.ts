@@ -2,9 +2,7 @@ import { LitElement, css, html } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
 import { clear as clearIcon } from '../assets/icons.js';
 
-import { InputElement, ITextBasedInputElement } from "./core/InputElement.js";
-import { AutocompleteType } from './core/AutocompleteType.js';
-import { InputModeType } from './core/InputModeType.js';
+import { InputElement, ITextBasedInputElement, AutocompleteType, InputModeType } from "./core/InputElement.js";
 
 
 export type TextareaValue = string;

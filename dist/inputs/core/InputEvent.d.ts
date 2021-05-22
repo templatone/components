@@ -6,8 +6,8 @@ declare const enum EventType {
     UPDATE_START = "update-start",
     UPDATE_END = "update-end"
 }
-export declare class InputEvent<VALUE> extends CustomEvent<{
-    value: VALUE;
+export declare class InputEvent<ValueType> extends CustomEvent<{
+    value: ValueType;
     valid: boolean;
 }> {
     static readonly FOCUS = EventType.FOCUS;
@@ -16,6 +16,6 @@ export declare class InputEvent<VALUE> extends CustomEvent<{
     static readonly UPDATE_STABLE = EventType.UPDATE_DELAYED;
     static readonly UPDATE_START = EventType.UPDATE_START;
     static readonly UPDATE_END = EventType.UPDATE_END;
-    constructor(typeArg: EventType, value: VALUE, isValid: boolean);
+    constructor(typeArg: EventType, value: ValueType, isValid: boolean);
 }
 export {};
