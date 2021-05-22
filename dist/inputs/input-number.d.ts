@@ -1,6 +1,4 @@
-import { InputElement, ITextBasedInputElement } from "./core/InputElement.js";
-import { AutocompleteType } from './core/AutocompleteType.js';
-import { InputModeType } from './core/InputModeType.js';
+import { InputElement, ITextBasedInputElement, AutocompleteType, InputModeType } from "./core/InputElement.js";
 export declare type NumberValue = number;
 export declare class InputNumberElement extends InputElement<NumberValue> implements ITextBasedInputElement<NumberValue> {
     readonly defaultValue: NumberValue;

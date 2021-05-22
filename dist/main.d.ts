@@ -1,3 +1,7 @@
+export { AssetSpinnerElement } from './assets/asset-spinner.js';
+export { IInputElement, ITextBasedInputElement, InputElement, AutocompleteType, InputModeType, } from './inputs/core/InputElement.js';
+export { InputEvent } from './inputs/core/InputEvent.js';
+export { InputFilters, InputFilterType } from './inputs/core/InputFilter.js';
 export { LabelContainerElement } from './inputs/label-container.js';
 export { InputToggleElement } from './inputs/input-toggle.js';
 export { InputTimeElement } from './inputs/input-time.js';

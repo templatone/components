@@ -9,8 +9,8 @@ const enum EventType {
 
 
 
-export class InputEvent<VALUE> extends CustomEvent<{
-    value: VALUE,
+export class InputEvent<ValueType> extends CustomEvent<{
+    value: ValueType,
     valid: boolean,
 }> {
 
@@ -22,7 +22,7 @@ export class InputEvent<VALUE> extends CustomEvent<{
     static readonly UPDATE_START = EventType.UPDATE_START;
     static readonly UPDATE_END = EventType.UPDATE_END;
 
-    constructor(typeArg: EventType, value: VALUE, isValid: boolean) {
+    constructor(typeArg: EventType, value: ValueType, isValid: boolean) {
         super(typeArg, {
             detail: {
                 value, valid: isValid

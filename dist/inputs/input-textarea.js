@@ -11,9 +11,7 @@ var __decorate = (decorators, target, key, kind) => {
 };
 import {css, html} from "../web-modules/pkg/lit.js";
 import {customElement, property, query} from "../web-modules/pkg/lit/decorators.js";
-import {InputElement} from "./core/InputElement.js";
-import {AutocompleteType} from "./core/AutocompleteType.js";
-import {InputModeType} from "./core/InputModeType.js";
+import {InputElement, AutocompleteType, InputModeType} from "./core/InputElement.js";
 export let InputTextareaElement = class extends InputElement {
   constructor() {
     super(...arguments);
