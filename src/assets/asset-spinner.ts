@@ -3,7 +3,7 @@ import { customElement, property } from 'lit/decorators.js';
 
 
 @customElement('asset-spinner')
-export class AssetSpinner extends LitElement {
+export class AssetSpinnerElement extends LitElement {
     // Define scoped styles right with your component, in plain CSS
     static styles = css`
         :host {

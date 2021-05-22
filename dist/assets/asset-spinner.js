@@ -11,7 +11,7 @@ var __decorate = (decorators, target, key, kind) => {
 };
 import {LitElement, css, html} from "../web-modules/pkg/lit.js";
 import {customElement} from "../web-modules/pkg/lit/decorators.js";
-export let AssetSpinner = class extends LitElement {
+export let AssetSpinnerElement = class extends LitElement {
   render() {
     return html`
             <div id="container">
@@ -27,7 +27,7 @@ export let AssetSpinner = class extends LitElement {
         `;
   }
 };
-AssetSpinner.styles = css`
+AssetSpinnerElement.styles = css`
         :host {
             --size: 24px;
             --duration: 1000ms;
@@ -114,6 +114,6 @@ AssetSpinner.styles = css`
             animation-delay: calc(var(--duration) / -8 * 0);
         }
     `;
-AssetSpinner = __decorate([
+AssetSpinnerElement = __decorate([
   customElement("asset-spinner")
-], AssetSpinner);
+], AssetSpinnerElement);

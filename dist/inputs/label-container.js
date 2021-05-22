@@ -11,7 +11,7 @@ var __decorate = (decorators, target, key, kind) => {
 };
 import {LitElement, css, html} from "../web-modules/pkg/lit.js";
 import {customElement} from "../web-modules/pkg/lit/decorators.js";
-export let LabelContainer = class extends LitElement {
+export let LabelContainerElement = class extends LitElement {
   render() {
     return html`
             <div id="container">
@@ -23,7 +23,7 @@ export let LabelContainer = class extends LitElement {
         `;
   }
 };
-LabelContainer.styles = css`
+LabelContainerElement.styles = css`
         :host {
             display: block;
             box-sizing: border-box;
@@ -74,6 +74,6 @@ LabelContainer.styles = css`
             display: none;
         }
     `;
-LabelContainer = __decorate([
+LabelContainerElement = __decorate([
   customElement("label-container")
-], LabelContainer);
+], LabelContainerElement);

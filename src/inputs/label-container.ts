@@ -6,7 +6,7 @@ export type TextValue = string | null;
 
 
 @customElement('label-container')
-export class LabelContainer extends LitElement {
+export class LabelContainerElement extends LitElement {
 
     render() {
         return html`

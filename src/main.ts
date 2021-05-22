@@ -1,4 +1,4 @@
-export { LabelContainer } from './inputs/label-container.js';
+export { LabelContainerElement } from './inputs/label-container.js';
 export { InputToggleElement } from './inputs/input-toggle.js';
 export { InputTimeElement } from './inputs/input-time.js';
 export { InputTextareaElement } from './inputs/input-textarea.js';
