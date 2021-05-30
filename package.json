@@ -1,6 +1,6 @@
 {
   "name": "@templatone/components",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "Custom elements for Templatone App.",
   "keywords": [
     "custom-element",
@@ -16,14 +16,18 @@
   },
   "license": "CC-BY-NC-ND-4.0",
   "author": "Adam Josefus",
-  "main": "./dist/main.js",
+  "main": "./lib/main.js",
+  "typings": "./lib/main.d.ts",
+  "files": [
+    "lib/**/*"
+  ],
   "scripts": {
     "build": "snowpack build && tsc",
     "build:watch": "snowpack build --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@templatone/kreslo": "^3.7.0",
+    "@templatone/kreslo": "^3.10.0",
     "@templatone/utils": "^1.1.0",
     "lit": "^2.0.0-rc.1"
   },

@@ -1,20 +1,21 @@
 import { LitElement, css, html, TemplateResult } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
-import { InputElement, IInputElement } from "./core/InputElement.js";
+import { InputElement } from "./core/InputElement.js";
+import type { IInputElement } from "./core/IInputElement.js";
 import { clear as clearIcon, images as imagesIcon } from '../assets/icons.js';
 import { Images as ImagesUtils } from '@templatone/utils';
 
 
-export type ImagesValue = HTMLImageElement[];
+export type InputImagesValue = HTMLImageElement[];
 
 
 @customElement('input-images')
-export class InputImagesElement extends InputElement<ImagesValue> implements IInputElement<ImagesValue> {
+export class InputImagesElement extends InputElement<InputImagesValue> implements IInputElement<InputImagesValue> {
 
-    readonly defaultValue: ImagesValue = [];
+    readonly defaultValue: InputImagesValue = [];
 
     @property({ type: Array })
-    value: ImagesValue = [];
+    value: InputImagesValue = [];
 
 
     @property({ attribute: true, reflect: true, type: Boolean })
@@ -72,12 +73,12 @@ export class InputImagesElement extends InputElement<ImagesValue> implements IIn
     }
 
 
-    private _updateValue(value: ImagesValue): void {
+    private _updateValue(value: InputImagesValue): void {
         this.value = InputImagesElement.applyFilters(this.filters, value);
         this.fireUpdateEvent();
     }
 
-    hasSameValueAs(value: ImagesValue): boolean {
+    hasSameValueAs(value: InputImagesValue): boolean {
         return this.value === value;
     }
 

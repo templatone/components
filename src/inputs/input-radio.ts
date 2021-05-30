@@ -1,7 +1,7 @@
 import { LitElement, css, html } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
-import { InputElement, IInputElement } from "./core/InputElement.js";
-import { attachment as attachmentIcon } from '../assets/icons.js';
+import { InputElement } from "./core/InputElement.js";
+import type { IInputElement } from "./core/IInputElement.js";
 
 
 const style = html`
@@ -84,17 +84,17 @@ const style = html`
 `;
 
 
-export type RadioValue = boolean;
+export type InputRadioValue = boolean;
 
 
 @customElement('input-radio')
-export class InputRadioElement extends InputElement<RadioValue> implements IInputElement<RadioValue> {
+export class InputRadioElement extends InputElement<InputRadioValue> implements IInputElement<InputRadioValue> {
 
     // Properties
-    readonly defaultValue: RadioValue = false;
+    readonly defaultValue: InputRadioValue = false;
 
     @property({ type: Boolean })
-    value: RadioValue = false;
+    value: InputRadioValue = false;
 
 
     get checked(): boolean { return this.value === true; }
@@ -156,7 +156,7 @@ export class InputRadioElement extends InputElement<RadioValue> implements IInpu
     }
 
 
-    private _updateValue(value: RadioValue): void {
+    private _updateValue(value: InputRadioValue): void {
         this.value = InputRadioElement.applyFilters(this.filters, value);
         this.fireUpdateEvent();
     }
@@ -167,7 +167,7 @@ export class InputRadioElement extends InputElement<RadioValue> implements IInpu
     }
 
 
-    hasSameValueAs(value: RadioValue): boolean {
+    hasSameValueAs(value: InputRadioValue): boolean {
         return this.value === value;
     }
 

@@ -1,7 +1,10 @@
 import { LitElement, css, html } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
-import { InputElement, ITextBasedInputElement, AutocompleteType, InputModeType } from "./core/InputElement.js";
+import { InputElement } from "./core/InputElement.js";
 import { clear as clearIcon } from '../assets/icons.js';
+import type { ITextBasedInputElement } from './core/ITextBasedInputElement.js';
+import { InputModeType } from './core/InputModeType.js';
+import { AutocompleteType } from './core/AutocompleteType.js';
 
 
 const regex = {
@@ -27,14 +30,14 @@ const converterNumberOrNull = (attributeName: string, v: string | null): number 
 }
 
 
-export type NumberValue = number;
+export type InputNumberValue = number;
 
 
 @customElement('input-number')
-export class InputNumberElement extends InputElement<NumberValue> implements ITextBasedInputElement<NumberValue> {
+export class InputNumberElement extends InputElement<InputNumberValue> implements ITextBasedInputElement<InputNumberValue> {
 
     // Properties
-    readonly defaultValue: NumberValue = 0;
+    readonly defaultValue: InputNumberValue = 0;
 
     @property({
         attribute: true,
@@ -59,7 +62,7 @@ export class InputNumberElement extends InputElement<NumberValue> implements ITe
 
 
     @property({ type: Number })
-    value: NumberValue = 0;
+    value: InputNumberValue = 0;
 
 
     @property({ attribute: true, converter: (v) => v?.trim() != "" ? v : null })
@@ -151,7 +154,7 @@ export class InputNumberElement extends InputElement<NumberValue> implements ITe
     }
 
 
-    private _updateValue(value: NumberValue): void {
+    private _updateValue(value: InputNumberValue): void {
         if (value != null) {
             if (this.max != null) value = Math.min(value, this.max);
             if (this.min != null) value = Math.max(value, this.min);
@@ -162,7 +165,7 @@ export class InputNumberElement extends InputElement<NumberValue> implements ITe
     }
 
 
-    private _formatValue(n: NumberValue): string {
+    private _formatValue(n: InputNumberValue): string {
         return n?.toString().replace('.', ',') ?? '';
     }
 
@@ -172,7 +175,7 @@ export class InputNumberElement extends InputElement<NumberValue> implements ITe
     }
 
 
-    hasSameValueAs(value: NumberValue): boolean {
+    hasSameValueAs(value: InputNumberValue): boolean {
         return this.value === value;
     }
 

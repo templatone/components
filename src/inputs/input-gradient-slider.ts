@@ -1,7 +1,9 @@
-import { Color, Utils } from '@templatone/kreslo';
+import { Color } from '@templatone/kreslo';
+import { Numbers } from '@templatone/utils';
 import { LitElement, css, html } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
-import { InputElement, IInputElement } from "./core/InputElement.js";
+import { InputElement } from "./core/InputElement.js";
+import type { IInputElement } from "./core/IInputElement.js";
 
 
 function printColor(red: number, green: number, blue: number, alpha: number): string {
@@ -24,16 +26,16 @@ export interface IGradientStep {
     },
 }
 
-export type SliderGradientValue = number;
+export type InputSliderGradientSliderValue = number;
 
 
 @customElement('input-slider-gradient')
-export class InputGradientSliderElement extends InputElement<SliderGradientValue> implements IInputElement<SliderGradientValue> {
-    get defaultValue(): SliderGradientValue { return this.min; }
+export class InputGradientSliderElement extends InputElement<InputSliderGradientSliderValue> implements IInputElement<InputSliderGradientSliderValue> {
+    get defaultValue(): InputSliderGradientSliderValue { return this.min; }
 
 
     @property({ type: Number })
-    value: SliderGradientValue = 0;
+    value: InputSliderGradientSliderValue = 0;
 
 
     @property({ type: Number })
@@ -163,8 +165,8 @@ export class InputGradientSliderElement extends InputElement<SliderGradientValue
 
         const ratio = valueX / valueMaxWidth;
 
-        let value = Utils.Numbers.remap(ratio, 0, 1, this.min, this.max);
-        value = Utils.Numbers.limit(value, this.min, this.max);
+        let value = Numbers.remap(ratio, 0, 1, this.min, this.max);
+        value = Numbers.limit(value, this.min, this.max);
 
         if (this.step) {
             value = Math.round(value / this.step) * this.step;
@@ -197,7 +199,7 @@ export class InputGradientSliderElement extends InputElement<SliderGradientValue
         e.preventDefault();
         e.stopPropagation();
 
-        value = Utils.Numbers.limit(value, this.min, this.max);
+        value = Numbers.limit(value, this.min, this.max);
 
         if (value != this.value) {
             this._updateValue(value);
@@ -240,7 +242,7 @@ export class InputGradientSliderElement extends InputElement<SliderGradientValue
     }
 
 
-    private _updateValue(value: SliderGradientValue): void {
+    private _updateValue(value: InputSliderGradientSliderValue): void {
         this.value = InputGradientSliderElement.applyFilters(this.filters, value);
         this.fireUpdateEvent();
     }
@@ -251,7 +253,7 @@ export class InputGradientSliderElement extends InputElement<SliderGradientValue
     }
 
 
-    hasSameValueAs(value: SliderGradientValue): boolean {
+    hasSameValueAs(value: InputSliderGradientSliderValue): boolean {
         return this.value === value;
     }
 

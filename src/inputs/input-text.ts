@@ -1,19 +1,22 @@
 import { LitElement, css, html } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
 import { clear as clearIcon } from '../assets/icons.js';
-import { InputElement, ITextBasedInputElement, AutocompleteType, InputModeType } from "./core/InputElement.js";
+import { AutocompleteType } from './core/AutocompleteType.js';
+import { InputElement } from './core/InputElement.js';
+import { InputModeType } from './core/InputModeType.js';
+import type { ITextBasedInputElement } from './core/ITextBasedInputElement.js';
 
 
-export type TextValue = string;
+export type InputTextValue = string;
 
 
 @customElement('input-text')
-export class InputTextElement extends InputElement<TextValue> implements ITextBasedInputElement<TextValue> {
+export class InputTextElement extends InputElement<InputTextValue> implements ITextBasedInputElement<InputTextValue> {
     // Properties
-    readonly defaultValue: TextValue = '';
+    readonly defaultValue: InputTextValue = '';
 
     @property()
-    value: TextValue = '';
+    value: InputTextValue = '';
 
 
     @property({ attribute: true, converter: (v) => v?.trim() != "" ? v : null  })
@@ -52,7 +55,7 @@ export class InputTextElement extends InputElement<TextValue> implements ITextBa
     }
 
 
-    private _updateValue(value: TextValue): void {
+    private _updateValue(value: InputTextValue): void {
         this.value = InputTextElement.applyFilters(this.filters, value);
         this.fireUpdateEvent();
     }
@@ -63,7 +66,7 @@ export class InputTextElement extends InputElement<TextValue> implements ITextBa
     }
 
 
-    hasSameValueAs(value: TextValue): boolean {
+    hasSameValueAs(value: InputTextValue): boolean {
         return this.value === value;
     }
 
