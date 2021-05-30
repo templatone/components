@@ -1,116 +1,12 @@
 import { LitElement, css, html } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
 import { clear as clearIcon } from '../assets/icons.js';
-import { Utils } from '@templatone/kreslo';
-import { InputElement, IInputElement } from "./core/InputElement.js";
+import { Numbers, Strings } from '@templatone/utils';
+import { InputElement } from "./core/InputElement.js";
+import type { IInputElement } from "./core/IInputElement.js";
 
 
-const style = html`
-<style>
-    :host {
-        display: flex;
-        flex-direction: column;
-        justify-content: stretch;
-        align-items: stretch;
-        box-sizing: border-box;
-    }
-
-    #container {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: stretch;
-        overflow: hidden;
-        border: 2px solid;
-        border-radius: 6px;
-
-        color: var(--system-color-label);
-        background-color: var(--system-color-base);
-        border-color: var(--system-color-gray2);
-    }
-
-    #container:focus-within {
-        border-color: var(--system-color-gray1);
-    }
-
-    #container[disabled] {
-        color: var(--system-color-gray3);
-        background-color: var(--system-color-gray6);
-        border-color: var(--system-color-gray4);
-    }
-
-
-    input {
-        display: block;
-        flex-shrink: 1;
-        flex-grow: 1;
-        width: auto;
-        height: 100%;
-        max-width: 100%;
-        min-width: 2em;
-        max-height: 100%;
-        min-height: 32px;
-        box-sizing: border-box;
-        border: none;
-        outline: 0;
-        outline: none;
-        padding: 4px 0;
-        margin: 0;
-        font-family: inherit;
-        font-size: 19px;
-        text-align: center;
-        line-height: 24px;
-        color: var(--system-color-label);
-        font-variant-numeric: tabular-nums;
-        -moz-font-feature-settings: "tnum";
-        -webkit-font-feature-settings: "tnum";
-        font-feature-settings: "tnum";
-        background-color: inherit;
-    }
-
-    input::placeholder {
-        color: var(--system-color-gray3);
-    }
-
-    #container[disabled] input::placeholder {
-        color: transparent;
-    }
-
-    .clear-button {
-        cursor: pointer;
-        margin: 4px;
-        flex-shrink: 0;
-        fill: var(--x-border-color);
-    }
-
-    .clear-button:hover {
-        fill: var(--system-color-gray2);
-    }
-
-    #container[disabled] .clear-button,
-    #container:not([filled]) .clear-button {
-        display: none;
-    }
-
-    .flexspace {
-        flex-grow: 1;
-        flex-shrink: 1;
-    }
-
-    .separator {
-        user-select: none;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    [hidden] {
-        display: none;
-    }
-</style>`;
-
-
-export type TimeValue = {
+export type InputTimeValue = {
     hours: number,
     minutes: number,
     seconds: number,
@@ -119,7 +15,7 @@ export type TimeValue = {
 
 
 @customElement('input-time')
-export class InputTimeElement extends InputElement<TimeValue> implements IInputElement<TimeValue> {
+export class InputTimeElement extends InputElement<InputTimeValue> implements IInputElement<InputTimeValue> {
 
     private static regexp = {
         numbers: /[0-9]+/g,
@@ -127,7 +23,7 @@ export class InputTimeElement extends InputElement<TimeValue> implements IInputE
 
 
     // Properties
-    readonly defaultValue: TimeValue = {
+    readonly defaultValue: InputTimeValue = {
         hours: 0,
         minutes: 0,
         seconds: 0,
@@ -137,7 +33,7 @@ export class InputTimeElement extends InputElement<TimeValue> implements IInputE
 
     @property({
         attribute: true,
-        converter: (v: string | null): TimeValue => {
+        converter: (v: string | null): InputTimeValue => {
             let hours: number = 0;
             let minutes: number = 0;
             let seconds: number = 0;
@@ -161,7 +57,7 @@ export class InputTimeElement extends InputElement<TimeValue> implements IInputE
             return false;
         }
     })
-    value: TimeValue = {
+    value: InputTimeValue = {
         hours: 0,
         minutes: 0,
         seconds: 0,
@@ -214,7 +110,7 @@ export class InputTimeElement extends InputElement<TimeValue> implements IInputE
         let finalValue: number = 0;
 
         if (!isNaN(parsedValue)) {
-            finalValue = Utils.Numbers.limit(parsedValue, 0, max);
+            finalValue = Numbers.limit(parsedValue, 0, max);
 
             if (finalValue == parsedValue) {
                 input.value = cleaned;
@@ -332,22 +228,22 @@ export class InputTimeElement extends InputElement<TimeValue> implements IInputE
 
 
     private _updateUIHours() {
-        this._hours.value = this.value ? Utils.Strings.padLeft(this.value.hours.toString(), 2, '0') : '';
+        this._hours.value = this.value ? Strings.padLeft(this.value.hours.toString(), 2, '0') : '';
     }
 
 
     private _updateUIMinutes() {
-        this._minutes.value = this.value ? Utils.Strings.padLeft(this.value.minutes.toString(), 2, '0') : '';
+        this._minutes.value = this.value ? Strings.padLeft(this.value.minutes.toString(), 2, '0') : '';
     }
 
 
     private _updateUISeconds() {
-        this._seconds.value = this.value ? Utils.Strings.padLeft(this.value.seconds.toString(), 2, '0') : '';
+        this._seconds.value = this.value ? Strings.padLeft(this.value.seconds.toString(), 2, '0') : '';
     }
 
 
     private _updateUIMiliseconds() {
-        this._miliseconds.value = this.value ? Utils.Strings.padLeft(this.value.miliseconds.toString(), 3, '0') : '';
+        this._miliseconds.value = this.value ? Strings.padLeft(this.value.miliseconds.toString(), 3, '0') : '';
     }
 
 
@@ -357,7 +253,7 @@ export class InputTimeElement extends InputElement<TimeValue> implements IInputE
     }
 
 
-    private _updateValue(value: TimeValue): void {
+    private _updateValue(value: InputTimeValue): void {
         this.value = InputTimeElement.applyFilters(this.filters, { ...value });
         this.fireUpdateEvent();
 
@@ -370,7 +266,7 @@ export class InputTimeElement extends InputElement<TimeValue> implements IInputE
     }
 
 
-    hasSameValueAs(value: TimeValue): boolean {
+    hasSameValueAs(value: InputTimeValue): boolean {
         if (this.value != null && value != null) {
             return this.value.hours == value.hours
                 && this.value.minutes == value.minutes
@@ -400,8 +296,6 @@ export class InputTimeElement extends InputElement<TimeValue> implements IInputE
 
     render() {
         return html`
-            ${style}
-            
             <div id="container" ?disabled=${this.disabled} ?filled=${this.value != null}>
             
                 <input ?hidden=${this.precision < 1} id="hours" @input=${(e: InputEvent) => this._onInputHours()}
@@ -456,4 +350,108 @@ export class InputTimeElement extends InputElement<TimeValue> implements IInputE
             </div>
         `;
     }
+
+
+    static styles = css`
+        :host {
+            display: flex;
+            flex-direction: column;
+            justify-content: stretch;
+            align-items: stretch;
+            box-sizing: border-box;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: stretch;
+            overflow: hidden;
+            border: 2px solid;
+            border-radius: 6px;
+
+            color: var(--system-color-label);
+            background-color: var(--system-color-base);
+            border-color: var(--system-color-gray2);
+        }
+
+        #container:focus-within {
+            border-color: var(--system-color-gray1);
+        }
+
+        #container[disabled] {
+            color: var(--system-color-gray3);
+            background-color: var(--system-color-gray6);
+            border-color: var(--system-color-gray4);
+        }
+
+
+        input {
+            display: block;
+            flex-shrink: 1;
+            flex-grow: 1;
+            width: auto;
+            height: 100%;
+            max-width: 100%;
+            min-width: 2em;
+            max-height: 100%;
+            min-height: 32px;
+            box-sizing: border-box;
+            border: none;
+            outline: 0;
+            outline: none;
+            padding: 4px 0;
+            margin: 0;
+            font-family: inherit;
+            font-size: 19px;
+            text-align: center;
+            line-height: 24px;
+            color: var(--system-color-label);
+            font-variant-numeric: tabular-nums;
+            -moz-font-feature-settings: "tnum";
+            -webkit-font-feature-settings: "tnum";
+            font-feature-settings: "tnum";
+            background-color: inherit;
+        }
+
+        input::placeholder {
+            color: var(--system-color-gray3);
+        }
+
+        #container[disabled] input::placeholder {
+            color: transparent;
+        }
+
+        .clear-button {
+            cursor: pointer;
+            margin: 4px;
+            flex-shrink: 0;
+            fill: var(--x-border-color);
+        }
+
+        .clear-button:hover {
+            fill: var(--system-color-gray2);
+        }
+
+        #container[disabled] .clear-button,
+        #container:not([filled]) .clear-button {
+            display: none;
+        }
+
+        .flexspace {
+            flex-grow: 1;
+            flex-shrink: 1;
+        }
+
+        .separator {
+            user-select: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        [hidden] {
+            display: none;
+        }
+    `;
 }

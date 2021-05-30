@@ -1,6 +1,7 @@
 import { LitElement, css, html } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
-import { InputElement, IInputElement } from "./core/InputElement.js";
+import { InputElement } from "./core/InputElement.js";
+import type { IInputElement } from "./core/IInputElement.js";
 
 
 const enum CheckboxValueOption {
@@ -10,17 +11,17 @@ const enum CheckboxValueOption {
 }
 
 
-export type CheckboxValue = CheckboxValueOption;
+export type InputCheckboxValue = CheckboxValueOption;
 
 
 @customElement('input-checkbox')
-export class InputCheckboxElement extends InputElement<CheckboxValue> implements IInputElement<CheckboxValue> {
+export class InputCheckboxElement extends InputElement<InputCheckboxValue> implements IInputElement<InputCheckboxValue> {
 
     // Properties
-    readonly defaultValue: CheckboxValue = CheckboxValueOption.Unchecked;
+    readonly defaultValue: InputCheckboxValue = CheckboxValueOption.Unchecked;
 
     @property({ type: Number })
-    value: CheckboxValue = CheckboxValueOption.Unchecked;
+    value: InputCheckboxValue = CheckboxValueOption.Unchecked;
 
 
     set checked(v: boolean) { this.value = v ? CheckboxValueOption.Checked : CheckboxValueOption.Unchecked; }
@@ -70,7 +71,7 @@ export class InputCheckboxElement extends InputElement<CheckboxValue> implements
     // }
 
 
-    private _negateValue(value: CheckboxValue): CheckboxValue {
+    private _negateValue(value: InputCheckboxValue): InputCheckboxValue {
         return value === CheckboxValueOption.Checked ? CheckboxValueOption.Unchecked : CheckboxValueOption.Checked
     }
 
@@ -111,7 +112,7 @@ export class InputCheckboxElement extends InputElement<CheckboxValue> implements
     }
 
 
-    private _updateValue(value: CheckboxValue): void {
+    private _updateValue(value: InputCheckboxValue): void {
         this.value = InputCheckboxElement.applyFilters(this.filters, value);
         this.fireUpdateEvent();
     }
@@ -122,7 +123,7 @@ export class InputCheckboxElement extends InputElement<CheckboxValue> implements
     }
 
 
-    hasSameValueAs(value: CheckboxValue): boolean {
+    hasSameValueAs(value: InputCheckboxValue): boolean {
         return this.value === value;
     }
 

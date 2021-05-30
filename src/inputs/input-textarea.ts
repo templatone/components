@@ -1,19 +1,20 @@
 import { LitElement, css, html } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
-import { clear as clearIcon } from '../assets/icons.js';
+import { AutocompleteType } from './core/AutocompleteType.js';
+import { InputElement } from './core/InputElement.js';
+import { InputModeType } from './core/InputModeType.js';
+import type { ITextBasedInputElement } from './core/ITextBasedInputElement.js';
 
-import { InputElement, ITextBasedInputElement, AutocompleteType, InputModeType } from "./core/InputElement.js";
 
-
-export type TextareaValue = string;
+export type InputTextareaValue = string;
 
 
 @customElement('input-textarea')
-export class InputTextareaElement extends InputElement<TextareaValue> implements ITextBasedInputElement<TextareaValue> {
-    readonly defaultValue: TextareaValue = '';
+export class InputTextareaElement extends InputElement<InputTextareaValue> implements ITextBasedInputElement<InputTextareaValue> {
+    readonly defaultValue: InputTextareaValue = '';
 
     @property()
-    value: TextareaValue = '';
+    value: InputTextareaValue = '';
 
 
     @property({ attribute: true, converter: (v) => v?.trim() != "" ? v : null  })
@@ -47,7 +48,7 @@ export class InputTextareaElement extends InputElement<TextareaValue> implements
     }
 
 
-    private _updateValue(value: TextareaValue): void {
+    private _updateValue(value: InputTextareaValue): void {
         this.value = InputTextareaElement.applyFilters(this.filters, value);
         this.fireUpdateEvent();
     }
@@ -58,7 +59,7 @@ export class InputTextareaElement extends InputElement<TextareaValue> implements
     }
 
 
-    hasSameValueAs(value: TextareaValue): boolean {
+    hasSameValueAs(value: InputTextareaValue): boolean {
         return this.value === value;
     }
 

@@ -1,21 +1,20 @@
 import { LitElement, css, html } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
-import { InputElement, IInputElement } from "./core/InputElement.js";
-import { attachment as attachmentIcon } from '../assets/icons.js';
+import { InputElement } from "./core/InputElement.js";
+import { IInputElement } from "./core/IInputElement.js";
 
 
-
-export type ToggleValue = boolean;
+export type InputToggleValue = boolean;
 
 
 @customElement('input-toggle')
-export class InputToggleElement extends InputElement<ToggleValue> implements IInputElement<ToggleValue> {
+export class InputToggleElement extends InputElement<InputToggleValue> implements IInputElement<InputToggleValue> {
 
     // Properties
-    readonly defaultValue: ToggleValue = false;
+    readonly defaultValue: InputToggleValue = false;
 
     @property({ type: Boolean })
-    value: ToggleValue = false;
+    value: InputToggleValue = false;
 
     get checked(): boolean { return this.value === true; }
     set checked(v: boolean) { this.value = v; }
@@ -159,7 +158,7 @@ export class InputToggleElement extends InputElement<ToggleValue> implements IIn
     }
 
 
-    private _updateValue(value: ToggleValue): void {
+    private _updateValue(value: InputToggleValue): void {
         this.value = InputToggleElement.applyFilters(this.filters, value);
         this.fireUpdateEvent();
     }
@@ -170,7 +169,7 @@ export class InputToggleElement extends InputElement<ToggleValue> implements IIn
     }
 
 
-    hasSameValueAs(value: ToggleValue): boolean {
+    hasSameValueAs(value: InputToggleValue): boolean {
         return this.value === value;
     }
 

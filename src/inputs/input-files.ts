@@ -1,19 +1,20 @@
 import { LitElement, css, html } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
-import { InputElement, IInputElement } from "./core/InputElement.js";
+import { InputElement } from "./core/InputElement.js";
 import { attachment as attachmentIcon } from '../assets/icons.js';
+import type { IInputElement } from './core/IInputElement.js';
 
 
-export type FilesValue = File[];
+export type InputFilesValue = File[];
 
 
 @customElement('input-files')
-export class InputFilesElement extends InputElement<FilesValue> implements IInputElement<FilesValue> {
+export class InputFilesElement extends InputElement<InputFilesValue> implements IInputElement<InputFilesValue> {
 
-    readonly defaultValue: FilesValue = [];
+    readonly defaultValue: InputFilesValue = [];
 
     @property()
-    value: FilesValue = [];
+    value: InputFilesValue = [];
 
 
     @property({ attribute: true, reflect: true, type: Boolean })
@@ -48,13 +49,13 @@ export class InputFilesElement extends InputElement<FilesValue> implements IInpu
     }
 
 
-    private _updateValue(value: FilesValue): void {
+    private _updateValue(value: InputFilesValue): void {
         this.value = InputFilesElement.applyFilters(this.filters, value);
         this.fireUpdateEvent();
     }
 
 
-    hasSameValueAs(value: FilesValue): boolean {
+    hasSameValueAs(value: InputFilesValue): boolean {
         if (this.value.length === value.length) {
             return this.value.reduce((acc: boolean, f) => acc && value.indexOf(f) >= 0, true)
         } else {

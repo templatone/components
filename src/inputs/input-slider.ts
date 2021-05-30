@@ -1,21 +1,22 @@
-import { Utils } from '@templatone/kreslo';
+import { Numbers } from '@templatone/utils';
 import { LitElement, css, html } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
-import { InputElement, IInputElement } from "./core/InputElement.js";
+import { InputElement } from "./core/InputElement.js";
+import type { IInputElement } from './core/IInputElement.js';
 
 
-export type SliderValue = number;
+export type InputSliderValue = number;
 
 
 @customElement('input-slider')
-export class InputSliderElement extends InputElement<SliderValue> implements IInputElement<SliderValue> {
+export class InputSliderElement extends InputElement<InputSliderValue> implements IInputElement<InputSliderValue> {
 
     // Properties
-    get defaultValue(): SliderValue { return this.min; }
+    get defaultValue(): InputSliderValue { return this.min; }
 
 
     @property({ type: Number })
-    value: SliderValue = 0;
+    value: InputSliderValue = 0;
 
 
     @property({ type: Number })
@@ -137,8 +138,8 @@ export class InputSliderElement extends InputElement<SliderValue> implements IIn
 
         const ratio = valueX / valueMaxWidth;
 
-        let value = Utils.Numbers.remap(ratio, 0, 1, this.min, this.max);
-        value = Utils.Numbers.limit(value, this.min, this.max);
+        let value = Numbers.remap(ratio, 0, 1, this.min, this.max);
+        value = Numbers.limit(value, this.min, this.max);
 
         if (this.step) {
             value = Math.round(value / this.step) * this.step;
@@ -171,7 +172,7 @@ export class InputSliderElement extends InputElement<SliderValue> implements IIn
         e.preventDefault();
         e.stopPropagation();
 
-        value = Utils.Numbers.limit(value, this.min, this.max);
+        value = Numbers.limit(value, this.min, this.max);
 
         if (value != this.value) {
             this._updateValue(value);
@@ -194,7 +195,7 @@ export class InputSliderElement extends InputElement<SliderValue> implements IIn
     }
 
 
-    private _updateValue(value: SliderValue): void {
+    private _updateValue(value: InputSliderValue): void {
         this.value = InputSliderElement.applyFilters(this.filters, value);
         this.fireUpdateEvent();
     }
@@ -205,7 +206,7 @@ export class InputSliderElement extends InputElement<SliderValue> implements IIn
     }
 
 
-    hasSameValueAs(value: SliderValue): boolean {
+    hasSameValueAs(value: InputSliderValue): boolean {
         return this.value === value;
     }
 
