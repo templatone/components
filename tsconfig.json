@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "preserveConstEnums": true,
     "isolatedModules": true,
     "declarationDir": "./lib",
     "strict": true,

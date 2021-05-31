@@ -15,7 +15,7 @@ export declare abstract class InputElement<ValueType> extends LitElement {
     static applyFilters<ValueType>(filters: InputFilterType<ValueType>[], value: ValueType): ValueType;
     fireUpdateEvent(): void;
     fireImmediatelyUpdateEvent(): void;
-    fireStableUpdateEvent(): void;
+    firePeriodicalUpdateEvent(): void;
     fireStartUpdateEvent(): void;
     fireEndUpdateEvent(): void;
     fireFocusEvent(): void;

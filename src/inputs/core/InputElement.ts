@@ -69,13 +69,13 @@ export abstract class InputElement<ValueType> extends LitElement {
         }
 
         this._eventWaiter = window.setTimeout(() => {
-            this.fireStableUpdateEvent();
+            this.firePeriodicalUpdateEvent();
             this._eventWaiter = NaN;
         }, this.eventRepeaterDelay);
 
         if (isNaN(this._eventRepeater)) {
             this._eventRepeater = window.setTimeout(() => {
-                this.fireStableUpdateEvent();
+                this.firePeriodicalUpdateEvent();
                 this._eventRepeater = NaN;
             }, this.eventRepeaterDelay);
         }
@@ -83,37 +83,37 @@ export abstract class InputElement<ValueType> extends LitElement {
 
 
     fireImmediatelyUpdateEvent(): void {
-        const evnt = new InputEvent(InputEvent.UPDATE, this.value, this.isValid());
+        const evnt = new InputEvent(InputEvent.Update, this.value, this.isValid());
         this.dispatchEvent(evnt);
     }
 
 
-    fireStableUpdateEvent(): void {
-        const evnt = new InputEvent(InputEvent.UPDATE_STABLE, this.value, this.isValid());
+    firePeriodicalUpdateEvent(): void {
+        const evnt = new InputEvent(InputEvent.UpdatePeriodically, this.value, this.isValid());
         this.dispatchEvent(evnt);
     }
 
 
     fireStartUpdateEvent(): void {
-        const evnt = new InputEvent(InputEvent.UPDATE_START, this.value, this.isValid());
+        const evnt = new InputEvent(InputEvent.UpdateStart, this.value, this.isValid());
         this.dispatchEvent(evnt);
     }
 
 
     fireEndUpdateEvent(): void {
-        const evnt = new InputEvent(InputEvent.UPDATE_END, this.value, this.isValid());
+        const evnt = new InputEvent(InputEvent.UpdateEnd, this.value, this.isValid());
         this.dispatchEvent(evnt);
     }
 
 
     fireFocusEvent(): void {
-        const evnt = new InputEvent(InputEvent.FOCUS, this.value, this.isValid());
+        const evnt = new InputEvent(InputEvent.Focus, this.value, this.isValid());
         this.dispatchEvent(evnt);
     }
 
 
     fireBlurEvent(): void {
-        const evnt = new InputEvent(InputEvent.BLUR, this.value, this.isValid());
+        const evnt = new InputEvent(InputEvent.Blur, this.value, this.isValid());
         this.dispatchEvent(evnt);
     }
 }
