@@ -32,7 +32,7 @@ export class LabelContainerElement extends LitElement {
 
             padding: var(--x-pading);
             border-radius: calc(6px + var(--x-pading));
-            background-color: var(--system-color-gray6);
+            background-color: var(--system-color-grey6);
 
             transition-property: background-color;
             transition-duration: var(--x-transition-duration);
@@ -60,7 +60,7 @@ export class LabelContainerElement extends LitElement {
             transform: scale(.7);
             font-weight: 600;
             letter-spacing: .06em;
-            color: var(--system-color-gray1);
+            color: var(--system-color-grey1);
         }
 
         #label:empty {

@@ -174,7 +174,7 @@ export class InputCheckboxElement extends InputElement<InputCheckboxValue> imple
 
         #container {
             --x-size: 24px;
-            --x-border-color: var(--system-color-gray1);
+            --x-border-color: var(--system-color-grey1);
 
             outline: 0;
             display: block;
@@ -184,7 +184,7 @@ export class InputCheckboxElement extends InputElement<InputCheckboxValue> imple
         }
 
         #container:not(:focus-within) {
-            --x-border-color: var(--system-color-gray2);
+            --x-border-color: var(--system-color-grey2);
         }
 
         #track {
@@ -200,7 +200,7 @@ export class InputCheckboxElement extends InputElement<InputCheckboxValue> imple
 
         [disabled] #track {
             background-color: transparent;
-            color: var(--system-color-gray3);
+            color: var(--system-color-grey3);
         }
 
         #fill {

@@ -111,17 +111,17 @@ export class InputTextareaElement extends InputElement<InputTextareaValue> imple
 
             color: var(--system-color-label);
             background-color: var(--system-color-base);
-            border-color: var(--system-color-gray2);
+            border-color: var(--system-color-grey2);
         }
 
         #container:focus-within {
-            border-color: var(--system-color-gray1);
+            border-color: var(--system-color-grey1);
         }
 
         #container[disabled] {
-            color: var(--system-color-gray3);
-            background-color: var(--system-color-gray6);
-            border-color: var(--system-color-gray4);
+            color: var(--system-color-grey3);
+            background-color: var(--system-color-grey6);
+            border-color: var(--system-color-grey4);
         }
 
         textarea {
@@ -148,7 +148,7 @@ export class InputTextareaElement extends InputElement<InputTextareaValue> imple
         }
 
         textarea::placeholder {
-            color: var(--system-color-gray3);
+            color: var(--system-color-grey3);
         }
 
         #container[disabled] textarea::placeholder {

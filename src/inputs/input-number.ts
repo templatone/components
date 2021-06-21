@@ -212,17 +212,17 @@ export class InputNumberElement extends InputElement<InputNumberValue> implement
 
             color: var(--system-color-label);
             background-color: var(--system-color-base);
-            border-color: var(--system-color-gray2);
+            border-color: var(--system-color-grey2);
         }
 
         #container:focus-within {
-            border-color: var(--system-color-gray1);
+            border-color: var(--system-color-grey1);
         }
 
         #container[disabled] {
-            color: var(--system-color-gray3);
-            background-color: var(--system-color-gray6);
-            border-color: var(--system-color-gray4);
+            color: var(--system-color-grey3);
+            background-color: var(--system-color-grey6);
+            border-color: var(--system-color-grey4);
         }
 
         input {
@@ -252,7 +252,7 @@ export class InputNumberElement extends InputElement<InputNumberValue> implement
 
         
         input::placeholder {
-            color: var(--system-color-gray3);
+            color: var(--system-color-grey3);
         }
 
         #container[disabled] input::placeholder {
@@ -264,12 +264,12 @@ export class InputNumberElement extends InputElement<InputNumberValue> implement
             cursor: pointer;
             margin: 4px;
             flex-shrink: 0;
-            color: var(--system-color-gray2);
+            color: var(--system-color-grey2);
         }
 
         .clear-button:hover,
         .clear-button:focus {
-            color: var(--system-color-gray1);
+            color: var(--system-color-grey1);
         }
 
         #container[disabled] .clear-button,
