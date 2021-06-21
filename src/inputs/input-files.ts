@@ -100,7 +100,7 @@ export class InputFilesElement extends InputElement<InputFilesValue> implements 
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        background-color: var(--system-color-gray5);
+        background-color: var(--system-color-grey5);
         font-weight: 500;
         /* border: 2px solid var(--x-border-color); */
         border-radius: 6px;
@@ -113,11 +113,11 @@ export class InputFilesElement extends InputElement<InputFilesValue> implements 
 
     #container:focus-within .button,
     #container:hover .button {
-        background-color: var(--system-color-gray4);
+        background-color: var(--system-color-grey4);
     }
 
     #container:focus-within:hover .button {
-        background-color: var(--system-color-gray3);
+        background-color: var(--system-color-grey3);
     }
 
     .icon {

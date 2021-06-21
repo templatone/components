@@ -255,7 +255,7 @@ export class InputSliderElement extends InputElement<InputSliderValue> implement
             --x-height: 32px;
             --x-track-size: 2px;
             --x-track-color: var(--x-border-color);
-            --x-border-color: var(--system-color-gray1);
+            --x-border-color: var(--system-color-grey1);
 
             outline: 0;
             display: block;
@@ -294,7 +294,7 @@ export class InputSliderElement extends InputElement<InputSliderValue> implement
 
         [disabled] #track {
             background-color: transparent;
-            color: var(--system-color-gray3);
+            color: var(--system-color-grey3);
         }
 
         #bar {
@@ -325,7 +325,7 @@ export class InputSliderElement extends InputElement<InputSliderValue> implement
 
 
         [disabled] #bar {
-            background-color: var(--system-color-gray3);
+            background-color: var(--system-color-grey3);
         }
 
         #bar[stepping] {
@@ -333,8 +333,8 @@ export class InputSliderElement extends InputElement<InputSliderValue> implement
         }
 
         #handle {
-            --x-outline: var(--system-color-gray1);
-            --x-fill: var(--system-color-gray3);
+            --x-outline: var(--system-color-grey1);
+            --x-fill: var(--system-color-grey3);
 
             display: flex;
             justify-content: center;

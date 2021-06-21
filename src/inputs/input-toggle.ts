@@ -218,7 +218,7 @@ export class InputToggleElement extends InputElement<InputToggleValue> implement
 
         #container {
             --x-height: 28px;
-            --x-border-color: var(--system-color-gray1);
+            --x-border-color: var(--system-color-grey1);
 
             display: block;
             width: 54px;
@@ -228,7 +228,7 @@ export class InputToggleElement extends InputElement<InputToggleValue> implement
         }
 
         #container:not(:focus-within) {
-            --x-border-color: var(--system-color-gray2);
+            --x-border-color: var(--system-color-grey2);
         }
 
 
@@ -271,12 +271,12 @@ export class InputToggleElement extends InputElement<InputToggleValue> implement
         }
 
         [disabled] #bar {
-            background-color: var(--system-color-gray3);
+            background-color: var(--system-color-grey3);
         }
 
         #handle {
-            --x-outline: var(--system-color-gray1);
-            --x-fill: var(--system-color-gray3);
+            --x-outline: var(--system-color-grey1);
+            --x-fill: var(--system-color-grey3);
 
             display: flex;
             width: var(--x-height);

@@ -164,7 +164,7 @@ export class InputImagesElement extends InputElement<InputImagesValue> implement
             flex-direction: row;
             justify-content: center;
             align-items: center;
-            background-color: var(--system-color-gray5);
+            background-color: var(--system-color-grey5);
             font-weight: 500;
             /* border: 2px solid var(--x-border-color); */
             border-radius: 6px;
@@ -177,11 +177,11 @@ export class InputImagesElement extends InputElement<InputImagesValue> implement
 
         #button:focus-within .buttonface,
         #button:hover .buttonface {
-            background-color: var(--system-color-gray4);
+            background-color: var(--system-color-grey4);
         }
 
         #button:focus-within:hover .buttonface {
-            background-color: var(--system-color-gray3);
+            background-color: var(--system-color-grey3);
         }
 
         .icon {
@@ -267,7 +267,7 @@ export class InputImagesElement extends InputElement<InputImagesValue> implement
             flex-direction: row;
             justify-content: center;
             align-items: center;
-            background-color: var(--system-color-gray5);
+            background-color: var(--system-color-grey5);
             font-weight: 500;
             border-radius: 6px;
             box-sizing: border-box;
@@ -275,11 +275,11 @@ export class InputImagesElement extends InputElement<InputImagesValue> implement
 
         .buttonicon:focus-within,
         .buttonicon:hover {
-            background-color: var(--system-color-gray4);
+            background-color: var(--system-color-grey4);
         }
 
         .buttonicon:hover {
-            background-color: var(--system-color-gray3);
+            background-color: var(--system-color-grey3);
         }
 
 

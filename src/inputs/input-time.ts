@@ -372,17 +372,17 @@ export class InputTimeElement extends InputElement<InputTimeValue> implements II
 
             color: var(--system-color-label);
             background-color: var(--system-color-base);
-            border-color: var(--system-color-gray2);
+            border-color: var(--system-color-grey2);
         }
 
         #container:focus-within {
-            border-color: var(--system-color-gray1);
+            border-color: var(--system-color-grey1);
         }
 
         #container[disabled] {
-            color: var(--system-color-gray3);
-            background-color: var(--system-color-gray6);
-            border-color: var(--system-color-gray4);
+            color: var(--system-color-grey3);
+            background-color: var(--system-color-grey6);
+            border-color: var(--system-color-grey4);
         }
 
 
@@ -415,7 +415,7 @@ export class InputTimeElement extends InputElement<InputTimeValue> implements II
         }
 
         input::placeholder {
-            color: var(--system-color-gray3);
+            color: var(--system-color-grey3);
         }
 
         #container[disabled] input::placeholder {
@@ -430,7 +430,7 @@ export class InputTimeElement extends InputElement<InputTimeValue> implements II
         }
 
         .clear-button:hover {
-            fill: var(--system-color-gray2);
+            fill: var(--system-color-grey2);
         }
 
         #container[disabled] .clear-button,

@@ -15,7 +15,7 @@ const style = html`
 
     #container {
         --x-size: 24px;
-        --x-border-color: var(--system-color-gray1);
+        --x-border-color: var(--system-color-grey1);
 
         outline: 0;
         display: block;
@@ -25,7 +25,7 @@ const style = html`
     }
 
     #container:not(:focus-within) {
-        --x-border-color: var(--system-color-gray2);
+        --x-border-color: var(--system-color-grey2);
     }
 
     #track {
@@ -41,7 +41,7 @@ const style = html`
 
     [disabled] #track {
         background-color: transparent;
-        color: var(--system-color-gray3);
+        color: var(--system-color-grey3);
     }
 
     #fill {
@@ -70,7 +70,7 @@ const style = html`
     }
 
     [disabled] #fill {
-        background-color: var(--system-color-gray3);
+        background-color: var(--system-color-grey3);
     }
     
     :not([checked]) #fill {
@@ -210,7 +210,7 @@ export class InputRadioElement extends InputElement<InputRadioValue> implements 
 
         #container {
             --x-size: 24px;
-            --x-border-color: var(--system-color-gray1);
+            --x-border-color: var(--system-color-grey1);
 
             outline: 0;
             display: block;
@@ -220,7 +220,7 @@ export class InputRadioElement extends InputElement<InputRadioValue> implements 
         }
 
         #container:not(:focus-within) {
-            --x-border-color: var(--system-color-gray2);
+            --x-border-color: var(--system-color-grey2);
         }
 
         #track {
@@ -236,7 +236,7 @@ export class InputRadioElement extends InputElement<InputRadioValue> implements 
 
         [disabled] #track {
             background-color: transparent;
-            color: var(--system-color-gray3);
+            color: var(--system-color-grey3);
         }
 
         #fill {
@@ -265,7 +265,7 @@ export class InputRadioElement extends InputElement<InputRadioValue> implements 
         }
 
         [disabled] #fill {
-            background-color: var(--system-color-gray3);
+            background-color: var(--system-color-grey3);
         }
         
         :not([checked]) #fill {
