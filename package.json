@@ -1,6 +1,6 @@
 {
   "name": "@templatone/components",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "description": "Custom elements for Templatone App.",
   "keywords": [
     "custom-element",
@@ -27,14 +27,14 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@templatone/kreslo": "^3.10.1",
-    "@templatone/utils": "^1.2.0",
-    "lit": "^2.0.0-rc.1"
+    "@templatone/kreslo": "^3.10.2",
+    "@templatone/utils": "^1.2.3",
+    "lit": "^2.0.0-rc.2"
   },
   "devDependencies": {
     "@snowpack/plugin-typescript": "^1.2.1",
-    "snowpack": "^3.5.2",
-    "typescript": "^4.3.2"
+    "snowpack": "^3.5.9",
+    "typescript": "^4.3.4"
   },
   "publishConfig": {
     "access": "public"

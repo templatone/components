@@ -1,4 +1,5 @@
 export { BezierEasing } from './BezierEasing.js';
+export { Cookies } from './Cookies.js';
 export { Images } from './Images.js';
 export { Loaders } from './Loaders.js';
 export { Numbers } from './Numbers.js';
