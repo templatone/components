@@ -1,6 +1,6 @@
 {
   "name": "@templatone/kreslo",
-  "version": "3.10.1",
+  "version": "3.10.2",
   "description": "Objective oriented typescript library for rendering 2d graphics.",
   "keywords": [
     "canvas",
@@ -30,12 +30,12 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@templatone/utils": "^1.2.0"
+    "@templatone/utils": "^1.2.2"
   },
   "devDependencies": {
     "@snowpack/plugin-typescript": "^1.2.1",
-    "snowpack": "^3.3.5",
-    "typescript": "^4.2.4"
+    "snowpack": "^3.5.2",
+    "typescript": "^4.3.2"
   },
   "publishConfig": {
     "access": "public"
