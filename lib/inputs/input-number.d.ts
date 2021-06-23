@@ -26,6 +26,6 @@ export declare class InputNumberElement extends InputElement<InputNumberValue> i
     hasSameValueAs(value: InputNumberValue): boolean;
     focus(): void;
     blur(): void;
-    static styles: import("lit").CSSResultGroup;
     render(): import("lit-html").TemplateResult<1>;
+    static styles: import("lit").CSSResultGroup;
 }

@@ -53,7 +53,6 @@ export class InputNumberElement extends InputElement<InputNumberValue> implement
     max: number | null = null;
 
 
-    // return step;
     @property({
         attribute: true,
         converter: (v) => converterNumberOrNull('step', v),
@@ -192,6 +191,29 @@ export class InputNumberElement extends InputElement<InputNumberValue> implement
     }
 
 
+    render() {
+        return html`
+            <div id="container" ?disabled=${this.disabled} ?readOnly=${this.readOnly} ?filled=${this.value !=null}>
+                <div class="actionButton" tabindex="-1" ?hidden=${this.hasSameValueAs(this.defaultValue)} @click=${()=>
+                    this._onClearValue()}>
+                    ${clearIcon}
+                </div>
+            
+                <input id="input" @input=${()=> this._onInput()}
+                    @blur=${() => this._onBlur()}
+                    @keydown=${(e: KeyboardEvent) => this._onKeyDown(e)}
+                    .value=${this._formatValue(this.value)}
+                    .disabled=${this.disabled}
+                    .readOnly=${this.readOnly}
+                    .autocomplete=${this.autocomplete}
+                    .inputMode=${this._computeInputMode()}
+                    .placeholder=${this.placeholder ? this.placeholder : ''}
+                    type="text">
+            </div>
+        `;
+    }
+
+
     static styles = css`
         :host {
             display: flex;
@@ -259,7 +281,7 @@ export class InputNumberElement extends InputElement<InputNumberValue> implement
             color: transparent;
         }
 
-        .clear-button {
+        .actionButton {
             outline: 0;
             cursor: pointer;
             margin: 4px;
@@ -267,13 +289,20 @@ export class InputNumberElement extends InputElement<InputNumberValue> implement
             color: var(--system-color-grey2);
         }
 
-        .clear-button:hover,
-        .clear-button:focus {
+        .actionButton > svg {
+            display: block;
+            width: 24px;
+            height: 24px;
+        }
+
+        .actionButton:hover,
+        .actionButton:focus {
             color: var(--system-color-grey1);
         }
 
-        #container[disabled] .clear-button,
-        #container:not([filled]) .clear-button {
+        #container[disabled] .actionButton,
+        #container:not([filled]) .actionButton,
+        #container[readOnly] .actionButton {
             display: none;
         }
 
@@ -281,27 +310,4 @@ export class InputNumberElement extends InputElement<InputNumberValue> implement
             display: none;
         }
     `;
-
-
-    render() {
-        return html`
-            <div id="container" ?disabled=${this.disabled} ?filled=${this.value != null}>
-                <div class="clear-button" tabindex="-1" ?hidden=${this.hasSameValueAs(this.defaultValue)} @click=${() => this._onClearValue()}>
-                    ${clearIcon}
-                </div>
-            
-                <input id="input"
-                    @input=${() => this._onInput()}
-                    @blur=${() => this._onBlur()}
-                    @keydown=${(e: KeyboardEvent) => this._onKeyDown(e)}
-                    .value=${this._formatValue(this.value)}
-                    ?disabled=${this.disabled}
-                    ?readOnly=${this.readOnly}
-                    .autocomplete=${this.autocomplete}
-                    .inputMode=${this._computeInputMode()}
-                    placeholder=${this.placeholder ? this.placeholder : ''}
-                    type="text">
-            </div>
-        `;
-    }
 }
