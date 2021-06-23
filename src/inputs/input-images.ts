@@ -48,6 +48,8 @@ export class InputImagesElement extends InputElement<InputImagesValue> implement
             const images = await Promise.all(promises)
 
             this._addImages(...images);
+
+            this._input.value = '';
         }
     }
 
@@ -107,7 +109,9 @@ export class InputImagesElement extends InputElement<InputImagesValue> implement
 
         return urls.map((url, i) => html`
             <div class="thumbnail">
-                <div class="close buttonicon" @click=${() => this._removeImageByIndex(i)}>
+                <div class="close icon"
+                    ?hidden=${!(this.disabled || this.readOnly)}
+                    @click=${() => this._removeImageByIndex(i)}>
                     <div class="icon">${clearIcon}</div>
                 </div>
 
@@ -120,21 +124,21 @@ export class InputImagesElement extends InputElement<InputImagesValue> implement
     render() {
         return html`
             <div id="container" ?disabled=${this.disabled}>
-                <div id="button" ?disabled=${this.disabled}>
-                    <div class="buttonface">
+                <div id="button" ?disabled=${this.disabled} ?readOnly=${this.readOnly}>
+                    <div class="button-face">
                         <div class="icon">${imagesIcon}</div>
-                
                         <span>${this.multiple ? "Vybrat obrázky" : "Vybrat obrázek"}</span>
                     </div>
                 
                     <div class="file">
                         <input id="input"
                             accept="image/*"
-                            ?capture=${this.capture}
-                            ?multiple=${this.multiple}
-                            ?disabled=${this.disabled}
-                            ?autofocus=${this.autofocus}
-                            @change=${(e: any) => this._onFileSelect(e)}
+                            .capture=${this.capture}
+                            .multiple=${this.multiple}
+                            .readOnly=${this.readOnly}
+                            .disabled=${this.disabled}
+                            .autofocus=${this.autofocus}
+                            @change=${(e: Event) => this._onFileSelect(e)}
                         type="file">
                     </div>
                 </div>
@@ -159,30 +163,42 @@ export class InputImagesElement extends InputElement<InputImagesValue> implement
             overflow: hidden;
         }
 
-        #button .buttonface {
+        #button[disabled],
+        #button[readOnly] {
+            pointer-events: none;
+        }
+
+        #button .button-face {
             display: flex;
             flex-direction: row;
             justify-content: center;
             align-items: center;
             background-color: var(--system-color-grey5);
             font-weight: 500;
-            /* border: 2px solid var(--x-border-color); */
             border-radius: 6px;
-
             width: 100%;
             height: 36px;
             box-sizing: border-box;
             margin-bottom: -36px;
         }
 
-        #button:focus-within .buttonface,
-        #button:hover .buttonface {
+        #button:focus-within .button-face,
+        #button:hover .button-face {
             background-color: var(--system-color-grey4);
         }
 
-        #button:focus-within:hover .buttonface {
+        #button:focus-within:hover .button-face {
             background-color: var(--system-color-grey3);
         }
+
+
+        #button[disabled] .button-face {
+            background-color: transparent;
+            color: var(--system-color-grey3);
+            border: 2px solid currentColor;
+            background-color: var(--system-color-grey6);
+        }
+
 
         .icon {
             display: block;
@@ -258,11 +274,11 @@ export class InputImagesElement extends InputElement<InputImagesValue> implement
             display: block;
             height: 100%;
             user-select: none;
-            /* pointer-events: none; */
+            pointer-events: none;
         }
 
 
-        .buttonicon {
+        .thumbnail .icon {
             display: flex;
             flex-direction: row;
             justify-content: center;
@@ -273,12 +289,12 @@ export class InputImagesElement extends InputElement<InputImagesValue> implement
             box-sizing: border-box;
         }
 
-        .buttonicon:focus-within,
-        .buttonicon:hover {
+        .thumbnail .icon:focus-within,
+        .thumbnail .icon:hover {
             background-color: var(--system-color-grey4);
         }
 
-        .buttonicon:hover {
+        .thumbnail .icon:hover {
             background-color: var(--system-color-grey3);
         }
 
