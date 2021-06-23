@@ -19,6 +19,6 @@ export declare class InputTextElement extends InputElement<InputTextValue> imple
     hasSameValueAs(value: InputTextValue): boolean;
     focus(): void;
     blur(): void;
-    static styles: import("lit").CSSResultGroup;
     render(): import("lit-html").TemplateResult<1>;
+    static styles: import("lit").CSSResultGroup;
 }
