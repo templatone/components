@@ -83,6 +83,29 @@ export class InputTextElement extends InputElement<InputTextValue> implements IT
     }
 
 
+    render() {
+        return html`
+            <div id="container" ?disabled=${this.disabled} ?readOnly=${this.readOnly} ?filled=${this.value !=null}>
+                <input id="input" @input=${(e: InputEvent)=> this._onInput()}
+                .value=${this.value}
+                .disabled=${this.disabled}
+                .readOnly=${this.readOnly}
+                .autocomplete=${this.autocomplete ? 'on' : 'off'}
+                .inputMode=${this.inputMode}
+                .placeholder=${this.placeholder ? this.placeholder : ''}
+                type="text">
+            
+                <div class="actionButton"
+                    tabindex="-1"
+                    ?hidden=${this.hasSameValueAs(this.defaultValue)}
+                    @click=${()=> this._onClearValue()}>
+                    ${clearIcon}
+                </div>
+            </div>
+        `;
+    }
+
+
     static styles = css`
         :host {
             display: flex;
@@ -93,6 +116,7 @@ export class InputTextElement extends InputElement<InputTextValue> implements IT
         }
 
         #container {
+            width: 100%;
             display: flex;
             flex-direction: row;
             justify-content: flex-start;
@@ -119,13 +143,16 @@ export class InputTextElement extends InputElement<InputTextValue> implements IT
         input {
             display: block;
             flex-shrink: 1;
-            flex-grow: 1;
-            width: auto;
-            height: 100%;
-            max-width: 100%;
+            flex-grow: 0;
+
+            width: 100%;
             min-width: 0%;
-            max-height: 100%;
+            max-width: 100%;
+
+            height: 100%;
             min-height: 32px;
+            max-height: 100%;
+
             box-sizing: border-box;
             border: none;
             outline: 0;
@@ -149,21 +176,30 @@ export class InputTextElement extends InputElement<InputTextValue> implements IT
             color: transparent;
         }
 
-        .clear-button {
+        .actionButton {
+            display: block;
+            flex-shrink: 0;
+            flex-grow: 0;
             outline: 0;
             cursor: pointer;
             margin: 4px;
-            flex-shrink: 0;
             color: var(--system-color-grey2);
         }
 
-        .clear-button:hover,
-        .clear-button:focus {
+        .actionButton > svg {
+            display: block;
+            width: 24px;
+            height: 24px;
+        }
+
+        .actionButton:hover,
+        .actionButton:focus {
             color: var(--system-color-grey1);
         }
 
-        #container[disabled] .clear-button,
-        #container:not([filled]) .clear-button {
+        #container[disabled] .actionButton,
+        #container:not([filled]) .actionButton,
+        #container[readOnly] .actionButton {
             display: none;
         }
 
@@ -171,27 +207,4 @@ export class InputTextElement extends InputElement<InputTextValue> implements IT
             display: none;
         }
     `;
-
-
-    render() {
-        return html`
-            <div id="container" ?disabled=${this.disabled} ?filled=${this.value !=null}>
-                <input id="input" @input=${(e: InputEvent)=> this._onInput()}
-                .value=${this.value}
-                ?disabled=${this.disabled}
-                ?readOnly=${this.readOnly}
-                .autocomplete=${this.autocomplete ? 'on' : 'off'}
-                .inputMode=${this.inputMode}
-                placeholder=${this.placeholder ? this.placeholder : ''}
-                type="text">
-            
-                <div class="clear-button"
-                    tabindex="-1"
-                    ?hidden=${this.hasSameValueAs(this.defaultValue)}
-                    @click=${()=> this._onClearValue()}>
-                    ${clearIcon}
-                </div>
-            </div>
-        `;
-    }
 }
