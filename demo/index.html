@@ -10,6 +10,7 @@
     <script src="../lib/inputs/label-container.js" type="module"></script>
     <script src="../lib/inputs/input-text.js" type="module"></script>
     <script src="../lib/inputs/input-number.js" type="module"></script>
+    <script src="../lib/inputs/input-images.js" type="module"></script>
 </head>
 
 <body>
@@ -28,7 +29,7 @@
             --system-color-separator: rgba(30, 30, 30, 0.4);
             --system-color-opaqueSeparator: rgba(30, 30, 30, 0.4);
             --system-color-link: var(--system-accentColor);
-            
+
             --system-pattern-transparency: url("data:image/svg+xml;utf8,<svg viewBox='0 0 2 2'><rect fill='rgba(255,255,255,1)' width='2' height='2'/><polygon fill='rgba(203,203,203,1)' points='0,0 1,0 1,2 2,2 2,1 0,1 '/></svg>");
             --system-pattern-transparency-color1: rgba(255, 255, 255, 1);
             --system-pattern-transparency-color2: rgba(203, 203, 203, 1);
@@ -61,7 +62,7 @@
         }
 
         body {
-            margin: 0;
+            margin: 20px;
             font-family: var(--system-font-sans-family);
         }
 
@@ -71,20 +72,34 @@
     </style>
 
     <!-- Text -->
-    <label-container><input-text value="Text line" placeholder="Placeholder text"></input-text></label-container>
-    <label-container><input-text placeholder="Placeholder text"></input-text></label-container>
-    <label-container><input-text disabled value="Text line" placeholder="Placeholder text"></input-text></label-container>
-    <label-container><input-text disabled placeholder="Placeholder text"></input-text></label-container>
-    <label-container><input-text readonly value="Text line" placeholder="Placeholder text"></input-text></label-container>
-    <label-container><input-text readonly placeholder="Placeholder text"></input-text></label-container>
+    <label-container>
+        <input-text value="Text line" placeholder="Placeholder text"></input-text>
+        <br><input-text placeholder="Placeholder text"></input-text>
+        <br><input-text disabled value="Text line" placeholder="Placeholder text"></input-text>
+        <br><input-text disabled placeholder="Placeholder text"></input-text>
+        <br><input-text readonly value="Text line" placeholder="Placeholder text"></input-text>
+        <br><input-text readonly placeholder="Placeholder text"></input-text>
+    </label-container>
 
     <!-- Number -->
-    <label-container><input-number value="123" placeholder="Placeholder number"></input-number></label-container>
-    <label-container><input-number placeholder="Placeholder number"></input-number></label-container>
-    <label-container><input-number disabled value="123" placeholder="Placeholder number"></input-number></label-container>
-    <label-container><input-number disabled placeholder="Placeholder number"></input-number></label-container>
-    <label-container><input-number readonly value="123" placeholder="Placeholder number"></input-number></label-container>
-    <label-container><input-number readonly placeholder="Placeholder number"></input-number></label-container>
+    <label-container>
+        <input-number value="123" placeholder="Placeholder number"></input-number>
+        <br><input-number placeholder="Placeholder number"></input-number>
+        <br><input-number disabled value="123" placeholder="Placeholder number"></input-number>
+        <br><input-number disabled placeholder="Placeholder number"></input-number>
+        <br><input-number readonly value="123" placeholder="Placeholder number"></input-number>
+        <br><input-number readonly placeholder="Placeholder number"></input-number>
+    </label-container>
+
+    <!-- Number -->
+    <label-container>
+        <input-images></input-images>
+        <br><input-images disabled></input-images>
+        <br><input-images readonly></input-images>
+        <br><input-images multiple></input-images>
+        <br><input-images multiple disabled></input-images>
+        <br><input-images multiple readonly></input-images>
+    </label-container>
 
 
 </body>
