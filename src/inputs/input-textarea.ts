@@ -78,15 +78,14 @@ export class InputTextareaElement extends InputElement<InputTextareaValue> imple
 
     render() {
         return html`
-            <div id="container" ?disabled=${this.disabled}>
-                <textarea
-                    id="input"
-                    @input=${(e: InputEvent) => this._onInput()} 
+            <div id="container" ?disabled=${this.disabled} ?readOnly=${this.readOnly}>
+                <textarea id="input" @input=${(e: InputEvent) => this._onInput()} 
                     .value=${this.value}
                     .disabled=${this.disabled}
                     .readOnly=${this.readOnly}
                     .autocomplete=${this.autocomplete}
-                    placeholder=${this.placeholder ? this.placeholder : ''}></textarea>
+                    .inputMode=${this.inputMode}
+                    .placeholder=${this.placeholder ? this.placeholder : ''}></textarea>
             </div>
         `;
     }

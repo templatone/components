@@ -17,6 +17,7 @@ export declare class InputNumberElement extends InputElement<InputNumberValue> i
     private _computeInputMode;
     private _input;
     private _onInput;
+    private _onFocus;
     private _onBlur;
     private _onKeyDown;
     private _onClearValue;

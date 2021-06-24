@@ -10,6 +10,7 @@
     <script src="../lib/inputs/label-container.js" type="module"></script>
     <script src="../lib/inputs/input-text.js" type="module"></script>
     <script src="../lib/inputs/input-number.js" type="module"></script>
+    <script src="../lib/inputs/input-textarea.js" type="module"></script>
     <script src="../lib/inputs/input-images.js" type="module"></script>
 </head>
 
@@ -91,7 +92,17 @@
         <br><input-number readonly placeholder="Placeholder number"></input-number>
     </label-container>
 
-    <!-- Number -->
+    <!-- TextArea -->
+    <label-container>
+        <input-textarea value="123" placeholder="Placeholder number"></input-textarea>
+        <br><input-textarea placeholder="Placeholder number"></input-textarea>
+        <br><input-textarea disabled value="123" placeholder="Placeholder number"></input-textarea>
+        <br><input-textarea disabled placeholder="Placeholder number"></input-textarea>
+        <br><input-textarea readonly value="123" placeholder="Placeholder number"></input-textarea>
+        <br><input-textarea readonly placeholder="Placeholder number"></input-textarea>
+    </label-container>
+
+    <!-- Images -->
     <label-container>
         <input-images></input-images>
         <br><input-images disabled></input-images>
