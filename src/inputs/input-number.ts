@@ -127,6 +127,13 @@ export class InputNumberElement extends InputElement<InputNumberValue> implement
     }
 
 
+    private _onFocus() {
+        if (this.value == 0) {
+            this._input.select();
+        }
+    }
+
+
     private _onBlur() {
         this._input.value = this._formatValue(this.value);
     }
@@ -138,6 +145,7 @@ export class InputNumberElement extends InputElement<InputNumberValue> implement
 
             const v: number = this.step ?? 1;
             this._updateValue((this.value ?? 0) + (v * (e.shiftKey ? 10 : 1) * direction));
+            this._input.select();
         }
 
         switch (e.key) {
@@ -200,6 +208,7 @@ export class InputNumberElement extends InputElement<InputNumberValue> implement
                 </div>
             
                 <input id="input" @input=${()=> this._onInput()}
+                    @focus=${() => this._onFocus()}
                     @blur=${() => this._onBlur()}
                     @keydown=${(e: KeyboardEvent) => this._onKeyDown(e)}
                     .value=${this._formatValue(this.value)}
