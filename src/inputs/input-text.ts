@@ -86,7 +86,8 @@ export class InputTextElement extends InputElement<InputTextValue> implements IT
     render() {
         return html`
             <div id="container" ?disabled=${this.disabled} ?readOnly=${this.readOnly} ?filled=${this.value !=null}>
-                <input id="input" @input=${(e: InputEvent)=> this._onInput()}
+                <input id="input"
+                @input=${this._onInput.bind(this)}
                 .value=${this.value}
                 .disabled=${this.disabled}
                 .readOnly=${this.readOnly}
@@ -98,7 +99,7 @@ export class InputTextElement extends InputElement<InputTextValue> implements IT
                 <div class="actionButton"
                     tabindex="-1"
                     ?hidden=${this.hasSameValueAs(this.defaultValue)}
-                    @click=${()=> this._onClearValue()}>
+                    @click=${this._onClearValue.bind(this)}>
                     ${clearIcon}
                 </div>
             </div>
