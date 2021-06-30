@@ -70,10 +70,22 @@
     <script src="../lib/inputs/input-number.js" type="module"></script>
     <script src="../lib/inputs/input-textarea.js" type="module"></script>
     <script src="../lib/inputs/input-images.js" type="module"></script>
-    <script src="../lib/inputs/input-toggle.js" type="module"></script>
+    <script src="../lib/assets/asset-button.js" type="module"></script>
 </head>
 
 <body>
+    <!-- Button -->
+    <label-container>
+        <asset-button>Label</asset-button>
+        <br>
+        <asset-button disabled>Label</asset-button>
+        <br>
+        <asset-button primary>Label</asset-button>
+        <br>
+        <asset-button primary disabled>Label</asset-button>
+    </label-container>
+
+
     <!-- Text -->
     <label-container>
         <input-text value="Text line" placeholder="Placeholder text"></input-text>

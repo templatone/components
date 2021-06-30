@@ -16,6 +16,6 @@ export declare class InputFilesElement extends InputElement<InputFilesValue> imp
     clearValue(): void;
     focus(): void;
     blur(): void;
-    static styles: import("lit").CSSResultGroup;
     render(): import("lit-html").TemplateResult<1>;
+    static styles: import("lit").CSSResultGroup;
 }

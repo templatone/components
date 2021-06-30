@@ -81,91 +81,6 @@ export class InputFilesElement extends InputElement<InputFilesValue> implements 
     }
 
 
-    static styles = css`
-    :host {
-        display: flex;
-        flex-direction: column;
-        justify-content: stretch;
-        align-items: stretch;
-        box-sizing: border-box;
-    }
-
-    #container {
-        display: block;
-        overflow: hidden;
-    }
-
-    #container .button {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        background-color: var(--system-color-grey5);
-        font-weight: 500;
-        /* border: 2px solid var(--x-border-color); */
-        border-radius: 6px;
-
-        width: 100%;
-        height: 36px;
-        box-sizing: border-box;
-        margin-bottom: -36px;
-    }
-
-    #container:focus-within .button,
-    #container:hover .button {
-        background-color: var(--system-color-grey4);
-    }
-
-    #container:focus-within:hover .button {
-        background-color: var(--system-color-grey3);
-    }
-
-    .icon {
-        display: block;
-        width: 24px;
-        height: 24px;
-        margin: 0 8px;
-    }
-
-    .icon:first-child {
-        margin-left: 0;
-    }
-    
-    .icon:last-child {
-        margin-right: 0;
-    }
-
-    .file {
-        display: block;
-
-        width: 100%;
-        height: 36px;
-    }
-
-    input[type=file] {
-        display: block;
-        min-width: 0 !important;
-        max-width: 100% !important;
-        width: 100% !important;
-        min-height: 0 !important;
-        max-height: 100% !important;
-        height: 100% !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        border: 0 !important;
-        outline: 0 !important;
-        box-sizing: border-box !important;
-        background-color: transparent !important;
-        opacity: 0 !important;
-        cursor: inherit !important;
-    }
-
-    [hidden] {
-        display: none;
-    }
-    `;
-
-
     render() {
         return html`
             <div id="container" ?disabled=${this.disabled}>
@@ -188,4 +103,89 @@ export class InputFilesElement extends InputElement<InputFilesValue> implements 
             </div>
         `;
     }
+
+
+    static styles = css`
+        :host {
+            display: flex;
+            flex-direction: column;
+            justify-content: stretch;
+            align-items: stretch;
+            box-sizing: border-box;
+        }
+
+        #container {
+            display: block;
+            overflow: hidden;
+        }
+
+        #container .button {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--system-color-grey5);
+            font-weight: 500;
+            /* border: 2px solid var(--x-border-color); */
+            border-radius: 6px;
+
+            width: 100%;
+            height: 36px;
+            box-sizing: border-box;
+            margin-bottom: -36px;
+        }
+
+        #container:focus-within .button,
+        #container:hover .button {
+            background-color: var(--system-color-grey4);
+        }
+
+        #container:focus-within:hover .button {
+            background-color: var(--system-color-grey3);
+        }
+
+        .icon {
+            display: block;
+            width: 24px;
+            height: 24px;
+            margin: 0 8px;
+        }
+
+        .icon:first-child {
+            margin-left: 0;
+        }
+        
+        .icon:last-child {
+            margin-right: 0;
+        }
+
+        .file {
+            display: block;
+
+            width: 100%;
+            height: 36px;
+        }
+
+        input[type=file] {
+            display: block;
+            min-width: 0 !important;
+            max-width: 100% !important;
+            width: 100% !important;
+            min-height: 0 !important;
+            max-height: 100% !important;
+            height: 100% !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            border: 0 !important;
+            outline: 0 !important;
+            box-sizing: border-box !important;
+            background-color: transparent !important;
+            opacity: 0 !important;
+            cursor: inherit !important;
+        }
+
+        [hidden] {
+            display: none;
+        }
+    `;
 }
