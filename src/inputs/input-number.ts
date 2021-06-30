@@ -157,7 +157,7 @@ export class InputNumberElement extends InputElement<InputNumberValue> implement
 
     private _onClearValue() {
         this.clearValue();
-        this.focus();
+        setTimeout(() => this.focus(), 1);
     }
 
 
@@ -189,6 +189,7 @@ export class InputNumberElement extends InputElement<InputNumberValue> implement
 
     focus() {
         this._input.focus();
+        this._input.setSelectionRange(this._input.value.length, this._input.value.length);
         this.fireFocusEvent();
     }
 
@@ -238,6 +239,7 @@ export class InputNumberElement extends InputElement<InputNumberValue> implement
             justify-content: flex-start;
             align-items: stretch;
             overflow: hidden;
+            box-sizing: border-box;
             border: 2px solid;
             border-radius: 6px;
 

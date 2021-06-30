@@ -122,6 +122,7 @@ export class InputTextElement extends InputElement<InputTextValue> implements IT
             justify-content: flex-start;
             align-items: stretch;
             overflow: hidden;
+            box-sizing: border-box;
             border: 2px solid;
             border-radius: 6px;
 
@@ -177,6 +178,7 @@ export class InputTextElement extends InputElement<InputTextValue> implements IT
         }
 
         .actionButton {
+            user-select: none;
             display: block;
             flex-shrink: 0;
             flex-grow: 0;

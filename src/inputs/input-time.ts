@@ -249,7 +249,7 @@ export class InputTimeElement extends InputElement<InputTimeValue> implements II
 
     private _onClearValue() {
         this.clearValue();
-        this.focus();
+        setTimeout(() => this.focus(), 1);
     }
 
 
@@ -280,6 +280,7 @@ export class InputTimeElement extends InputElement<InputTimeValue> implements II
 
     focus() {
         this._hours.focus();
+        this._hours.setSelectionRange(0, this._hours.value.length);
         this.fireFocusEvent();
     }
 
@@ -344,7 +345,7 @@ export class InputTimeElement extends InputElement<InputTimeValue> implements II
                 enterkeyhint="enter"
                 type="text">
             
-                <div class="clear-button" ?hidden=${this.hasSameValueAs(this.defaultValue)} @click=${()=> this._onClearValue()}>
+                <div class="actionButton" ?hidden=${this.hasSameValueAs(this.defaultValue)} @click=${()=> this._onClearValue()}>
                     <div class="icon">${clearIcon}</div>
                 </div>
             </div>
@@ -422,19 +423,19 @@ export class InputTimeElement extends InputElement<InputTimeValue> implements II
             color: transparent;
         }
 
-        .clear-button {
+        .actionButton {
             cursor: pointer;
             margin: 4px;
             flex-shrink: 0;
             fill: var(--x-border-color);
         }
 
-        .clear-button:hover {
+        .actionButton:hover {
             fill: var(--system-color-grey2);
         }
 
-        #container[disabled] .clear-button,
-        #container:not([filled]) .clear-button {
+        #container[disabled] .actionButton,
+        #container:not([filled]) .actionButton {
             display: none;
         }
 
