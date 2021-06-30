@@ -1,5 +1,6 @@
 // Assets
 export { AssetSpinnerElement } from './assets/asset-spinner.js'
+export { AssetButtonElement } from './assets/asset-button.js'
 
 
 // Inputs
