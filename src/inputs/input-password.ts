@@ -122,12 +122,14 @@ export class InputPasswordElement extends InputElement<InputPasswordValue> imple
                     .type="${!this._passwordVisibilityToggle ? 'password' : 'text'}">
             
                 <div class="actionButton"
+                    tabindex="-1"
                     ?hidden=${this._passwordVisibilityToggle || this.hasSameValueAs(this.defaultValue)}
                     @click=${this._onPasswordVisibilityOn.bind(this)}>
                     ${visibilityIcon}
                 </div>
 
                 <div class="actionButton"
+                    tabindex="-1"
                     ?hidden=${!this._passwordVisibilityToggle || this.hasSameValueAs(this.defaultValue)}
                     @click=${this._onPasswordVisibilityOff.bind(this)}>
                     ${visibilityOffIcon}
