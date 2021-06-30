@@ -47,7 +47,7 @@ export class InputPasswordElement extends InputElement<InputPasswordValue> imple
 
 
     @state()
-    private _visibilityToggle: boolean = false;
+    private _passwordVisibilityToggle: boolean = false;
 
 
     private _onInput() {
@@ -56,14 +56,24 @@ export class InputPasswordElement extends InputElement<InputPasswordValue> imple
     }
 
 
-    private _onVisibilityOn() {
-        this._visibilityToggle = true;
+    private _passwordVisibilityOn() {
+        this._passwordVisibilityToggle = true;
+    }
+
+
+    private _passwordVisibilityOff() {
+        this._passwordVisibilityToggle = false;
+    }
+
+
+    private _onPasswordVisibilityOn() {
+        this._passwordVisibilityOn();
         setTimeout(() => this.focus(), 1);
     }
 
 
-    private _onVisibilityOff() {
-        this._visibilityToggle = false;
+    private _onPasswordVisibilityOff() {
+        this._passwordVisibilityOff();
         setTimeout(() => this.focus(), 1);
     }
 
@@ -100,24 +110,26 @@ export class InputPasswordElement extends InputElement<InputPasswordValue> imple
     render() {
         return html`
             <div id="container" ?disabled=${this.disabled} ?readOnly=${this.readOnly} ?filled=${this.value !=null}>
-                <input id="input" @input=${(e: InputEvent)=> this._onInput()}
+                <input id="input"
+                    @input=${this._onInput.bind(this)}
+                    @blur=${this._passwordVisibilityOff.bind(this)}
                     .value=${this.value}
                     .disabled=${this.disabled}
                     .readOnly=${this.readOnly}
                     .autocomplete=${this.autocomplete ? 'on' : 'off'}
                     .inputMode=${this.inputMode}
                     .placeholder=${this.placeholder ? this.placeholder : ''}
-                    .type="${!this._visibilityToggle ? 'password' : 'text'}">
+                    .type="${!this._passwordVisibilityToggle ? 'password' : 'text'}">
             
                 <div class="actionButton"
-                    ?hidden=${this._visibilityToggle || this.hasSameValueAs(this.defaultValue)}
-                    @click=${()=> this._onVisibilityOn()}>
+                    ?hidden=${this._passwordVisibilityToggle || this.hasSameValueAs(this.defaultValue)}
+                    @click=${this._onPasswordVisibilityOn.bind(this)}>
                     ${visibilityIcon}
                 </div>
 
                 <div class="actionButton"
-                    ?hidden=${!this._visibilityToggle || this.hasSameValueAs(this.defaultValue)}
-                    @click=${()=> this._onVisibilityOff()}>
+                    ?hidden=${!this._passwordVisibilityToggle || this.hasSameValueAs(this.defaultValue)}
+                    @click=${this._onPasswordVisibilityOff.bind(this)}>
                     ${visibilityOffIcon}
                 </div>
             </div>

@@ -12,10 +12,12 @@ export declare class InputPasswordElement extends InputElement<InputPasswordValu
     autocomplete: AutocompleteType;
     inputMode: InputModeType;
     private _input;
-    private _visibilityToggle;
+    private _passwordVisibilityToggle;
     private _onInput;
-    private _onVisibilityOn;
-    private _onVisibilityOff;
+    private _passwordVisibilityOn;
+    private _passwordVisibilityOff;
+    private _onPasswordVisibilityOn;
+    private _onPasswordVisibilityOff;
     private _updateValue;
     clearValue(): void;
     hasSameValueAs(value: InputPasswordValue): boolean;
