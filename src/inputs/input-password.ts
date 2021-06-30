@@ -58,16 +58,13 @@ export class InputPasswordElement extends InputElement<InputPasswordValue> imple
 
     private _onVisibilityOn() {
         this._visibilityToggle = true;
-        // this.focus();
-
-        setTimeout(() => this.focus(), 0);
+        setTimeout(() => this.focus(), 1);
     }
 
 
     private _onVisibilityOff() {
         this._visibilityToggle = false;
-        
-        setTimeout(() => this.focus(), 0);
+        setTimeout(() => this.focus(), 1);
     }
 
 
@@ -89,6 +86,7 @@ export class InputPasswordElement extends InputElement<InputPasswordValue> imple
 
     focus() {
         this._input.focus();
+        this._input.setSelectionRange(this._input.value.length, this._input.value.length);
         this.fireFocusEvent();
     }
 
@@ -112,15 +110,13 @@ export class InputPasswordElement extends InputElement<InputPasswordValue> imple
                     .type="${!this._visibilityToggle ? 'password' : 'text'}">
             
                 <div class="actionButton"
-                    tabindex="-1"
-                    ?hidden=${this._visibilityToggle}
+                    ?hidden=${this._visibilityToggle || this.hasSameValueAs(this.defaultValue)}
                     @click=${()=> this._onVisibilityOn()}>
                     ${visibilityIcon}
                 </div>
 
                 <div class="actionButton"
-                    tabindex="-1"
-                    ?hidden=${!this._visibilityToggle}
+                    ?hidden=${!this._visibilityToggle || this.hasSameValueAs(this.defaultValue)}
                     @click=${()=> this._onVisibilityOff()}>
                     ${visibilityOffIcon}
                 </div>
@@ -145,6 +141,7 @@ export class InputPasswordElement extends InputElement<InputPasswordValue> imple
             justify-content: flex-start;
             align-items: stretch;
             overflow: hidden;
+            box-sizing: border-box;
             border: 2px solid;
             border-radius: 6px;
 
@@ -200,6 +197,7 @@ export class InputPasswordElement extends InputElement<InputPasswordValue> imple
         }
 
         .actionButton {
+            user-select: none;
             display: block;
             flex-shrink: 0;
             flex-grow: 0;
