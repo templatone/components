@@ -45,36 +45,41 @@ export class AssetButtonElement extends LitElement {
         }
 
 
-        #container {
-            --bg: var(--system-color-grey5);
-            --bg-hover: var(--system-color-grey4);
-            --bg-focus: var(--system-color-grey3);
-            --text: var(--system-color-label);
+        :host {
+            display: block;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 1;
+            width: 100%;
+            height: 36px;
+            background-color: green;
         }
 
+        #container {
+            --bg: var(--system-color-grey5);
+            --bg-focus: var(--system-color-grey3);
+            --bg-hover: var(--system-color-grey4);
+            --bg-active: var(--system-color-grey3);
+            --text: var(--system-color-label);
+        }
 
         :host([primary]) #container {
             --bg: var(--system-accentColor);
             --text: #fff;
         }
 
-
         #container {
             user-select: none;
-            /* background-color: var(--system-color-grey5); */
             background-color: var(--bg);
             color: var(--text);
-            font-weight: 500;
-            font-size: 18px;
-            line-height: 1;
-            border-radius: 6px;
+            border-radius: inherit;
             box-sizing: border-box;
             width: 100%;
-            height: 36px;
+            height: 100%;
             box-sizing: border-box;
             overflow: hidden;
         }
-
 
         #container .overlay {
             display: flex;
@@ -85,21 +90,29 @@ export class AssetButtonElement extends LitElement {
             height: 100%;
         }
 
-        :host(:not([disabled]):not([primary]):hover) #container {
-            background-color: var(--bg-hover);
-        }
-
         :host(:not([disabled]):not([primary]):focus) #container {
             background-color: var(--bg-focus);
         }
+        
+        :host(:not([disabled]):not([primary]):hover) #container {
+            background-color: var(--bg-hover);
+        }
+        
+        :host(:not([disabled]):not([primary]):hover) #container {
+            background-color: var(--bg-active);
+        }
 
+
+        :host(:not([disabled])[primary]:focus) .overlay {
+            background-color: rgba(0 0 0 / 4%);
+        }
 
         :host(:not([disabled])[primary]:hover) .overlay {
             background-color: rgba(0 0 0 / 8%);
         }
-
-        :host(:not([disabled])[primary]:focus) .overlay {
-            background-color: rgba(0 0 0 / 4%);
+        
+        :host(:not([disabled])[primary]:active) .overlay {
+            background-color: rgba(0 0 0 / 12%);
         }
 
         :host(:disabled) #container,
