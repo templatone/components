@@ -68,7 +68,7 @@ export class AssetSpinnerElement extends LitElement {
         span::before {
             content: '';
             display: block;
-            background-color: var(--system-color-label, #000);
+            background-color: currentColor;
             width: 100%;
             height: 61.8%;
             border-radius: var(--size);
