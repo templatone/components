@@ -87,6 +87,10 @@ export class LabelContainerElement extends LitElement {
             color: var(--system-color-grey1);
         }
 
+        #label {
+            cursor: default;
+        }
+
         #label:empty {
             display: none;
         }
