@@ -11,6 +11,7 @@ export declare class InputPasswordElement extends InputElement<InputPasswordValu
     readOnly: boolean;
     autocomplete: AutocompleteType;
     inputMode: InputModeType;
+    name: string;
     private _input;
     private _passwordVisibilityToggle;
     private _onInput;

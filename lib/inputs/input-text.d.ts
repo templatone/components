@@ -11,6 +11,7 @@ export declare class InputTextElement extends InputElement<InputTextValue> imple
     readOnly: boolean;
     autocomplete: AutocompleteType;
     inputMode: InputModeType;
+    name: string;
     private _input;
     private _onInput;
     private _onClearValue;

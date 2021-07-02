@@ -11,6 +11,7 @@ export declare class InputTextareaElement extends InputElement<InputTextareaValu
     readOnly: boolean;
     autocomplete: AutocompleteType;
     inputMode: InputModeType;
+    name: string;
     private _input;
     private _onInput;
     private _updateValue;

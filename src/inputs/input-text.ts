@@ -39,6 +39,11 @@ export class InputTextElement extends InputElement<InputTextValue> implements IT
     inputMode: InputModeType = InputModeType.Default;
 
 
+    @property({ attribute: true })
+    name: string = '';
+
+
+
     @query('#input')
     private _input!: HTMLInputElement;
 
@@ -88,6 +93,7 @@ export class InputTextElement extends InputElement<InputTextValue> implements IT
             <div id="container" ?disabled=${this.disabled} ?readOnly=${this.readOnly} ?filled=${this.value !=null}>
                 <input id="input"
                 @input=${this._onInput.bind(this)}
+                .name=${this.name}
                 .value=${this.value}
                 .disabled=${this.disabled}
                 .readOnly=${this.readOnly}

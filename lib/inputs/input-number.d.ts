@@ -14,6 +14,7 @@ export declare class InputNumberElement extends InputElement<InputNumberValue> i
     readOnly: boolean;
     autocomplete: AutocompleteType;
     inputMode: InputModeType;
+    name: string;
     private _computeInputMode;
     private _input;
     private _onInput;

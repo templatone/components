@@ -6,4 +6,5 @@ export interface ITextBasedInputElement<ValueType> extends IInputElement<ValueTy
     autocomplete: AutocompleteType;
     spellcheck: boolean;
     inputMode: InputModeType | string;
+    name: string;
 }

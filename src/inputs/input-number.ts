@@ -84,6 +84,10 @@ export class InputNumberElement extends InputElement<InputNumberValue> implement
     inputMode: InputModeType = InputModeType.Default;
 
 
+    @property({ attribute: true })
+    name: string = '';
+
+
     private _computeInputMode(): InputModeType {
         if (this.inputMode === InputModeType.Default) {
             return Number.isInteger(this.step) ? InputModeType.Decimal : InputModeType.Numeric;
@@ -214,6 +218,7 @@ export class InputNumberElement extends InputElement<InputNumberValue> implement
                     @focus=${this._onFocus.bind(this)}
                     @blur=${this._onBlur.bind(this)}
                     @keydown=${(e: KeyboardEvent) => this._onKeyDown(e)}
+                    .name=${this.name}
                     .value=${this._formatValue(this.value)}
                     .disabled=${this.disabled}
                     .readOnly=${this.readOnly}
