@@ -300,50 +300,51 @@ export class InputTimeElement extends InputElement<InputTimeValue> implements II
             <div id="container" ?disabled=${this.disabled} ?filled=${this.value != null}>
             
                 <input ?hidden=${this.precision < 1} id="hours" @input=${(e: InputEvent) => this._onInputHours()}
-                @blur=${() => this._onBlurHours()}
-                .disabled=${this.disabled}
-                .readOnly=${this.readOnly}
-                placeholder="h"
-                pattern="[0-9]*"
-                inputmode="numeric"
-                enterkeyhint="enter"
-                type="text">
+                    @blur=${() => this._onBlurHours()}
+                    .disabled=${this.disabled}
+                    .readOnly=${this.readOnly}
+                    .autofocus=${this.autofocus}
+                    placeholder="h"
+                    pattern="[0-9]*"
+                    inputmode="numeric"
+                    enterkeyhint="enter"
+                    type="text">
             
                 <span ?hidden=${this.precision < 2} class="separator">:</span>
             
                 <input ?hidden=${this.precision < 2} id="minutes" @input=${(e: InputEvent) => this._onInputMinutes()}
-                @blur=${() => this._onBlurMinutes()}
-                .disabled=${this.disabled}
-                .readOnly=${this.readOnly}
-                placeholder="min"
-                pattern="[0-9]*"
-                inputmode="numeric"
-                enterkeyhint="enter"
-                type="text">
+                    @blur=${() => this._onBlurMinutes()}
+                    .disabled=${this.disabled}
+                    .readOnly=${this.readOnly}
+                    placeholder="min"
+                    pattern="[0-9]*"
+                    inputmode="numeric"
+                    enterkeyhint="enter"
+                    type="text">
             
                 <span ?hidden=${this.precision < 3} class="separator">:</span>
             
                 <input ?hidden=${this.precision < 3} id="seconds" @input=${(e: InputEvent) => this._onInputSeconds()}
-                @blur=${() => this._onBlurSeconds()}
-                .disabled=${this.disabled}
-                .readOnly=${this.readOnly}
-                placeholder="s"
-                pattern="[0-9]*"
-                inputmode="numeric"
-                enterkeyhint="enter"
-                type="text">
+                    @blur=${() => this._onBlurSeconds()}
+                    .disabled=${this.disabled}
+                    .readOnly=${this.readOnly}
+                    placeholder="s"
+                    pattern="[0-9]*"
+                    inputmode="numeric"
+                    enterkeyhint="enter"
+                    type="text">
             
                 <span ?hidden=${this.precision < 4} class="separator">,</span>
             
                 <input ?hidden=${this.precision < 4} id="miliseconds" @input=${(e: InputEvent) => this._onInputMiliseconds()}
-                @blur=${() => this._onBlurMiliseconds()}
-                .disabled=${this.disabled}
-                .readOnly=${this.readOnly}
-                placeholder="ms"
-                pattern="[0-9]*"
-                inputmode="numeric"
-                enterkeyhint="enter"
-                type="text">
+                    @blur=${() => this._onBlurMiliseconds()}
+                    .disabled=${this.disabled}
+                    .readOnly=${this.readOnly}
+                    placeholder="ms"
+                    pattern="[0-9]*"
+                    inputmode="numeric"
+                    enterkeyhint="enter"
+                    type="text">
             
                 <div class="actionButton" ?hidden=${this.hasSameValueAs(this.defaultValue)} @click=${()=> this._onClearValue()}>
                     <div class="icon">${clearIcon}</div>

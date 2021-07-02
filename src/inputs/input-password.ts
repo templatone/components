@@ -117,6 +117,7 @@ export class InputPasswordElement extends InputElement<InputPasswordValue> imple
                     .disabled=${this.disabled}
                     .readOnly=${this.readOnly}
                     .autocomplete=${this.autocomplete ? 'on' : 'off'}
+                    .autofocus=${this.autofocus}
                     .inputMode=${this.inputMode}
                     .placeholder=${this.placeholder ? this.placeholder : ''}
                     .type="${!this._passwordVisibilityToggle ? 'password' : 'text'}">
