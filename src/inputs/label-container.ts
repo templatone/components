@@ -1,5 +1,7 @@
 import { LitElement, css, html } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
+import { AssetButtonElement } from '../assets/asset-button';
+import { InputElement } from './core/InputElement';
 
 
 export type TextValue = string | null;
@@ -8,10 +10,32 @@ export type TextValue = string | null;
 @customElement('label-container')
 export class LabelContainerElement extends LitElement {
 
+
+    private _onClick() {
+        const childs = this.querySelectorAll<HTMLElement>('*');
+
+        for (let i = 0; i < childs.length; i++) {
+            const child = childs[i];
+
+            const focusable = false
+                || child instanceof HTMLInputElement
+                || child instanceof HTMLTextAreaElement
+                || child instanceof HTMLSelectElement
+                || child instanceof HTMLButtonElement
+                || child instanceof InputElement
+                || child instanceof AssetButtonElement;
+            
+            if (focusable) {
+                child.focus();
+                return;
+            }
+        }
+    }
+
     render() {
         return html`
             <div id="container">
-                <div id="label">
+                <div id="label" @click=${this._onClick.bind(this)}>
                     <slot name="label"></slot>
                 </div>
                 <slot></slot>
