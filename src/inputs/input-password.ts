@@ -42,6 +42,10 @@ export class InputPasswordElement extends InputElement<InputPasswordValue> imple
     inputMode: InputModeType = InputModeType.Default;
 
 
+    @property({ attribute: true })
+    name: string = '';
+
+
     @query('#input')
     private _input!: HTMLInputElement;
 
@@ -113,6 +117,7 @@ export class InputPasswordElement extends InputElement<InputPasswordValue> imple
                 <input id="input"
                     @input=${this._onInput.bind(this)}
                     @blur=${this._passwordVisibilityOff.bind(this)}
+                    .name=${this.name}
                     .value=${this.value}
                     .disabled=${this.disabled}
                     .readOnly=${this.readOnly}

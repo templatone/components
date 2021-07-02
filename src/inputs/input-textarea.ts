@@ -37,6 +37,10 @@ export class InputTextareaElement extends InputElement<InputTextareaValue> imple
     inputMode: InputModeType = InputModeType.Default;
 
 
+    @property({ attribute: true })
+    name: string = '';
+
+
     @query('#input')
     private _input!: HTMLInputElement;
 
@@ -80,7 +84,8 @@ export class InputTextareaElement extends InputElement<InputTextareaValue> imple
         return html`
             <div id="container" ?disabled=${this.disabled} ?readOnly=${this.readOnly}>
                 <textarea id="input"
-                    @input=${this._onInput.bind(this)} 
+                    @input=${this._onInput.bind(this)}
+                    .name=${this.name}
                     .value=${this.value}
                     .disabled=${this.disabled}
                     .readOnly=${this.readOnly}
