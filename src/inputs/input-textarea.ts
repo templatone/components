@@ -85,6 +85,7 @@ export class InputTextareaElement extends InputElement<InputTextareaValue> imple
                     .disabled=${this.disabled}
                     .readOnly=${this.readOnly}
                     .autocomplete=${this.autocomplete}
+                    .autofocus=${this.autofocus}
                     .inputMode=${this.inputMode}
                     .placeholder=${this.placeholder ? this.placeholder : ''}></textarea>
             </div>

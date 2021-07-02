@@ -8,4 +8,5 @@ export interface IInputElement<ValueType> {
     blur(): void;
     disabled: boolean;
     readOnly: boolean;
+    autofocus: boolean;
 }

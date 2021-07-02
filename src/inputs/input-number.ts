@@ -218,6 +218,7 @@ export class InputNumberElement extends InputElement<InputNumberValue> implement
                     .disabled=${this.disabled}
                     .readOnly=${this.readOnly}
                     .autocomplete=${this.autocomplete}
+                    .autofocus=${this.autofocus}
                     .inputMode=${this._computeInputMode()}
                     .placeholder=${this.placeholder ? this.placeholder : ''}
                     type="text">

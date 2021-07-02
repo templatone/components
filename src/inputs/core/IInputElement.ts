@@ -12,4 +12,5 @@ export interface IInputElement<ValueType> {
 
     disabled: boolean,
     readOnly: boolean,
+    autofocus: boolean,
 }
