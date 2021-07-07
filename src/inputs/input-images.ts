@@ -289,6 +289,12 @@ export class InputImagesElement extends InputElement<InputImagesValue> implement
             box-sizing: border-box;
         }
 
+        .thumbnail .icon > svg {
+            display: block;
+            width: 24px;
+            height: 24px;
+        }
+
         .thumbnail .icon:focus-within,
         .thumbnail .icon:hover {
             background-color: var(--system-color-grey4);
