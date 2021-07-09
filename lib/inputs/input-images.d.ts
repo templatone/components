@@ -1,4 +1,4 @@
-import { TemplateResult } from 'lit';
+import { TemplateResult, PropertyValues } from 'lit';
 import { InputElement } from "./core/InputElement.js";
 import type { IInputElement } from "./core/IInputElement.js";
 import { CaptureType } from './core/CaptureType.js';
@@ -20,6 +20,7 @@ export declare class InputImagesElement extends InputElement<InputImagesValue> i
     focus(): void;
     blur(): void;
     private _renderThumbnails;
+    update(changedProperties: PropertyValues): void;
     render(): TemplateResult<1>;
     static styles: import("lit").CSSResultGroup;
 }
