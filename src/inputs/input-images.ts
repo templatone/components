@@ -125,8 +125,6 @@ export class InputImagesElement extends InputElement<InputImagesValue> implement
 
         changedProperties.forEach((oldValue, propName) => {
             if (propName == 'capture') {
-                console.log(this._input);
-                
                 if (this.capture !== CaptureType.Default) {
                     this._input.setAttribute('capture', this.capture);
                 } else {
