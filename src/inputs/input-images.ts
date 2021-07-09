@@ -1,4 +1,4 @@
-import { LitElement, css, html, TemplateResult } from 'lit';
+import { LitElement, css, html, TemplateResult, PropertyValues } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
 import { InputElement } from "./core/InputElement.js";
 import type { IInputElement } from "./core/IInputElement.js";
@@ -120,6 +120,23 @@ export class InputImagesElement extends InputElement<InputImagesValue> implement
     }
 
 
+    update(changedProperties: PropertyValues) {
+        super.update(changedProperties);
+
+        changedProperties.forEach((oldValue, propName) => {
+            if (propName == 'capture') {
+                console.log(this._input);
+                
+                if (this.capture !== CaptureType.Default) {
+                    this._input.setAttribute('capture', this.capture);
+                } else {
+                    this._input.removeAttribute('capture');
+                }
+            }
+        });
+    }
+
+
     render() {
         return html`
             <div id="container" ?disabled=${this.disabled}>
@@ -130,9 +147,13 @@ export class InputImagesElement extends InputElement<InputImagesValue> implement
                     </div>
             
                     <div class="file">
-                        <input id="input" accept="image/*" .capture=${this.capture} .multiple=${this.multiple}
-                            .readOnly=${this.readOnly} .disabled=${this.disabled} .autofocus=${this.autofocus} @change=${(e:
-            Event) => this._onFileSelect(e)}
+                        <input id="input"
+                            accept="image/*"
+                            ?multiple=${this.multiple}
+                            ?readOnly=${this.readOnly}
+                            ?disabled=${this.disabled}
+                            .autofocus=${this.autofocus}
+                            @change=${(e: Event) => this._onFileSelect(e)}
                         type="file">
                     </div>
                 </div>
