@@ -4,6 +4,7 @@ import { InputElement } from "./core/InputElement.js";
 import type { IInputElement } from "./core/IInputElement.js";
 import { clear as clearIcon, images as imagesIcon } from '../assets/icons.js';
 import { Images as ImagesUtils } from '@templatone/utils';
+import { CaptureType } from './core/CaptureType.js';
 
 
 export type InputImagesValue = HTMLImageElement[];
@@ -26,8 +27,8 @@ export class InputImagesElement extends InputElement<InputImagesValue> implement
     readOnly: boolean = false;
 
 
-    @property({ attribute: true, type: Boolean })
-    capture: boolean = false;
+    @property({ attribute: true, reflect: true })
+    capture: CaptureType | null = null;
 
 
     @property({ attribute: true, type: Boolean })
@@ -39,9 +40,9 @@ export class InputImagesElement extends InputElement<InputImagesValue> implement
 
 
     private async _onFileSelect(e: Event) {
-        const f  = this._input.files;
+        const f = this._input.files;
         const files = f != null && f.length ? [...f] : [];
-        
+
 
         if (files.length > 0) {
             const promises = files.map(f => ImagesUtils.getFormFile(f));
@@ -65,7 +66,7 @@ export class InputImagesElement extends InputElement<InputImagesValue> implement
 
     private _removeImageByIndex(index: number) {
         console.log(index);
-        
+
         if (this.value == null) return;
 
         const images = [...this.value];
@@ -109,12 +110,10 @@ export class InputImagesElement extends InputElement<InputImagesValue> implement
 
         return urls.map((url, i) => html`
             <div class="thumbnail">
-                <div class="close icon"
-                    ?hidden=${!(this.disabled || this.readOnly)}
-                    @click=${() => this._removeImageByIndex(i)}>
+                <div class="close icon" ?hidden=${!(this.disabled || this.readOnly)} @click=${()=> this._removeImageByIndex(i)}>
                     <div class="icon">${clearIcon}</div>
                 </div>
-
+            
                 <img .src=${url}>
             </div>
         `);
@@ -129,21 +128,16 @@ export class InputImagesElement extends InputElement<InputImagesValue> implement
                         <div class="icon">${imagesIcon}</div>
                         <span>${this.multiple ? "Vybrat obrázky" : "Vybrat obrázek"}</span>
                     </div>
-                
+            
                     <div class="file">
-                        <input id="input"
-                            accept="image/*"
-                            .capture=${this.capture}
-                            .multiple=${this.multiple}
-                            .readOnly=${this.readOnly}
-                            .disabled=${this.disabled}
-                            .autofocus=${this.autofocus}
-                            @change=${(e: Event) => this._onFileSelect(e)}
+                        <input id="input" accept="image/*" .capture=${this.capture} .multiple=${this.multiple}
+                            .readOnly=${this.readOnly} .disabled=${this.disabled} .autofocus=${this.autofocus} @change=${(e:
+                            Event)=> this._onFileSelect(e)}
                         type="file">
                     </div>
                 </div>
-
-                <div id="thumbnailContainer" ?hidden=${this._renderThumbnails().length == 0}>${this._renderThumbnails()}</div>
+            
+                <div id="thumbnailContainer" ?hidden=${this._renderThumbnails().length==0}>${this._renderThumbnails()}</div>
             </div>
         `;
     }
@@ -262,7 +256,7 @@ export class InputImagesElement extends InputElement<InputImagesValue> implement
             scroll-snap-align: start;
             overflow: hidden;
             flex-shrink: 0;
-            height: 128px;
+            height: min(128px, 30vw);
             border-radius: 6px;
         }
 
