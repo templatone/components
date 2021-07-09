@@ -8,7 +8,7 @@ export declare class InputImagesElement extends InputElement<InputImagesValue> i
     value: InputImagesValue;
     disabled: boolean;
     readOnly: boolean;
-    capture: CaptureType | null;
+    capture: CaptureType | false;
     multiple: boolean;
     private _input;
     private _onFileSelect;
