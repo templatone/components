@@ -28,7 +28,7 @@ export class InputImagesElement extends InputElement<InputImagesValue> implement
 
 
     @property({ attribute: true, reflect: true })
-    capture: CaptureType | null = null;
+    capture: CaptureType | false = false;
 
 
     @property({ attribute: true, type: Boolean })
@@ -110,7 +110,7 @@ export class InputImagesElement extends InputElement<InputImagesValue> implement
 
         return urls.map((url, i) => html`
             <div class="thumbnail">
-                <div class="close icon" ?hidden=${!(this.disabled || this.readOnly)} @click=${()=> this._removeImageByIndex(i)}>
+                <div class="close icon" ?hidden=${!(this.disabled || this.readOnly)} @click=${() => this._removeImageByIndex(i)}>
                     <div class="icon">${clearIcon}</div>
                 </div>
             
@@ -132,12 +132,12 @@ export class InputImagesElement extends InputElement<InputImagesValue> implement
                     <div class="file">
                         <input id="input" accept="image/*" .capture=${this.capture} .multiple=${this.multiple}
                             .readOnly=${this.readOnly} .disabled=${this.disabled} .autofocus=${this.autofocus} @change=${(e:
-                            Event)=> this._onFileSelect(e)}
+            Event) => this._onFileSelect(e)}
                         type="file">
                     </div>
                 </div>
             
-                <div id="thumbnailContainer" ?hidden=${this._renderThumbnails().length==0}>${this._renderThumbnails()}</div>
+                <div id="thumbnailContainer" ?hidden=${this._renderThumbnails().length == 0}>${this._renderThumbnails()}</div>
             </div>
         `;
     }
