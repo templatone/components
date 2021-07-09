@@ -28,7 +28,7 @@ export class InputImagesElement extends InputElement<InputImagesValue> implement
 
 
     @property({ attribute: true, reflect: true })
-    capture: CaptureType | false = false;
+    capture: CaptureType = CaptureType.Default;
 
 
     @property({ attribute: true, type: Boolean })
