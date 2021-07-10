@@ -275,7 +275,7 @@ export class InputImagesElement extends InputElement<InputImagesValue> implement
             scroll-snap-align: start;
             overflow: hidden;
             flex-shrink: 0;
-            height: min(128px, 30vw);
+            height: min(128px, 30vmin);
             border-radius: 6px;
         }
 
