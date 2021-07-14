@@ -1,7 +1,7 @@
 import { LitElement, css, html } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
 import { InputElement } from "./core/InputElement.js";
-import { clear as clearIcon } from '../assets/icons.js';
+import { clear as clearIcon, reset as resetIcon } from '../assets/icons.js';
 import type { ITextBasedInputElement } from './core/ITextBasedInputElement.js';
 import { InputModeType } from './core/InputModeType.js';
 import { AutocompleteType } from './core/AutocompleteType.js';
@@ -35,9 +35,9 @@ export type InputNumberValue = number;
 
 @customElement('input-number')
 export class InputNumberElement extends InputElement<InputNumberValue> implements ITextBasedInputElement<InputNumberValue> {
+    readonly emptyValue: InputNumberValue = 0;
+    defaultValue: InputNumberValue = 0;
 
-    // Properties
-    readonly defaultValue: InputNumberValue = 0;
 
     @property({
         attribute: true,
@@ -211,7 +211,7 @@ export class InputNumberElement extends InputElement<InputNumberValue> implement
                     tabindex="-1"
                     ?hidden=${this.hasSameValueAs(this.defaultValue)}
                     @click=${this._onClearValue.bind(this)}>
-                    ${clearIcon}
+                    ${this.defaultValue == this.emptyValue ? clearIcon : resetIcon}
                 </div>
             
                 <input id="input" @input=${()=> this._onInput()}

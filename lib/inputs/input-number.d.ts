@@ -4,7 +4,8 @@ import { InputModeType } from './core/InputModeType.js';
 import { AutocompleteType } from './core/AutocompleteType.js';
 export declare type InputNumberValue = number;
 export declare class InputNumberElement extends InputElement<InputNumberValue> implements ITextBasedInputElement<InputNumberValue> {
-    readonly defaultValue: InputNumberValue;
+    readonly emptyValue: InputNumberValue;
+    defaultValue: InputNumberValue;
     min: number | null;
     max: number | null;
     step: number | null;

@@ -16,10 +16,12 @@ export type InputCheckboxValue = CheckboxValueOption;
 
 @customElement('input-checkbox')
 export class InputCheckboxElement extends InputElement<InputCheckboxValue> implements IInputElement<InputCheckboxValue> {
+    readonly emptyValue: InputCheckboxValue = CheckboxValueOption.Unchecked;
+
+    defaultValue: InputCheckboxValue = CheckboxValueOption.Unchecked;
+
 
     // Properties
-    readonly defaultValue: InputCheckboxValue = CheckboxValueOption.Unchecked;
-
     @property({ type: Number })
     value: InputCheckboxValue = CheckboxValueOption.Unchecked;
 

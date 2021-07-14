@@ -8,7 +8,8 @@ export declare type InputTimeValue = {
 };
 export declare class InputTimeElement extends InputElement<InputTimeValue> implements IInputElement<InputTimeValue> {
     private static regexp;
-    readonly defaultValue: InputTimeValue;
+    readonly emptyValue: InputTimeValue;
+    defaultValue: InputTimeValue;
     value: InputTimeValue;
     disabled: boolean;
     readOnly: boolean;

@@ -5,7 +5,9 @@ import { InputRuleType, InputRuleValidatorType } from './InputRule.js';
 
 
 export abstract class InputElement<ValueType> extends LitElement {
-    value!: ValueType;
+    abstract readonly emptyValue: ValueType;
+    abstract defaultValue: ValueType;
+    abstract value: ValueType;
 
     eventRepeaterDelay: number = 100;
 

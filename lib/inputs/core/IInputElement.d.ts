@@ -1,6 +1,4 @@
 export interface IInputElement<ValueType> {
-    value: ValueType;
-    readonly defaultValue: ValueType;
     hasSameValueAs(value: ValueType): boolean;
     isValid(): boolean;
     clearValue(): void;

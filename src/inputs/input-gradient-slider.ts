@@ -1,7 +1,7 @@
 import { Color } from '@templatone/kreslo';
 import { Numbers } from '@templatone/utils';
 import { LitElement, css, html } from 'lit';
-import { customElement, property, query } from 'lit/decorators.js';
+import { customElement, property, query, state } from 'lit/decorators.js';
 import { InputElement } from "./core/InputElement.js";
 import type { IInputElement } from "./core/IInputElement.js";
 
@@ -31,11 +31,24 @@ export type InputSliderGradientSliderValue = number;
 
 @customElement('input-slider-gradient')
 export class InputGradientSliderElement extends InputElement<InputSliderGradientSliderValue> implements IInputElement<InputSliderGradientSliderValue> {
-    get defaultValue(): InputSliderGradientSliderValue { return this.min; }
+    get emptyValue(): InputSliderGradientSliderValue { return this.min; }
+
+    private _customDefaultValue: InputSliderGradientSliderValue | undefined = undefined;
+    get defaultValue(): InputSliderGradientSliderValue { return this._customDefaultValue ?? this.min; }
+    set defaultValue(v: InputSliderGradientSliderValue) { this._customDefaultValue = v; }
 
 
-    @property({ type: Number })
-    value: InputSliderGradientSliderValue = 0;
+    @state()
+    private _value: InputSliderGradientSliderValue = 0;
+
+    get value(): InputSliderGradientSliderValue {
+        return this._value;
+    };
+
+    set value(v: InputSliderGradientSliderValue) {
+        this._value = v;
+        // this._reflectValueToView();
+    };
 
 
     @property({ type: Number })
@@ -72,13 +85,13 @@ export class InputGradientSliderElement extends InputElement<InputSliderGradient
     // Elements
     @query('#container')
     private _container!: HTMLElement;
-    
+
     @query('#track')
     private _track!: HTMLElement;
-    
+
     @query('#bar')
     private _bar!: HTMLElement;
-    
+
     @query('#handle')
     private _handle!: HTMLElement;
 
@@ -120,7 +133,7 @@ export class InputGradientSliderElement extends InputElement<InputSliderGradient
     // Actions
     private _onPointerStart(e: MouseEvent | TouchEvent) {
         if (this.disabled || this.readOnly) return;
-        
+
         this._container.focus();
         this._pointerActive = true;
 
@@ -184,7 +197,7 @@ export class InputGradientSliderElement extends InputElement<InputSliderGradient
 
         const movement = this.step ?? (this.max - this.min) / 100;
 
-        let value = this.value;
+        let value = this._value;
 
         switch (e.code) {
             case 'ArrowUp':
@@ -270,51 +283,48 @@ export class InputGradientSliderElement extends InputElement<InputSliderGradient
     }
 
 
-    // Attributes
-    static get observedAttributes() {
-        return ['color-steps', 'value', 'min', 'max', 'step', 'disabled', 'readonly'];
-    }
+    // // Attributes
+    // static get observedAttributes() {
+    //     return ['color-steps', 'value', 'min', 'max', 'step', 'disabled', 'readonly'];
+    // }
 
 
-    attributeChangedCallback(name: string, oldValue: string | null, newValue: string | null): void {
-        switch (name.toLocaleLowerCase()) {
-            case 'color-steps':
-                this.colorSteps = newValue ? InputGradientSliderElement.computeGradientSteps(...newValue.split(',')) : this.defaultColorSteps;
-                break;
+    // attributeChangedCallback(name: string, oldValue: string | null, newValue: string | null): void {
+    //     switch (name.toLocaleLowerCase()) {
+    //         case 'color-steps':
+    //             this.colorSteps = newValue ? InputGradientSliderElement.computeGradientSteps(...newValue.split(',')) : this.defaultColorSteps;
+    //             break;
 
-            case 'value':
-                this.value = newValue ? parseFloat(newValue) : NaN;
-                break;
+    //         case 'value':
+    //             this.value = newValue ? parseFloat(newValue) : NaN;
+    //             break;
 
-            case 'min':
-                this.min = newValue ? parseFloat(newValue) : NaN;
-                break;
+    //         case 'min':
+    //             this.min = newValue ? parseFloat(newValue) : NaN;
+    //             break;
 
-            case 'max':
-                this.max = newValue ? parseFloat(newValue) : NaN;
-                break;
+    //         case 'max':
+    //             this.max = newValue ? parseFloat(newValue) : NaN;
+    //             break;
 
-            case 'step':
-                this.step = newValue ? parseFloat(newValue) : null;
-                break;
+    //         case 'step':
+    //             this.step = newValue ? parseFloat(newValue) : null;
+    //             break;
 
-            case 'disabled':
-                this.disabled = newValue !== null;
-                break;
+    //         case 'disabled':
+    //             this.disabled = newValue !== null;
+    //             break;
 
-            case 'readonly':
-                this.readOnly = newValue !== null;
-                break;
-        }
-    }
+    //         case 'readonly':
+    //             this.readOnly = newValue !== null;
+    //             break;
+    //     }
+    // }
 
 
     render() {
         return html`
-            <div id="container"
-                tabindex="0"
-                ?disabled=${this.disabled}
-                @keydown=${(e: KeyboardEvent) => this._onKeyboard(e)}
+            <div id="container" tabindex="0" ?disabled=${this.disabled} @keydown=${(e: KeyboardEvent)=> this._onKeyboard(e)}
                 @mousedown=${(e: MouseEvent) => this._onPointerStart(e)}
                 @touchstart=${(e: TouchEvent) => this._onPointerStart(e)}>
                 <div id="track"></div>

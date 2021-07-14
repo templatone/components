@@ -2,7 +2,8 @@ import { InputElement } from "./core/InputElement.js";
 import { IInputElement } from "./core/IInputElement.js";
 export declare type InputToggleValue = boolean;
 export declare class InputToggleElement extends InputElement<InputToggleValue> implements IInputElement<InputToggleValue> {
-    readonly defaultValue: InputToggleValue;
+    readonly emptyValue: InputToggleValue;
+    defaultValue: InputToggleValue;
     value: InputToggleValue;
     get checked(): boolean;
     set checked(v: boolean);

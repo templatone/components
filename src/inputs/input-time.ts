@@ -23,7 +23,13 @@ export class InputTimeElement extends InputElement<InputTimeValue> implements II
 
 
     // Properties
-    readonly defaultValue: InputTimeValue = {
+    readonly emptyValue: InputTimeValue = {
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
+        miliseconds: 0,
+    };
+    defaultValue: InputTimeValue = {
         hours: 0,
         minutes: 0,
         seconds: 0,
