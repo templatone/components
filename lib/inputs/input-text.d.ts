@@ -1,3 +1,4 @@
+import { AutocapitalizeType } from './core/AutocapitalizeType.js';
 import { AutocompleteType } from './core/AutocompleteType.js';
 import { InputElement } from './core/InputElement.js';
 import { InputModeType } from './core/InputModeType.js';
@@ -13,6 +14,7 @@ export declare class InputTextElement extends InputElement<InputTextValue> imple
     disabled: boolean;
     readOnly: boolean;
     autocomplete: AutocompleteType;
+    autocapitalize: AutocapitalizeType;
     inputMode: InputModeType;
     name: string;
     private _input;

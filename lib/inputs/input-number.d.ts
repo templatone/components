@@ -2,6 +2,7 @@ import { InputElement } from "./core/InputElement.js";
 import type { ITextBasedInputElement } from './core/ITextBasedInputElement.js';
 import { InputModeType } from './core/InputModeType.js';
 import { AutocompleteType } from './core/AutocompleteType.js';
+import { AutocapitalizeType } from './core/AutocapitalizeType.js';
 export declare type InputNumberValue = number;
 export declare class InputNumberElement extends InputElement<InputNumberValue> implements ITextBasedInputElement<InputNumberValue> {
     readonly emptyValue: InputNumberValue;
@@ -14,6 +15,7 @@ export declare class InputNumberElement extends InputElement<InputNumberValue> i
     disabled: boolean;
     readOnly: boolean;
     autocomplete: AutocompleteType;
+    autocapitalize: AutocapitalizeType;
     inputMode: InputModeType;
     name: string;
     private _computeInputMode;
