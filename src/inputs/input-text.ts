@@ -60,11 +60,11 @@ export class InputTextElement extends InputElement<InputTextValue> implements IT
 
 
     @query('#input')
-    private _input!: HTMLInputElement;
+    private _input?: HTMLInputElement;
 
 
     private _onInput() {
-        const raw = this._input.value;
+        const raw = this._input!.value;
         const value = InputTextElement.applyFilters(this.filters, raw);
         this._updateValue(value);
     }
@@ -83,7 +83,9 @@ export class InputTextElement extends InputElement<InputTextValue> implements IT
 
 
     private _reflectValueToView(): void {
-        this._input.value = this._value;
+        if (this._input) {
+            this._input.value = this._value;
+        }
     }
 
 
@@ -99,15 +101,23 @@ export class InputTextElement extends InputElement<InputTextValue> implements IT
 
 
     focus() {
-        this._input.focus();
+        this._input?.focus();
         this.fireFocusEvent();
     }
 
 
     blur() {
-        this._input.blur();
+        this._input?.blur();
         this._reflectValueToView();
         this.fireBlurEvent();
+    }
+
+
+    async connectedCallback() {
+        super.connectedCallback();
+        await 0;
+
+        this._input!.value = this._value;
     }
 
 

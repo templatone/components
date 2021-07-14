@@ -58,12 +58,12 @@ export class InputTextareaElement extends InputElement<InputTextareaValue> imple
 
 
     @query('#input')
-    private _input!: HTMLInputElement;
+    private _input?: HTMLInputElement;
 
 
 
     private _onInput() {
-        const value = this._input.value;
+        const value = this._input!.value;
         this._updateValue(value);
     }
 
@@ -80,7 +80,9 @@ export class InputTextareaElement extends InputElement<InputTextareaValue> imple
 
 
     private _reflectValueToView(): void {
-        this._input.value = this._value;
+        if (this._input) {
+            this._input.value = this._value;
+        }
     }
 
 
@@ -90,15 +92,23 @@ export class InputTextareaElement extends InputElement<InputTextareaValue> imple
 
 
     focus() {
-        this._input.focus();
+        this._input?.focus();
         this.fireFocusEvent();
     }
 
 
     blur() {
-        this._input.blur();
+        this._input?.blur();
         this._reflectValueToView();
         this.fireBlurEvent();
+    }
+
+
+    async connectedCallback() {
+        super.connectedCallback();
+        await 0;
+
+        this._input!.value = this._value;
     }
 
 

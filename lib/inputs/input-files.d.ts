@@ -12,7 +12,7 @@ export declare class InputFilesElement extends InputElement<InputFilesValue> imp
     accept: string;
     capture: boolean;
     multiple: boolean;
-    private _input;
+    private _input?;
     private _onFileSelect;
     private _updateValue;
     hasSameValueAs(value: InputFilesValue): boolean;
