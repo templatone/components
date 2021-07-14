@@ -5,7 +5,9 @@ import type { ITextBasedInputElement } from './core/ITextBasedInputElement.js';
 export declare type InputPasswordValue = string;
 export declare class InputPasswordElement extends InputElement<InputPasswordValue> implements ITextBasedInputElement<InputPasswordValue> {
     readonly defaultValue: InputPasswordValue;
-    value: InputPasswordValue;
+    private _value;
+    get value(): InputPasswordValue;
+    set value(v: InputPasswordValue);
     placeholder: string | null;
     disabled: boolean;
     readOnly: boolean;
@@ -20,6 +22,7 @@ export declare class InputPasswordElement extends InputElement<InputPasswordValu
     private _onPasswordVisibilityOn;
     private _onPasswordVisibilityOff;
     private _updateValue;
+    private _reflectValueToView;
     clearValue(): void;
     hasSameValueAs(value: InputPasswordValue): boolean;
     focus(): void;

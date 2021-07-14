@@ -1,6 +1,6 @@
 import { LitElement, css, html } from 'lit';
 import { customElement, property, query, state } from 'lit/decorators.js';
-import { clear as clearIcon } from '../assets/icons.js';
+import { clear as clearIcon, reset as resetIcon } from '../assets/icons.js';
 import { AutocompleteType } from './core/AutocompleteType.js';
 import { InputElement } from './core/InputElement.js';
 import { InputModeType } from './core/InputModeType.js';
@@ -13,7 +13,9 @@ export type InputTextValue = string;
 @customElement('input-text')
 export class InputTextElement extends InputElement<InputTextValue> implements ITextBasedInputElement<InputTextValue> {
     // Properties
-    readonly defaultValue: InputTextValue = '';
+    readonly emptyValue: InputTextValue = '';
+    
+    defaultValue: InputTextValue = '';
 
     @state()
     private _value: InputTextValue = '';
@@ -26,7 +28,7 @@ export class InputTextElement extends InputElement<InputTextValue> implements IT
 
     set value(v: InputTextValue) {
         this._value = v;
-        this._reflectValueToUI();
+        this._reflectValueToView();
     };
 
 
@@ -78,14 +80,14 @@ export class InputTextElement extends InputElement<InputTextValue> implements IT
     }
 
 
-    private _reflectValueToUI(): void {
+    private _reflectValueToView(): void {
         this._input.value = this._value;
     }
 
 
     clearValue() {
         this._updateValue(this.defaultValue);
-        this._reflectValueToUI();
+        this._reflectValueToView();
     }
 
 
@@ -102,7 +104,7 @@ export class InputTextElement extends InputElement<InputTextValue> implements IT
 
     blur() {
         this._input.blur();
-        this._reflectValueToUI();
+        this._reflectValueToView();
         this.fireBlurEvent();
     }
 
@@ -125,7 +127,7 @@ export class InputTextElement extends InputElement<InputTextValue> implements IT
                     tabindex="-1"
                     ?hidden=${this.hasSameValueAs(this.defaultValue)}
                     @click=${this._onClearValue.bind(this)}>
-                    ${clearIcon}
+                    ${this.defaultValue == this.emptyValue ? clearIcon : resetIcon}
                 </div>
             </div>
         `;

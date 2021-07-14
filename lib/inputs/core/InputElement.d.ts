@@ -2,6 +2,8 @@ import { LitElement, TemplateResult } from 'lit';
 import { InputFilterType } from './InputFilter.js';
 import { InputRuleType, InputRuleValidatorType } from './InputRule.js';
 export declare abstract class InputElement<ValueType> extends LitElement {
+    abstract readonly emptyValue: ValueType;
+    abstract defaultValue: ValueType;
     abstract value: ValueType;
     eventRepeaterDelay: number;
     private _eventRepeater;

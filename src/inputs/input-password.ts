@@ -18,8 +18,19 @@ export class InputPasswordElement extends InputElement<InputPasswordValue> imple
     // Properties
     readonly defaultValue: InputPasswordValue = '';
 
-    @property()
-    value: InputPasswordValue = '';
+    @state()
+    private _value: InputPasswordValue = '';
+
+
+    get value(): InputPasswordValue {
+        return this._value;
+    };
+
+
+    set value(v: InputPasswordValue) {
+        this._value = v;
+        this._reflectValueToView();
+    };
 
 
     @property({ attribute: true, converter: (v) => v?.trim() != "" ? v : null  })
@@ -83,18 +94,24 @@ export class InputPasswordElement extends InputElement<InputPasswordValue> imple
 
 
     private _updateValue(value: InputPasswordValue): void {
-        this.value = InputPasswordElement.applyFilters(this.filters, value);
+        this._value = InputPasswordElement.applyFilters(this.filters, value);
         this.fireUpdateEvent();
+    }
+
+
+    private _reflectValueToView(): void {
+        this._input.value = this._value;
     }
 
 
     clearValue() {
         this._updateValue(this.defaultValue);
+        this._reflectValueToView();
     }
 
 
     hasSameValueAs(value: InputPasswordValue): boolean {
-        return this.value === value;
+        return this._value === value;
     }
 
 
@@ -113,12 +130,11 @@ export class InputPasswordElement extends InputElement<InputPasswordValue> imple
 
     render() {
         return html`
-            <div id="container" ?disabled=${this.disabled} ?readOnly=${this.readOnly} ?filled=${this.value !=null}>
+            <div id="container" ?disabled=${this.disabled} ?readOnly=${this.readOnly} ?filled=${this._value !=null}>
                 <input id="input"
                     @input=${this._onInput.bind(this)}
                     @blur=${this._passwordVisibilityOff.bind(this)}
                     .name=${this.name}
-                    .value=${this.value}
                     .disabled=${this.disabled}
                     .readOnly=${this.readOnly}
                     .autocomplete=${this.autocomplete ? 'on' : 'off'}

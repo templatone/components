@@ -4,7 +4,8 @@ import { InputModeType } from './core/InputModeType.js';
 import type { ITextBasedInputElement } from './core/ITextBasedInputElement.js';
 export declare type InputTextValue = string;
 export declare class InputTextElement extends InputElement<InputTextValue> implements ITextBasedInputElement<InputTextValue> {
-    readonly defaultValue: InputTextValue;
+    readonly emptyValue: InputTextValue;
+    defaultValue: InputTextValue;
     private _value;
     get value(): InputTextValue;
     set value(v: InputTextValue);
@@ -18,7 +19,7 @@ export declare class InputTextElement extends InputElement<InputTextValue> imple
     private _onInput;
     private _onClearValue;
     private _updateValue;
-    private _reflectValueToUI;
+    private _reflectValueToView;
     clearValue(): void;
     hasSameValueAs(value: InputTextValue): boolean;
     focus(): void;
