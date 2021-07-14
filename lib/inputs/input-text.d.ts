@@ -5,7 +5,9 @@ import type { ITextBasedInputElement } from './core/ITextBasedInputElement.js';
 export declare type InputTextValue = string;
 export declare class InputTextElement extends InputElement<InputTextValue> implements ITextBasedInputElement<InputTextValue> {
     readonly defaultValue: InputTextValue;
-    value: InputTextValue;
+    private _value;
+    get value(): InputTextValue;
+    set value(v: InputTextValue);
     placeholder: string | null;
     disabled: boolean;
     readOnly: boolean;
@@ -16,6 +18,7 @@ export declare class InputTextElement extends InputElement<InputTextValue> imple
     private _onInput;
     private _onClearValue;
     private _updateValue;
+    private _reflectValueToUI;
     clearValue(): void;
     hasSameValueAs(value: InputTextValue): boolean;
     focus(): void;

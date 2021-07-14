@@ -1,5 +1,5 @@
 import { LitElement, css, html } from 'lit';
-import { customElement, property, query } from 'lit/decorators.js';
+import { customElement, property, query, state } from 'lit/decorators.js';
 import { clear as clearIcon } from '../assets/icons.js';
 import { AutocompleteType } from './core/AutocompleteType.js';
 import { InputElement } from './core/InputElement.js';
@@ -15,8 +15,19 @@ export class InputTextElement extends InputElement<InputTextValue> implements IT
     // Properties
     readonly defaultValue: InputTextValue = '';
 
-    @property()
-    value: InputTextValue = '';
+    @state()
+    private _value: InputTextValue = '';
+
+
+    get value(): InputTextValue {
+        return this._value;
+    };
+
+
+    set value(v: InputTextValue) {
+        this._value = v;
+        this._reflectValueToUI();
+    };
 
 
     @property({ attribute: true, converter: (v) => v?.trim() != "" ? v : null  })
@@ -49,7 +60,8 @@ export class InputTextElement extends InputElement<InputTextValue> implements IT
 
 
     private _onInput() {
-        const value = this._input.value;
+        const raw = this._input.value;
+        const value = InputTextElement.applyFilters(this.filters, raw);
         this._updateValue(value);
     }
 
@@ -61,18 +73,24 @@ export class InputTextElement extends InputElement<InputTextValue> implements IT
 
 
     private _updateValue(value: InputTextValue): void {
-        this.value = InputTextElement.applyFilters(this.filters, value);
+        this._value = InputTextElement.applyFilters(this.filters, value);
         this.fireUpdateEvent();
+    }
+
+
+    private _reflectValueToUI(): void {
+        this._input.value = this._value;
     }
 
 
     clearValue() {
         this._updateValue(this.defaultValue);
+        this._reflectValueToUI();
     }
 
 
     hasSameValueAs(value: InputTextValue): boolean {
-        return this.value === value;
+        return this._value === value;
     }
 
 
@@ -84,17 +102,17 @@ export class InputTextElement extends InputElement<InputTextValue> implements IT
 
     blur() {
         this._input.blur();
+        this._reflectValueToUI();
         this.fireBlurEvent();
     }
 
 
     render() {
         return html`
-            <div id="container" ?disabled=${this.disabled} ?readOnly=${this.readOnly} ?filled=${this.value !=null}>
+            <div id="container" ?disabled=${this.disabled} ?readOnly=${this.readOnly} ?filled=${this._value !=null}>
                 <input id="input"
                 @input=${this._onInput.bind(this)}
                 .name=${this.name}
-                .value=${this.value}
                 .disabled=${this.disabled}
                 .readOnly=${this.readOnly}
                 .autocomplete=${this.autocomplete ? 'on' : 'off'}

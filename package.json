@@ -22,8 +22,7 @@
     "lib/**/*"
   ],
   "scripts": {
-    "build": "snowpack build && tsc",
-    "build:watch": "snowpack build --watch",
+    "build": "snowpack build && tsc --noEmit false --emitDeclarationOnly",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
