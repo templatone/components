@@ -17,7 +17,7 @@ export declare class InputTextElement extends InputElement<InputTextValue> imple
     autocapitalize: AutocapitalizeType;
     inputMode: InputModeType;
     name: string;
-    private _input;
+    private _input?;
     private _onInput;
     private _onClearValue;
     private _updateValue;
@@ -26,6 +26,7 @@ export declare class InputTextElement extends InputElement<InputTextValue> imple
     hasSameValueAs(value: InputTextValue): boolean;
     focus(): void;
     blur(): void;
+    connectedCallback(): Promise<void>;
     render(): import("lit-html").TemplateResult<1>;
     static styles: import("lit").CSSResultGroup;
 }

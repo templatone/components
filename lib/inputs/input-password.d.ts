@@ -17,7 +17,7 @@ export declare class InputPasswordElement extends InputElement<InputPasswordValu
     autocapitalize: AutocapitalizeType;
     inputMode: InputModeType;
     name: string;
-    private _input;
+    private _input?;
     private _passwordVisibilityToggle;
     private _onInput;
     private _passwordVisibilityOn;
@@ -30,6 +30,7 @@ export declare class InputPasswordElement extends InputElement<InputPasswordValu
     hasSameValueAs(value: InputPasswordValue): boolean;
     focus(): void;
     blur(): void;
+    connectedCallback(): Promise<void>;
     render(): import("lit-html").TemplateResult<1>;
     static styles: import("lit").CSSResultGroup;
 }

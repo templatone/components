@@ -48,11 +48,11 @@ export class InputFilesElement extends InputElement<InputFilesValue> implements 
 
 
     @query('#input')
-    private _input!: HTMLInputElement;
+    private _input?: HTMLInputElement;
 
 
     private _onFileSelect(e: Event) {
-        const f = this._input.files;
+        const f = this._input!.files;
         const value = f != null && f.length ? [...f] : [];
 
         this._updateValue(value);
@@ -80,13 +80,13 @@ export class InputFilesElement extends InputElement<InputFilesValue> implements 
 
 
     focus() {
-        this._input.focus();
+        this._input?.focus();
         this.fireFocusEvent();
     }
 
 
     blur() {
-        this._input.blur();
+        this._input?.blur();
         this.fireBlurEvent();
     }
 

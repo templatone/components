@@ -17,7 +17,7 @@ export declare class InputTextareaElement extends InputElement<InputTextareaValu
     autocapitalize: AutocapitalizeType;
     inputMode: InputModeType;
     name: string;
-    private _input;
+    private _input?;
     private _onInput;
     private _updateValue;
     clearValue(): void;
@@ -25,6 +25,7 @@ export declare class InputTextareaElement extends InputElement<InputTextareaValu
     hasSameValueAs(value: InputTextareaValue): boolean;
     focus(): void;
     blur(): void;
+    connectedCallback(): Promise<void>;
     render(): import("lit-html").TemplateResult<1>;
     static styles: import("lit").CSSResultGroup;
 }
