@@ -10,9 +10,11 @@ export type InputSliderValue = number;
 
 @customElement('input-slider')
 export class InputSliderElement extends InputElement<InputSliderValue> implements IInputElement<InputSliderValue> {
+    get emptyValue(): InputSliderValue { return this.min; }
 
-    // Properties
-    get defaultValue(): InputSliderValue { return this.min; }
+    private _customDefaultValue: InputSliderValue | undefined = undefined;
+    get defaultValue(): InputSliderValue { return this._customDefaultValue ?? this.min; }
+    set defaultValue(v: InputSliderValue) { this._customDefaultValue = v; }
 
 
     @property({ type: Number })

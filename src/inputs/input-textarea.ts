@@ -1,5 +1,5 @@
 import { LitElement, css, html } from 'lit';
-import { customElement, property, query } from 'lit/decorators.js';
+import { customElement, property, query, state } from 'lit/decorators.js';
 import { AutocompleteType } from './core/AutocompleteType.js';
 import { InputElement } from './core/InputElement.js';
 import { InputModeType } from './core/InputModeType.js';
@@ -11,10 +11,21 @@ export type InputTextareaValue = string;
 
 @customElement('input-textarea')
 export class InputTextareaElement extends InputElement<InputTextareaValue> implements ITextBasedInputElement<InputTextareaValue> {
-    readonly defaultValue: InputTextareaValue = '';
+    readonly emptyValue: InputTextareaValue = '';
+    defaultValue: InputTextareaValue = '';
 
-    @property()
-    value: InputTextareaValue = '';
+
+    @state()
+    private _value: InputTextareaValue = '';
+
+    get value(): InputTextareaValue {
+        return this._value;
+    };
+
+    set value(v: InputTextareaValue) {
+        this._value = v;
+        this._reflectValueToView();
+    };
 
 
     @property({ attribute: true, converter: (v) => v?.trim() != "" ? v : null  })
@@ -63,6 +74,11 @@ export class InputTextareaElement extends InputElement<InputTextareaValue> imple
     }
 
 
+    private _reflectValueToView(): void {
+        this._input.value = this._value;
+    }
+
+
     hasSameValueAs(value: InputTextareaValue): boolean {
         return this.value === value;
     }
@@ -76,6 +92,7 @@ export class InputTextareaElement extends InputElement<InputTextareaValue> imple
 
     blur() {
         this._input.blur();
+        this._reflectValueToView();
         this.fireBlurEvent();
     }
 
@@ -86,7 +103,6 @@ export class InputTextareaElement extends InputElement<InputTextareaValue> imple
                 <textarea id="input"
                     @input=${this._onInput.bind(this)}
                     .name=${this.name}
-                    .value=${this.value}
                     .disabled=${this.disabled}
                     .readOnly=${this.readOnly}
                     .autocomplete=${this.autocomplete}

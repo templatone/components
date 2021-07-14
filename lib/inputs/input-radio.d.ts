@@ -2,7 +2,8 @@ import { InputElement } from "./core/InputElement.js";
 import type { IInputElement } from "./core/IInputElement.js";
 export declare type InputRadioValue = boolean;
 export declare class InputRadioElement extends InputElement<InputRadioValue> implements IInputElement<InputRadioValue> {
-    readonly defaultValue: InputRadioValue;
+    readonly emptyValue: InputRadioValue;
+    defaultValue: InputRadioValue;
     value: InputRadioValue;
     get checked(): boolean;
     set checked(v: boolean);

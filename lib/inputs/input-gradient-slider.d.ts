@@ -11,8 +11,13 @@ export interface IGradientStep {
 }
 export declare type InputSliderGradientSliderValue = number;
 export declare class InputGradientSliderElement extends InputElement<InputSliderGradientSliderValue> implements IInputElement<InputSliderGradientSliderValue> {
+    get emptyValue(): InputSliderGradientSliderValue;
+    private _customDefaultValue;
     get defaultValue(): InputSliderGradientSliderValue;
-    value: InputSliderGradientSliderValue;
+    set defaultValue(v: InputSliderGradientSliderValue);
+    private _value;
+    get value(): InputSliderGradientSliderValue;
+    set value(v: InputSliderGradientSliderValue);
     min: number;
     max: number;
     step: number | null;
@@ -42,8 +47,6 @@ export declare class InputGradientSliderElement extends InputElement<InputSlider
     hasSameValueAs(value: InputSliderGradientSliderValue): boolean;
     focus(): void;
     blur(): void;
-    static get observedAttributes(): string[];
-    attributeChangedCallback(name: string, oldValue: string | null, newValue: string | null): void;
     render(): import("lit-html").TemplateResult<1>;
     static style: import("lit").CSSResultGroup;
     static computeGradientSteps(...hexColors: string[]): IGradientStep[];

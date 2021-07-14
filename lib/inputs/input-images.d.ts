@@ -4,7 +4,8 @@ import type { IInputElement } from "./core/IInputElement.js";
 import { CaptureType } from './core/CaptureType.js';
 export declare type InputImagesValue = HTMLImageElement[];
 export declare class InputImagesElement extends InputElement<InputImagesValue> implements IInputElement<InputImagesValue> {
-    readonly defaultValue: InputImagesValue;
+    readonly emptyValue: InputImagesValue;
+    defaultValue: InputImagesValue;
     value: InputImagesValue;
     disabled: boolean;
     readOnly: boolean;

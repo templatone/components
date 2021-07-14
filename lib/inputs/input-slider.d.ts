@@ -2,7 +2,10 @@ import { InputElement } from "./core/InputElement.js";
 import type { IInputElement } from './core/IInputElement.js';
 export declare type InputSliderValue = number;
 export declare class InputSliderElement extends InputElement<InputSliderValue> implements IInputElement<InputSliderValue> {
+    get emptyValue(): InputSliderValue;
+    private _customDefaultValue;
     get defaultValue(): InputSliderValue;
+    set defaultValue(v: InputSliderValue);
     value: InputSliderValue;
     min: number;
     max: number;

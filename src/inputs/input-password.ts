@@ -125,6 +125,7 @@ export class InputPasswordElement extends InputElement<InputPasswordValue> imple
 
     blur() {
         this._input.blur();
+        this._reflectValueToView();
         this.fireBlurEvent();
     }
 

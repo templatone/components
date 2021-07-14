@@ -9,9 +9,9 @@ export type InputToggleValue = boolean;
 
 @customElement('input-toggle')
 export class InputToggleElement extends InputElement<InputToggleValue> implements IInputElement<InputToggleValue> {
+    readonly emptyValue: InputToggleValue = false;
+    defaultValue: InputToggleValue = false;
 
-    // Properties
-    readonly defaultValue: InputToggleValue = false;
 
     @property({ type: Boolean })
     value: InputToggleValue = false;

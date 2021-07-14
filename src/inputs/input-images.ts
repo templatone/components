@@ -12,8 +12,8 @@ export type InputImagesValue = HTMLImageElement[];
 
 @customElement('input-images')
 export class InputImagesElement extends InputElement<InputImagesValue> implements IInputElement<InputImagesValue> {
-
-    readonly defaultValue: InputImagesValue = [];
+    readonly emptyValue: InputImagesValue = [];
+    defaultValue: InputImagesValue = [];
 
     @property({ type: Array })
     value: InputImagesValue = [];

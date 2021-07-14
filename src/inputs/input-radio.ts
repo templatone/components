@@ -89,9 +89,9 @@ export type InputRadioValue = boolean;
 
 @customElement('input-radio')
 export class InputRadioElement extends InputElement<InputRadioValue> implements IInputElement<InputRadioValue> {
+    readonly emptyValue: InputRadioValue = false;
+    defaultValue: InputRadioValue = false;
 
-    // Properties
-    readonly defaultValue: InputRadioValue = false;
 
     @property({ type: Boolean })
     value: InputRadioValue = false;

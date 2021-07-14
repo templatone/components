@@ -7,7 +7,8 @@ declare const enum CheckboxValueOption {
 }
 export declare type InputCheckboxValue = CheckboxValueOption;
 export declare class InputCheckboxElement extends InputElement<InputCheckboxValue> implements IInputElement<InputCheckboxValue> {
-    readonly defaultValue: InputCheckboxValue;
+    readonly emptyValue: InputCheckboxValue;
+    defaultValue: InputCheckboxValue;
     value: InputCheckboxValue;
     set checked(v: boolean);
     get checked(): boolean;

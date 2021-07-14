@@ -12,18 +12,16 @@ export type InputTextValue = string;
 
 @customElement('input-text')
 export class InputTextElement extends InputElement<InputTextValue> implements ITextBasedInputElement<InputTextValue> {
-    // Properties
     readonly emptyValue: InputTextValue = '';
     defaultValue: InputTextValue = '';
+
 
     @state()
     private _value: InputTextValue = '';
 
-
     get value(): InputTextValue {
         return this._value;
     };
-
 
     set value(v: InputTextValue) {
         this._value = v;

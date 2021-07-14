@@ -4,8 +4,11 @@ import { InputModeType } from './core/InputModeType.js';
 import type { ITextBasedInputElement } from './core/ITextBasedInputElement.js';
 export declare type InputTextareaValue = string;
 export declare class InputTextareaElement extends InputElement<InputTextareaValue> implements ITextBasedInputElement<InputTextareaValue> {
-    readonly defaultValue: InputTextareaValue;
-    value: InputTextareaValue;
+    readonly emptyValue: InputTextareaValue;
+    defaultValue: InputTextareaValue;
+    private _value;
+    get value(): InputTextareaValue;
+    set value(v: InputTextareaValue);
     placeholder: string | null;
     disabled: boolean;
     readOnly: boolean;
@@ -16,6 +19,7 @@ export declare class InputTextareaElement extends InputElement<InputTextareaValu
     private _onInput;
     private _updateValue;
     clearValue(): void;
+    private _reflectValueToView;
     hasSameValueAs(value: InputTextareaValue): boolean;
     focus(): void;
     blur(): void;

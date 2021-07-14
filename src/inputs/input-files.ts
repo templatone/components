@@ -1,5 +1,5 @@
 import { LitElement, css, html } from 'lit';
-import { customElement, property, query } from 'lit/decorators.js';
+import { customElement, property, query, state } from 'lit/decorators.js';
 import { InputElement } from "./core/InputElement.js";
 import { attachment as attachmentIcon } from '../assets/icons.js';
 import type { IInputElement } from './core/IInputElement.js';
@@ -10,11 +10,21 @@ export type InputFilesValue = File[];
 
 @customElement('input-files')
 export class InputFilesElement extends InputElement<InputFilesValue> implements IInputElement<InputFilesValue> {
+    readonly emptyValue: InputFilesValue = [];
+    
+    defaultValue: InputFilesValue = [];
 
-    readonly defaultValue: InputFilesValue = [];
 
-    @property()
-    value: InputFilesValue = [];
+    @state()
+    private _value: InputFilesValue = [];
+
+    get value(): InputFilesValue {
+        return this._value;
+    };
+
+    set value(v: InputFilesValue) {
+        this._value = v;
+    };
 
 
     @property({ attribute: true, reflect: true, type: Boolean })
