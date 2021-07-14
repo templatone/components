@@ -4,7 +4,8 @@ import { InputModeType } from './core/InputModeType.js';
 import type { ITextBasedInputElement } from './core/ITextBasedInputElement.js';
 export declare type InputPasswordValue = string;
 export declare class InputPasswordElement extends InputElement<InputPasswordValue> implements ITextBasedInputElement<InputPasswordValue> {
-    readonly defaultValue: InputPasswordValue;
+    readonly emptyValue: InputPasswordValue;
+    defaultValue: InputPasswordValue;
     private _value;
     get value(): InputPasswordValue;
     set value(v: InputPasswordValue);

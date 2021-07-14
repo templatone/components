@@ -14,7 +14,6 @@ export type InputTextValue = string;
 export class InputTextElement extends InputElement<InputTextValue> implements ITextBasedInputElement<InputTextValue> {
     // Properties
     readonly emptyValue: InputTextValue = '';
-    
     defaultValue: InputTextValue = '';
 
     @state()

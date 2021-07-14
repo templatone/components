@@ -16,7 +16,8 @@ export type InputPasswordValue = string;
 @customElement('input-password')
 export class InputPasswordElement extends InputElement<InputPasswordValue> implements ITextBasedInputElement<InputPasswordValue> {
     // Properties
-    readonly defaultValue: InputPasswordValue = '';
+    readonly emptyValue: InputPasswordValue = '';
+    defaultValue: InputPasswordValue = '';
 
     @state()
     private _value: InputPasswordValue = '';
