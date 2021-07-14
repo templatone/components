@@ -1,11 +1,13 @@
+import type { AutocapitalizeType } from "./AutocapitalizeType.js";
 import type { AutocompleteType } from "./AutocompleteType.js";
 import type { IInputElement } from "./IInputElement.js";
 import type { InputModeType } from "./InputModeType.js";
 
 export interface ITextBasedInputElement<ValueType> extends IInputElement<ValueType> {
-    placeholder: string | null,
+    autocapitalize: AutocapitalizeType,
     autocomplete: AutocompleteType,
-    spellcheck: boolean,
     inputMode: InputModeType | string,
     name: string,
+    placeholder: string | null,
+    spellcheck: boolean,
 }

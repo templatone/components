@@ -5,6 +5,7 @@ import { clear as clearIcon, reset as resetIcon } from '../assets/icons.js';
 import type { ITextBasedInputElement } from './core/ITextBasedInputElement.js';
 import { InputModeType } from './core/InputModeType.js';
 import { AutocompleteType } from './core/AutocompleteType.js';
+import { AutocapitalizeType } from './core/AutocapitalizeType.js';
 
 
 const regex = {
@@ -78,6 +79,10 @@ export class InputNumberElement extends InputElement<InputNumberValue> implement
 
     @property({ attribute: true, type: String })
     autocomplete: AutocompleteType = AutocompleteType.Off;
+
+
+    @property({ attribute: true })
+    autocapitalize: AutocapitalizeType = AutocapitalizeType.Off;
 
 
     @property({ attribute: true })
@@ -223,6 +228,7 @@ export class InputNumberElement extends InputElement<InputNumberValue> implement
                     .disabled=${this.disabled}
                     .readOnly=${this.readOnly}
                     .autocomplete=${this.autocomplete}
+                    .autocapitalize=${this.autocapitalize}
                     .autofocus=${this.autofocus}
                     .inputMode=${this._computeInputMode()}
                     .placeholder=${this.placeholder ? this.placeholder : ''}

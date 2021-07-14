@@ -1,5 +1,6 @@
 import { LitElement, css, html } from 'lit';
 import { customElement, property, query, state } from 'lit/decorators.js';
+import { AutocapitalizeType } from './core/AutocapitalizeType.js';
 import { AutocompleteType } from './core/AutocompleteType.js';
 import { InputElement } from './core/InputElement.js';
 import { InputModeType } from './core/InputModeType.js';
@@ -42,6 +43,10 @@ export class InputTextareaElement extends InputElement<InputTextareaValue> imple
 
     @property({ attribute: true, type: String })
     autocomplete: AutocompleteType = AutocompleteType.Off;
+
+
+    @property({ attribute: true })
+    autocapitalize: AutocapitalizeType = AutocapitalizeType.Off;
 
 
     @property({ attribute: true })
@@ -106,6 +111,7 @@ export class InputTextareaElement extends InputElement<InputTextareaValue> imple
                     .disabled=${this.disabled}
                     .readOnly=${this.readOnly}
                     .autocomplete=${this.autocomplete}
+                    .autocapitalize=${this.autocapitalize}
                     .autofocus=${this.autofocus}
                     .inputMode=${this.inputMode}
                     .placeholder=${this.placeholder ? this.placeholder : ''}></textarea>

@@ -4,6 +4,7 @@ import {
     visibility as visibilityIcon,
     visibilityOff as visibilityOffIcon,
 } from '../assets/icons.js';
+import { AutocapitalizeType } from './core/AutocapitalizeType.js';
 import { AutocompleteType } from './core/AutocompleteType.js';
 import { InputElement } from './core/InputElement.js';
 import { InputModeType } from './core/InputModeType.js';
@@ -48,6 +49,10 @@ export class InputPasswordElement extends InputElement<InputPasswordValue> imple
 
     @property({ attribute: true, type: String })
     autocomplete: AutocompleteType = AutocompleteType.Off;
+
+
+    @property({ attribute: true })
+    autocapitalize: AutocapitalizeType = AutocapitalizeType.Off;
 
 
     @property({ attribute: true })
@@ -139,7 +144,8 @@ export class InputPasswordElement extends InputElement<InputPasswordValue> imple
                     .name=${this.name}
                     .disabled=${this.disabled}
                     .readOnly=${this.readOnly}
-                    .autocomplete=${this.autocomplete ? 'on' : 'off'}
+                    .autocomplete=${this.autocomplete}
+                    .autocapitalize=${this.autocapitalize}
                     .autofocus=${this.autofocus}
                     .inputMode=${this.inputMode}
                     .placeholder=${this.placeholder ? this.placeholder : ''}
