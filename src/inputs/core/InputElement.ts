@@ -62,6 +62,8 @@ export abstract class InputElement<ValueType> extends LitElement {
 
 
     fireUpdateEvent(): void {
+        const delay = this.eventRepeaterDelay;
+
         this.fireImmediatelyUpdateEvent()
 
         if (isNaN(this._eventWaiter)) {
@@ -73,37 +75,45 @@ export abstract class InputElement<ValueType> extends LitElement {
         this._eventWaiter = window.setTimeout(() => {
             this.firePeriodicalUpdateEvent();
             this._eventWaiter = NaN;
-        }, this.eventRepeaterDelay);
+        }, delay);
 
         if (isNaN(this._eventRepeater)) {
             this._eventRepeater = window.setTimeout(() => {
                 this.firePeriodicalUpdateEvent();
                 this._eventRepeater = NaN;
-            }, this.eventRepeaterDelay);
+            }, delay);
         }
     }
 
 
     fireImmediatelyUpdateEvent(): void {
+        console.log("> Immediately");
+        
         const evnt = new InputEvent(InputEvent.Update, this.value, this.isValid());
         this.dispatchEvent(evnt);
     }
 
 
     firePeriodicalUpdateEvent(): void {
+        console.log("> Periodical");
+        
         const evnt = new InputEvent(InputEvent.UpdatePeriodically, this.value, this.isValid());
         this.dispatchEvent(evnt);
     }
 
 
     fireStartUpdateEvent(): void {
+        console.log("> Start");
+        
         const evnt = new InputEvent(InputEvent.UpdateStart, this.value, this.isValid());
         this.dispatchEvent(evnt);
     }
 
 
-    fireEndUpdateEvent(): void {
-        const evnt = new InputEvent(InputEvent.UpdateEnd, this.value, this.isValid());
+    fireStopUpdateEvent(): void {
+        console.log("> Stop");
+        
+        const evnt = new InputEvent(InputEvent.UpdateStop, this.value, this.isValid());
         this.dispatchEvent(evnt);
     }
 

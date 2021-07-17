@@ -1,5 +1,8 @@
+export { Arrays } from './Arrays.js';
 export { BezierEasing } from './BezierEasing.js';
+export { Blobs } from './Blobs.js';
 export { Cookies } from './Cookies.js';
+export { Files } from './Files.js';
 export { Images } from './Images.js';
 export { Loaders } from './Loaders.js';
 export { Numbers } from './Numbers.js';

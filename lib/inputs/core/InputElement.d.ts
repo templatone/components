@@ -19,7 +19,7 @@ export declare abstract class InputElement<ValueType> extends LitElement {
     fireImmediatelyUpdateEvent(): void;
     firePeriodicalUpdateEvent(): void;
     fireStartUpdateEvent(): void;
-    fireEndUpdateEvent(): void;
+    fireStopUpdateEvent(): void;
     fireFocusEvent(): void;
     fireBlurEvent(): void;
 }

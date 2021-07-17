@@ -69,7 +69,7 @@ export class InputTextareaElement extends InputElement<InputTextareaValue> imple
 
 
     private _updateValue(value: InputTextareaValue): void {
-        this.value = InputTextareaElement.applyFilters(this.filters, value);
+        this._value = InputTextareaElement.applyFilters(this.filters, value);
         this.fireUpdateEvent();
     }
 
