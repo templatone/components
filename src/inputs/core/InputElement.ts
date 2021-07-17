@@ -9,10 +9,10 @@ export abstract class InputElement<ValueType> extends LitElement {
     abstract defaultValue: ValueType;
     abstract value: ValueType;
 
-    eventRepeaterDelay: number = 100;
+    eventRepeaterDelay: number = 220;
 
-    private _eventRepeater: number = NaN;
-    private _eventWaiter: number = NaN;
+    private _eventRepeater: number | null = null;
+    private _eventWaiter: number | null = null;
 
 
     // Rules
@@ -62,25 +62,30 @@ export abstract class InputElement<ValueType> extends LitElement {
 
 
     fireUpdateEvent(): void {
-        this.fireImmediatelyUpdateEvent()
+        const delay = this.eventRepeaterDelay;
 
-        if (isNaN(this._eventWaiter)) {
+        // Start
+        if (this._eventWaiter === null) {
             this.fireStartUpdateEvent();
         } else {
             clearTimeout(this._eventWaiter);
         }
 
-        this._eventWaiter = window.setTimeout(() => {
-            this.firePeriodicalUpdateEvent();
-            this._eventWaiter = NaN;
-        }, this.eventRepeaterDelay);
+        // Immediately
+        this.fireImmediatelyUpdateEvent()
 
-        if (isNaN(this._eventRepeater)) {
+
+        if (this._eventRepeater === null) {
             this._eventRepeater = window.setTimeout(() => {
-                this.firePeriodicalUpdateEvent();
-                this._eventRepeater = NaN;
-            }, this.eventRepeaterDelay);
+                this.firePeriodicallyUpdateEvent();
+                this._eventRepeater = null;
+            }, delay);
         }
+
+        this._eventWaiter = window.setTimeout(() => {
+            this.fireStopUpdateEvent();
+            this._eventWaiter = null;
+        }, delay);
     }
 
 
@@ -90,7 +95,7 @@ export abstract class InputElement<ValueType> extends LitElement {
     }
 
 
-    firePeriodicalUpdateEvent(): void {
+    firePeriodicallyUpdateEvent(): void {
         const evnt = new InputEvent(InputEvent.UpdatePeriodically, this.value, this.isValid());
         this.dispatchEvent(evnt);
     }
@@ -102,8 +107,8 @@ export abstract class InputElement<ValueType> extends LitElement {
     }
 
 
-    fireEndUpdateEvent(): void {
-        const evnt = new InputEvent(InputEvent.UpdateEnd, this.value, this.isValid());
+    fireStopUpdateEvent(): void {
+        const evnt = new InputEvent(InputEvent.UpdateStop, this.value, this.isValid());
         this.dispatchEvent(evnt);
     }
 

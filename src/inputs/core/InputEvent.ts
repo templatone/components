@@ -4,7 +4,7 @@ const enum EventType {
     Update = 'update',
     UpdatePeriodically = 'update-periodically',
     UpdateStart = 'update-start',
-    UpdateEnd = 'update-end',
+    UpdateStop = 'update-stop',
 }
 
 
@@ -19,7 +19,7 @@ export class InputEvent<ValueType> extends CustomEvent<{
     static readonly Update = EventType.Update;
     static readonly UpdatePeriodically = EventType.UpdatePeriodically;
     static readonly UpdateStart = EventType.UpdateStart;
-    static readonly UpdateEnd = EventType.UpdateEnd;
+    static readonly UpdateStop = EventType.UpdateStop;
 
     constructor(typeArg: EventType, value: ValueType, isValid: boolean) {
         super(typeArg, {
