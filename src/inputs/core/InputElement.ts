@@ -82,6 +82,7 @@ export abstract class InputElement<ValueType> extends LitElement {
             }, delay);
         }
 
+        // End
         this._eventWaiter = window.setTimeout(() => {
             this.fireStopUpdateEvent();
             this._eventWaiter = null;
