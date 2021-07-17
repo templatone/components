@@ -9,10 +9,10 @@ export abstract class InputElement<ValueType> extends LitElement {
     abstract defaultValue: ValueType;
     abstract value: ValueType;
 
-    eventRepeaterDelay: number = 100;
+    eventRepeaterDelay: number = 220;
 
-    private _eventRepeater: number = NaN;
-    private _eventWaiter: number = NaN;
+    private _eventRepeater: number | null = null;
+    private _eventWaiter: number | null = null;
 
 
     // Rules
@@ -64,55 +64,50 @@ export abstract class InputElement<ValueType> extends LitElement {
     fireUpdateEvent(): void {
         const delay = this.eventRepeaterDelay;
 
-        this.fireImmediatelyUpdateEvent()
-
-        if (isNaN(this._eventWaiter)) {
+        // Start
+        if (this._eventWaiter === null) {
             this.fireStartUpdateEvent();
         } else {
             clearTimeout(this._eventWaiter);
         }
 
-        this._eventWaiter = window.setTimeout(() => {
-            this.firePeriodicalUpdateEvent();
-            this._eventWaiter = NaN;
-        }, delay);
+        // Immediately
+        this.fireImmediatelyUpdateEvent()
 
-        if (isNaN(this._eventRepeater)) {
+
+        if (this._eventRepeater === null) {
             this._eventRepeater = window.setTimeout(() => {
-                this.firePeriodicalUpdateEvent();
-                this._eventRepeater = NaN;
+                this.firePeriodicallyUpdateEvent();
+                this._eventRepeater = null;
             }, delay);
         }
+
+        this._eventWaiter = window.setTimeout(() => {
+            this.fireStopUpdateEvent();
+            this._eventWaiter = null;
+        }, delay);
     }
 
 
     fireImmediatelyUpdateEvent(): void {
-        console.log("> Immediately");
-        
         const evnt = new InputEvent(InputEvent.Update, this.value, this.isValid());
         this.dispatchEvent(evnt);
     }
 
 
-    firePeriodicalUpdateEvent(): void {
-        console.log("> Periodical");
-        
+    firePeriodicallyUpdateEvent(): void {
         const evnt = new InputEvent(InputEvent.UpdatePeriodically, this.value, this.isValid());
         this.dispatchEvent(evnt);
     }
 
 
     fireStartUpdateEvent(): void {
-        console.log("> Start");
-        
         const evnt = new InputEvent(InputEvent.UpdateStart, this.value, this.isValid());
         this.dispatchEvent(evnt);
     }
 
 
     fireStopUpdateEvent(): void {
-        console.log("> Stop");
-        
         const evnt = new InputEvent(InputEvent.UpdateStop, this.value, this.isValid());
         this.dispatchEvent(evnt);
     }
