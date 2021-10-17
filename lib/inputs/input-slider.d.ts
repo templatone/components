@@ -33,5 +33,5 @@ export declare class InputSliderElement extends InputElement<InputSliderValue> i
     focus(): void;
     blur(): void;
     render(): import("lit-html").TemplateResult<1>;
-    static style: import("lit").CSSResultGroup;
+    static style: import("lit").CSSResult;
 }

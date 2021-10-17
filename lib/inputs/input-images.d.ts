@@ -24,5 +24,5 @@ export declare class InputImagesElement extends InputElement<InputImagesValue> i
     private _renderThumbnails;
     update(changedProperties: PropertyValues): void;
     render(): TemplateResult<1>;
-    static styles: import("lit").CSSResultGroup;
+    static styles: import("lit").CSSResult;
 }

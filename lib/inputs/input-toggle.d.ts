@@ -27,5 +27,5 @@ export declare class InputToggleElement extends InputElement<InputToggleValue> i
     focus(): void;
     blur(): void;
     render(): import("lit-html").TemplateResult<1>;
-    static styles: import("lit").CSSResultGroup;
+    static styles: import("lit").CSSResult;
 }

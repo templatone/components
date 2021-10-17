@@ -27,6 +27,6 @@ export declare class InputCheckboxElement extends InputElement<InputCheckboxValu
     focus(): void;
     blur(): void;
     render(): import("lit-html").TemplateResult<1>;
-    static styles: import("lit").CSSResultGroup;
+    static styles: import("lit").CSSResult;
 }
 export {};

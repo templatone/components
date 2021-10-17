@@ -19,5 +19,5 @@ export declare class InputRadioElement extends InputElement<InputRadioValue> imp
     focus(): void;
     blur(): void;
     render(): import("lit-html").TemplateResult<1>;
-    static styles: import("lit").CSSResultGroup;
+    static styles: import("lit").CSSResult;
 }

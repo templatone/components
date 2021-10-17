@@ -33,5 +33,5 @@ export declare class InputPasswordElement extends InputElement<InputPasswordValu
     blur(): void;
     connectedCallback(): Promise<void>;
     render(): import("lit-html").TemplateResult<1>;
-    static styles: import("lit").CSSResultGroup;
+    static styles: import("lit").CSSResult;
 }

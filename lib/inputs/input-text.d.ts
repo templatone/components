@@ -29,5 +29,5 @@ export declare class InputTextElement extends InputElement<InputTextValue> imple
     blur(): void;
     connectedCallback(): Promise<void>;
     render(): import("lit-html").TemplateResult<1>;
-    static styles: import("lit").CSSResultGroup;
+    static styles: import("lit").CSSResult;
 }
