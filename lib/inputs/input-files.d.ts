@@ -9,6 +9,7 @@ export declare class InputFilesElement extends InputElement<InputFilesValue> imp
     set value(v: InputFilesValue);
     disabled: boolean;
     readOnly: boolean;
+    autofocus: boolean;
     accept: string;
     capture: boolean;
     multiple: boolean;

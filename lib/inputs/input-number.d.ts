@@ -14,6 +14,7 @@ export declare class InputNumberElement extends InputElement<InputNumberValue> i
     placeholder: string | null;
     disabled: boolean;
     readOnly: boolean;
+    autofocus: boolean;
     autocomplete: AutocompleteType;
     autocapitalize: AutocapitalizeType;
     inputMode: InputModeType;

@@ -79,6 +79,10 @@ export class InputTimeElement extends InputElement<InputTimeValue> implements II
     readOnly: boolean = false;
 
 
+    @property({ attribute: true, reflect: true, type: Boolean })
+    autofocus: boolean = false;
+
+
     @property({
         attribute: true,
         type: Number,
@@ -307,9 +311,9 @@ export class InputTimeElement extends InputElement<InputTimeValue> implements II
             
                 <input ?hidden=${this.precision < 1} id="hours" @input=${(e: InputEvent) => this._onInputHours()}
                     @blur=${() => this._onBlurHours()}
-                    .disabled=${this.disabled}
-                    .readOnly=${this.readOnly}
-                    .autofocus=${this.autofocus}
+                    ?disabled=${this.disabled}
+                    ?readOnly=${this.readOnly}
+                    ?autofocus=${this.autofocus}
                     placeholder="h"
                     pattern="[0-9]*"
                     inputmode="numeric"
@@ -320,8 +324,8 @@ export class InputTimeElement extends InputElement<InputTimeValue> implements II
             
                 <input ?hidden=${this.precision < 2} id="minutes" @input=${(e: InputEvent) => this._onInputMinutes()}
                     @blur=${() => this._onBlurMinutes()}
-                    .disabled=${this.disabled}
-                    .readOnly=${this.readOnly}
+                    ?disabled=${this.disabled}
+                    ?readOnly=${this.readOnly}
                     placeholder="min"
                     pattern="[0-9]*"
                     inputmode="numeric"
@@ -332,8 +336,8 @@ export class InputTimeElement extends InputElement<InputTimeValue> implements II
             
                 <input ?hidden=${this.precision < 3} id="seconds" @input=${(e: InputEvent) => this._onInputSeconds()}
                     @blur=${() => this._onBlurSeconds()}
-                    .disabled=${this.disabled}
-                    .readOnly=${this.readOnly}
+                    ?disabled=${this.disabled}
+                    ?readOnly=${this.readOnly}
                     placeholder="s"
                     pattern="[0-9]*"
                     inputmode="numeric"
@@ -344,8 +348,8 @@ export class InputTimeElement extends InputElement<InputTimeValue> implements II
             
                 <input ?hidden=${this.precision < 4} id="miliseconds" @input=${(e: InputEvent) => this._onInputMiliseconds()}
                     @blur=${() => this._onBlurMiliseconds()}
-                    .disabled=${this.disabled}
-                    .readOnly=${this.readOnly}
+                    ?disabled=${this.disabled}
+                    ?readOnly=${this.readOnly}
                     placeholder="ms"
                     pattern="[0-9]*"
                     inputmode="numeric"

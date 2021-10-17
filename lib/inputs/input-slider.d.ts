@@ -12,6 +12,7 @@ export declare class InputSliderElement extends InputElement<InputSliderValue> i
     step: number | null;
     disabled: boolean;
     readOnly: boolean;
+    autofocus: boolean;
     private _container;
     private _track;
     private _bar;

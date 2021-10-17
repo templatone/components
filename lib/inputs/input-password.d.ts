@@ -13,6 +13,7 @@ export declare class InputPasswordElement extends InputElement<InputPasswordValu
     placeholder: string | null;
     disabled: boolean;
     readOnly: boolean;
+    autofocus: boolean;
     autocomplete: AutocompleteType;
     autocapitalize: AutocapitalizeType;
     inputMode: InputModeType;

@@ -16,6 +16,7 @@ export declare class InputCheckboxElement extends InputElement<InputCheckboxValu
     get indeterminate(): boolean;
     disabled: boolean;
     readOnly: boolean;
+    autofocus: boolean;
     private _container;
     private _negateValue;
     private _onPointer;

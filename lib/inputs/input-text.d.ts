@@ -13,6 +13,7 @@ export declare class InputTextElement extends InputElement<InputTextValue> imple
     placeholder: string | null;
     disabled: boolean;
     readOnly: boolean;
+    autofocus: boolean;
     autocomplete: AutocompleteType;
     autocapitalize: AutocapitalizeType;
     inputMode: InputModeType;

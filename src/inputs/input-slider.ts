@@ -41,6 +41,9 @@ export class InputSliderElement extends InputElement<InputSliderValue> implement
     readOnly: boolean = false;
 
 
+    @property({ attribute: true, reflect: true, type: Boolean })
+    autofocus: boolean = false;
+
 
     // Elements
     @query('#container')

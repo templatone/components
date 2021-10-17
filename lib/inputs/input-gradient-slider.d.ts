@@ -23,6 +23,7 @@ export declare class InputGradientSliderElement extends InputElement<InputSlider
     step: number | null;
     disabled: boolean;
     readOnly: boolean;
+    autofocus: boolean;
     readonly defaultColorSteps: IGradientStep[];
     private _colorSteps;
     get colorSteps(): IGradientStep[];

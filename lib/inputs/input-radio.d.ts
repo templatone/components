@@ -9,6 +9,7 @@ export declare class InputRadioElement extends InputElement<InputRadioValue> imp
     set checked(v: boolean);
     disabled: boolean;
     readOnly: boolean;
+    autofocus: boolean;
     private _container;
     private _onPointer;
     private _onKeyboard;

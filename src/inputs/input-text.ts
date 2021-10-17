@@ -42,6 +42,10 @@ export class InputTextElement extends InputElement<InputTextValue> implements IT
     readOnly: boolean = false;
 
 
+    @property({ attribute: true, reflect: true, type: Boolean })
+    autofocus: boolean = false;
+
+
     @property({ attribute: true, type: String })
     autocomplete: AutocompleteType = AutocompleteType.Off;
 
@@ -127,11 +131,11 @@ export class InputTextElement extends InputElement<InputTextValue> implements IT
                 <input id="input"
                 @input=${this._onInput.bind(this)}
                 .name=${this.name}
-                .disabled=${this.disabled}
-                .readOnly=${this.readOnly}
+                ?disabled=${this.disabled}
+                ?readOnly=${this.readOnly}
+                ?autofocus=${this.autofocus}
                 .autocomplete=${this.autocomplete}
                 .autocapitalize=${this.autocapitalize}
-                .autofocus=${this.autofocus}
                 .inputMode=${this.inputMode}
                 .placeholder=${this.placeholder ? this.placeholder : ''}
                 type="text">

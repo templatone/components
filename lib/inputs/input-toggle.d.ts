@@ -9,6 +9,7 @@ export declare class InputToggleElement extends InputElement<InputToggleValue> i
     set checked(v: boolean);
     disabled: boolean;
     readOnly: boolean;
+    autofocus: boolean;
     private _container;
     private _pointerActive;
     private _pointerMovements;

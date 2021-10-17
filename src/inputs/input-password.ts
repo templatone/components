@@ -47,6 +47,10 @@ export class InputPasswordElement extends InputElement<InputPasswordValue> imple
     readOnly: boolean = false;
 
 
+    @property({ attribute: true, reflect: true, type: Boolean })
+    autofocus: boolean = false;
+
+
     @property({ attribute: true, type: String })
     autocomplete: AutocompleteType = AutocompleteType.Off;
 
@@ -156,7 +160,7 @@ export class InputPasswordElement extends InputElement<InputPasswordValue> imple
                     .readOnly=${this.readOnly}
                     .autocomplete=${this.autocomplete}
                     .autocapitalize=${this.autocapitalize}
-                    .autofocus=${this.autofocus}
+                    ?autofocus=${this.autofocus}
                     .inputMode=${this.inputMode}
                     .placeholder=${this.placeholder ? this.placeholder : ''}
                     .type="${!this._passwordVisibilityToggle ? 'password' : 'text'}">
