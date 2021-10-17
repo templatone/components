@@ -28,6 +28,10 @@ export class InputToggleElement extends InputElement<InputToggleValue> implement
     readOnly: boolean = false;
 
 
+    @property({ attribute: true, reflect: true, type: Boolean })
+    autofocus: boolean = false;
+
+
     @query('#container')
     private _container!: HTMLElement;
 
@@ -192,6 +196,7 @@ export class InputToggleElement extends InputElement<InputToggleValue> implement
                 tabindex="0"
                 ?checked=${this.value}
                 ?disabled=${this.disabled}
+                ?autofocus=${this.autofocus}
                 @keydown=${(e: KeyboardEvent) => this._onKeyboard(e)}
                 @mousedown=${(e: MouseEvent) => this._onPointerStart(e)}
                 @touchstart=${(e: TouchEvent) => this._onPointerStart(e)}

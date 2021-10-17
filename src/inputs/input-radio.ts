@@ -109,6 +109,10 @@ export class InputRadioElement extends InputElement<InputRadioValue> implements 
     readOnly: boolean = false;
 
 
+    @property({ attribute: true, reflect: true, type: Boolean })
+    autofocus: boolean = false;
+
+
     @query('#container')
     private _container!: HTMLElement;
 
@@ -190,6 +194,7 @@ export class InputRadioElement extends InputElement<InputRadioValue> implements 
                 tabindex="0"
                 ?checked=${this.value}
                 ?disabled=${this.disabled}
+                ?autofocus=${this.autofocus}
                 @keydown=${(e: KeyboardEvent) => this._onKeyboard(e) }
                 @click=${(e: MouseEvent) => this._onPointer(e) }
                 @touchend=${(e: TouchEvent) => this._onPointer(e) }">

@@ -71,6 +71,10 @@ export class InputGradientSliderElement extends InputElement<InputSliderGradient
     readOnly: boolean = false;
 
 
+    @property({ attribute: true, reflect: true, type: Boolean })
+    autofocus: boolean = false;
+
+
     readonly defaultColorSteps = InputGradientSliderElement.computeGradientSteps('#8880', '#888f');
 
     private _colorSteps: IGradientStep[] = this.defaultColorSteps;
@@ -324,7 +328,7 @@ export class InputGradientSliderElement extends InputElement<InputSliderGradient
 
     render() {
         return html`
-            <div id="container" tabindex="0" ?disabled=${this.disabled} @keydown=${(e: KeyboardEvent)=> this._onKeyboard(e)}
+            <div id="container" tabindex="0" ?disabled=${this.disabled} ?autofocus=${this.autofocus} @keydown=${(e: KeyboardEvent)=> this._onKeyboard(e)}
                 @mousedown=${(e: MouseEvent) => this._onPointerStart(e)}
                 @touchstart=${(e: TouchEvent) => this._onPointerStart(e)}>
                 <div id="track"></div>

@@ -14,6 +14,7 @@ export declare class InputNumberElement extends InputElement<InputNumberValue> i
     placeholder: string | null;
     disabled: boolean;
     readOnly: boolean;
+    autofocus: boolean;
     autocomplete: AutocompleteType;
     autocapitalize: AutocapitalizeType;
     inputMode: InputModeType;
@@ -32,5 +33,5 @@ export declare class InputNumberElement extends InputElement<InputNumberValue> i
     focus(): void;
     blur(): void;
     render(): import("lit-html").TemplateResult<1>;
-    static styles: import("lit").CSSResultGroup;
+    static styles: import("lit").CSSResult;
 }

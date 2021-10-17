@@ -33,6 +33,10 @@ export class InputFilesElement extends InputElement<InputFilesValue> implements 
 
     @property({ attribute: true, reflect: true, type: Boolean })
     readOnly: boolean = false;
+    
+
+    @property({ attribute: true, reflect: true, type: Boolean })
+    autofocus: boolean = false;
 
 
     @property({ attribute: true })

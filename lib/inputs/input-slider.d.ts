@@ -12,6 +12,7 @@ export declare class InputSliderElement extends InputElement<InputSliderValue> i
     step: number | null;
     disabled: boolean;
     readOnly: boolean;
+    autofocus: boolean;
     private _container;
     private _track;
     private _bar;
@@ -32,5 +33,5 @@ export declare class InputSliderElement extends InputElement<InputSliderValue> i
     focus(): void;
     blur(): void;
     render(): import("lit-html").TemplateResult<1>;
-    static style: import("lit").CSSResultGroup;
+    static style: import("lit").CSSResult;
 }

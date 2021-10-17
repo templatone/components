@@ -52,6 +52,10 @@ export class InputCheckboxElement extends InputElement<InputCheckboxValue> imple
 
     @property({ attribute: true, reflect: true, type: Boolean })
     readOnly: boolean = false;
+    
+    
+    @property({ attribute: true, reflect: true, type: Boolean })
+    autofocus: boolean = false;
 
 
     @query('#container')
@@ -148,6 +152,7 @@ export class InputCheckboxElement extends InputElement<InputCheckboxValue> imple
                 tabindex="0"
                 ?checked=${this.checked}
                 ?disabled=${this.disabled}
+                ?autofocus=${this.autofocus}
                 @keydown=${(e: KeyboardEvent) => this._onKeyboard(e) }
                 @click=${(e: MouseEvent) => this._onPointer(e) }
                 @touchend=${(e: TouchEvent) => this._onPointer(e) }">

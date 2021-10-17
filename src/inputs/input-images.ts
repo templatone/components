@@ -27,6 +27,10 @@ export class InputImagesElement extends InputElement<InputImagesValue> implement
     readOnly: boolean = false;
 
 
+    @property({ attribute: true, reflect: true, type: Boolean })
+    autofocus: boolean = false;
+
+
     @property({ attribute: true, reflect: true })
     capture: CaptureType = CaptureType.Default;
 

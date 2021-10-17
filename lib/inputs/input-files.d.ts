@@ -9,6 +9,7 @@ export declare class InputFilesElement extends InputElement<InputFilesValue> imp
     set value(v: InputFilesValue);
     disabled: boolean;
     readOnly: boolean;
+    autofocus: boolean;
     accept: string;
     capture: boolean;
     multiple: boolean;
@@ -20,5 +21,5 @@ export declare class InputFilesElement extends InputElement<InputFilesValue> imp
     focus(): void;
     blur(): void;
     render(): import("lit-html").TemplateResult<1>;
-    static styles: import("lit").CSSResultGroup;
+    static styles: import("lit").CSSResult;
 }

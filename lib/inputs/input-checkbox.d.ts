@@ -16,6 +16,7 @@ export declare class InputCheckboxElement extends InputElement<InputCheckboxValu
     get indeterminate(): boolean;
     disabled: boolean;
     readOnly: boolean;
+    autofocus: boolean;
     private _container;
     private _negateValue;
     private _onPointer;
@@ -26,6 +27,6 @@ export declare class InputCheckboxElement extends InputElement<InputCheckboxValu
     focus(): void;
     blur(): void;
     render(): import("lit-html").TemplateResult<1>;
-    static styles: import("lit").CSSResultGroup;
+    static styles: import("lit").CSSResult;
 }
 export {};

@@ -13,6 +13,7 @@ export declare class InputTimeElement extends InputElement<InputTimeValue> imple
     value: InputTimeValue;
     disabled: boolean;
     readOnly: boolean;
+    autofocus: boolean;
     precision: number;
     private _hours;
     private _minutes;
@@ -39,5 +40,5 @@ export declare class InputTimeElement extends InputElement<InputTimeValue> imple
     focus(): void;
     blur(): void;
     render(): import("lit-html").TemplateResult<1>;
-    static styles: import("lit").CSSResultGroup;
+    static styles: import("lit").CSSResult;
 }

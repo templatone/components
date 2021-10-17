@@ -9,6 +9,7 @@ export declare class InputToggleElement extends InputElement<InputToggleValue> i
     set checked(v: boolean);
     disabled: boolean;
     readOnly: boolean;
+    autofocus: boolean;
     private _container;
     private _pointerActive;
     private _pointerMovements;
@@ -26,5 +27,5 @@ export declare class InputToggleElement extends InputElement<InputToggleValue> i
     focus(): void;
     blur(): void;
     render(): import("lit-html").TemplateResult<1>;
-    static styles: import("lit").CSSResultGroup;
+    static styles: import("lit").CSSResult;
 }

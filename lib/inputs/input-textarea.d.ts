@@ -13,6 +13,7 @@ export declare class InputTextareaElement extends InputElement<InputTextareaValu
     placeholder: string | null;
     disabled: boolean;
     readOnly: boolean;
+    autofocus: boolean;
     autocomplete: AutocompleteType;
     autocapitalize: AutocapitalizeType;
     inputMode: InputModeType;
@@ -27,5 +28,5 @@ export declare class InputTextareaElement extends InputElement<InputTextareaValu
     blur(): void;
     connectedCallback(): Promise<void>;
     render(): import("lit-html").TemplateResult<1>;
-    static styles: import("lit").CSSResultGroup;
+    static styles: import("lit").CSSResult;
 }

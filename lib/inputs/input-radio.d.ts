@@ -9,6 +9,7 @@ export declare class InputRadioElement extends InputElement<InputRadioValue> imp
     set checked(v: boolean);
     disabled: boolean;
     readOnly: boolean;
+    autofocus: boolean;
     private _container;
     private _onPointer;
     private _onKeyboard;
@@ -18,5 +19,5 @@ export declare class InputRadioElement extends InputElement<InputRadioValue> imp
     focus(): void;
     blur(): void;
     render(): import("lit-html").TemplateResult<1>;
-    static styles: import("lit").CSSResultGroup;
+    static styles: import("lit").CSSResult;
 }

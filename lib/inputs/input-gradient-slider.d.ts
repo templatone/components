@@ -23,6 +23,7 @@ export declare class InputGradientSliderElement extends InputElement<InputSlider
     step: number | null;
     disabled: boolean;
     readOnly: boolean;
+    autofocus: boolean;
     readonly defaultColorSteps: IGradientStep[];
     private _colorSteps;
     get colorSteps(): IGradientStep[];
@@ -48,6 +49,6 @@ export declare class InputGradientSliderElement extends InputElement<InputSlider
     focus(): void;
     blur(): void;
     render(): import("lit-html").TemplateResult<1>;
-    static style: import("lit").CSSResultGroup;
+    static style: import("lit").CSSResult;
     static computeGradientSteps(...hexColors: string[]): IGradientStep[];
 }

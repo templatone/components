@@ -9,6 +9,7 @@ export declare class InputImagesElement extends InputElement<InputImagesValue> i
     value: InputImagesValue;
     disabled: boolean;
     readOnly: boolean;
+    autofocus: boolean;
     capture: CaptureType;
     multiple: boolean;
     private _input;
@@ -23,5 +24,5 @@ export declare class InputImagesElement extends InputElement<InputImagesValue> i
     private _renderThumbnails;
     update(changedProperties: PropertyValues): void;
     render(): TemplateResult<1>;
-    static styles: import("lit").CSSResultGroup;
+    static styles: import("lit").CSSResult;
 }
